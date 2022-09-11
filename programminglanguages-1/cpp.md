@@ -1,8 +1,8 @@
-# CandDataStructures
+# Cpp
 
 Date: 2022-09-11 Name: Maitreya Ranade
 
-::: center C Language and Data Structures\
+::: center C++ Language\
 :::
 
 ## C Programming
@@ -11,17 +11,9 @@ Date: 2022-09-11 Name: Maitreya Ranade
 
 #### History of Computing
 
-Multiple devices have been used to aid computation for thousands of years like abacus, astronomical calenders, differential analyser, etc. Charles Babbage, an English mechanical engineer, (considered the "father of the computer") originated the concept of a programmable computer in the early 19th century.
+Manual Entering code in binary Assembly language
 
-A computer is a machine that can be programmed to carry out sequences of arithmetic or logical operations automatically. Modern computers can perform generic sets of operations known as programs. The principle of the modern computer was proposed by Alan Turing in 1936. The fundamental concept of Turing's design was the stored program, where all the instructions for computing were stored in a memory. The next great advance in computing power came with the advent of the transistors, semiconductors, and integrated circuits.
-
-Machine code was the language of early programs, written in the instruction set of the particular machine, often in binary notation. Assembly languages were soon developed that let the programmer specify instruction in a text format, with abbreviations for each operation code and meaningful names for specifying addresses.
-
-With further development in software as well as hardware, Compiler languages were formulated. High-level languages made the process of developing a program simpler and more understandable, and less bound to the underlying hardware. These compiled languages allowed the programmer to write programs in terms that are syntactically richer, and more capable of abstracting the code, making it easy to target for varying machine instruction sets via compilation declarations and heuristics. Compilers harnessed the power of computers to make programming easier by allowing programmers to specify calculations by entering a formula using infix notation.
-
-**Introduction to C language**
-
-C is a procedural programming language. It was initially developed at the AT & T's Bell Laboratories of USA by Dennis Ritchie in the year 1972. It was mainly developed as a system programming language to write an operating system. The main features of the C language include:
+C is a procedural programming language. It was initially developed by Dennis Ritchie in the year 1972. It was mainly developed as a system programming language to write an operating system. The main features of the C language include:
 
 * Portability (Machine Specific)
 * Requires less lines of code than assembly language
@@ -33,45 +25,26 @@ C is a procedural programming language. It was initially developed at the AT & T
 * Popular choice for system level apps
 * Wide variety of built in functions, standard libraries and header files.
 
-#### Elements of C Language
+High level vs Low level language Degree of abstraction High level: Less efforts to users ex. COBOL, FORTRAN, C++, Pascal etc. Low level: More efforts to users ex. Assembly Middle level language: ex. C
 
-Communicating with a computer involves speaking the language the computer understands. However, there is a close analogy between learning English and C language. Learning English comprises of learning the alphabets, then learn to combine those to form words, which in turn are combined to form sentences and then sentences are combined to form paragraphs.
+Preprocessor: replaces text (starting with #) with actual content before compilation. Output of preprocessing is expanded source code.
 
-Similarly, instead of straight-away learning how to write programs, we must first know what alphabets, numbers and special symbols are used in C, then how using them constants, variables and keywords are constructed, and finally how are these combined to form an instruction. A group of instructions would be combined later on to form a program.
+Preprocessor directive: ex. #include\<stdio.h> stdio.h: standard input output file
 
-**The C Character Set**
+* header files: .h extensions
+* Contains declarations of functions like printf, scanf etc.
 
-A character denotes any alphabet, digit or special symbol used to represent information. shows the valid alphabets, numbers and special symbols allowed in C.
+```
+<!-- -->
+```
 
-::: center ![C Character Set](images/CCharSet.png){#CCharSet width="\textwidth"} :::
-
-**Constants, Variables and Keywords**
-
-The alphabets, numbers and special symbols when properly combined form constants, variables and keywords. Following sections explain 'constants' and 'variables' in detail.
-
-**C Instructions**
-
-Constants, Variables and Keywords are combined to form an instruction to perform a certain functionality. There are basically three types of instructions in C:
-
-1. Type Declaration Instruction
-2. Arithmetic Instruction
-3. Control Instruction
-
-The purpose of each of these instructions is given below:
-
-Type declaration instruction
-
-: To declare the type of variables used in a C program.
-
-Arithmetic instruction
-
-: To perform arithmetic operations between constants and variables.
-
-Control instruction
-
-: To control the sequence of execution of various statements in a C program.
-
-These instructions are decoded in the following sections.
+* Variables
+* Operators
+* Conditionals and Loops
+* Functions
+* Recursion
+* Pointers and arrays
+* Structure and union
 
 ### Variables
 
@@ -114,7 +87,7 @@ Scope of a variable: Local scope or Block scope A local scope or block scope is 
 
 Variable(s) that are declared within a block can be accessed within that specific block and all other inner blocks of that block, but those variables cannot be accessed outside the block.
 
-::: center ![Scope of a variable](../Cpp/images/variableScope.png){#variableScope width="\textwidth"} :::
+::: center ![Scope of a variable](../ProgrammingLanguages/C/images/variableScope.png){#variableScope width="\textwidth"} :::
 
 Local Variable Variables that are declared within the function block and can be used only within the function are called local variables.
 
@@ -135,7 +108,7 @@ Global variable Variables that are declared outside of all function blocks and c
   * In floating point, there is no specific number of digits to represent integer section and fraction section i.e. the decimal point is floating. A number in floating point representation is as follows: $+/- Mantissa \* 10^{exponent}$
 
 ::: center ![Fixed point and Floating point
-representation](../Cpp/images/fixedFloating.png){#fixedFloating width="\textwidth"} :::
+representation](../ProgrammingLanguages/C/images/fixedFloating.png){#fixedFloating width="\textwidth"} :::
 
 **integer**
 
@@ -232,98 +205,6 @@ Signed characters: 2's complement representation Unsigned characters:
 * Static global variables and functions are also possible in C/C++. The purpose of these is to limit scope of a variable or function to a file.
 * Static variables should not be declared inside structure.
 
-### C Preprocessor
-
-The C preprocessor is a program that processes the source program before it is passed to the compiler. There are several steps involved from the stage of writing a C program to the stage of getting it executed. shows these different steps along with the files created during each stage. The input and output to each of these processors is shown in .
-
-::: center ![Different stages of a C
-program](images/CCodingSteps.PNG){#CCodingSteps width="45%"} :::
-
-::: center ![Input and Output to each stage of a C
-program](images/CCodingStepsIO.PNG){#CCodingStepsIO width="80%"} :::
-
-Note that if the source code is stored in a file PR1.C then the expanded source code gets stored in a file PR1.I. When this expanded source code is compiled, the object code gets stored in PR1.OBJ. When this object code is linked with the object code of library functions the resultant executable code gets stored in PR1.EXE.
-
-The preprocessor offers several features called preprocessor directives. Each of these preprocessor directives begin with a # symbol. The directives can be placed anywhere in a program but are most often placed at the beginning of a program, before the first function definition. Preprocessor replaces preprocessor directives (starting with #) with actual content before compilation.
-
-There are 4 main types of preprocessor directives:
-
-1. Macro expansion
-2. File Inclusion
-3. Conditional Compilation
-4. Miscellaneous directives
-
-#### Macro expansion
-
-Macros are a piece of code in a program which is given some name. Whenever this name is encountered by the compiler the compiler replaces the name with the actual piece of code. The '#define' directive is used to define a macro.
-
-* Note: There is no semi-colon(';') at the end of macro definition. Macro definitions do not need a semi-colon to end.
-* In C programming it is customary to use capital letters for macro template.
-* Macros can have arguments.
-* In a macro call the preprocessor replaces the macro template with its macro expansion, unlike in a function call the control is passed to a function along with certain arguments, some calculations are performed in the function and a useful value is returned back from the function.
-* Usually macros make the program run faster but increase the program size, whereas functions make the program smaller and compact.
-
-#### File Inclusion
-
-File Inclusion preprocessor directive tells the compiler to include a file in the source code program. There are two ways of writing #include statement:
-
-```
-#include "filename" // This command looks for the file in the current directory as well as the specified list of directories as mentioned in the include search path that might have been set up.
-    
-    #include <filename> // This command would look for the file in the specified list of directories only.
-```
-
-There are two types of files which can be included by the user in the program:
-
-1. Header File or Standard files: These files contains definition of pre-defined functions like printf(), scanf() etc. These files must be included for working with these functions. Different function are declared in different header files. standard I/O functions are in 'iostream' file whereas functions which perform string operations are in 'string' file.
-2. user defined files: When a program becomes very large, it is good practice to divide it into smaller files and include whenever needed. These types of files are user defined files.
-
-#### Conditional Compilation
-
-Conditional Compilation directives are type of directives which helps to compile a specific portion of the program or to skip compilation of some specific part of the program based on some conditions. This can be done with the help of two preprocessing commands 'ifdef' and 'endif'.
-
-```
-#ifdef macroname
-        statement 1 ;
-        statement 2 ;
-        statement 3 ;
-    #endif
-```
-
-If the macro with name as 'macroname' is defined then the block of statements will execute normally but if it is not defined, the compiler will simply skip this block of statements. Usecases of Conditional Compilation directives are:
-
-1. To comment out or include part(s) of a code with a single definition of a macro.
-2. A more sophisticated use of #ifdef has to do with making the programs portable, i.e. to make them work on two totally different computers.
-3. \#ifndef is used to avoid multiple definitions , declaration, and or inclusions.
-
-**#if and #elif Directives**
-
-The #if directive can be used to test whether an expression evaluates to a nonzero value or not. If the result of the expression is nonzero, then subsequent lines upto a #else, #elif or #endif are compiled, otherwise they are skipped.
-
-#### Miscellaneous directives
-
-Apart from the above directives there are two more directives which are not commonly used. These are:
-
-**#undef Directive**
-
-The #undef directive is used to undefine an existing macro. Using this statement will undefine the existing macro. After this statement every #ifdef statement will evaluate to false.
-
-**#pragma Directive**
-
-This directive is a special purpose directive and is used to turn on or off some features. This type of directives are compiler-specific, they vary from compiler to compiler. Some of the #pragma directives are discussed below:
-
-**#pragma startup and #pragma exit**
-
-These directives helps us to specify the functions that are needed to run before program startup (before the control passes to main()) and just before program exit (just before the control returns from main()).
-
-**#pragma warn Directive**
-
-This directive is used to hide the warning message which are displayed during compilation.
-
-* \#pragma warn -rvl: This directive hides those warning which are raised when a function which is supposed to return a value does not returns a value.
-* \#pragma warn -par: This directive hides those warning which are raised when a function does not uses the parameters passed to it.
-* \#pragma warn -rch: This directive hides those warning which are raised when a code is unreachable. any code written after the return statement in a function is unreachable.
-
 ### Constants
 
 * Constant is something that never changes. In other words, once defined cannot be modified later in the code.
@@ -352,7 +233,7 @@ A typical memory representation of a C program consists of the following section
 4. Heap
 5. Stack
 
-::: center ![Memory Layout of C program](../Cpp/images/memoryLayoutC.png){#memoryLayoutC width="60%"} :::
+::: center ![Memory Layout of C program](../ProgrammingLanguages/C/images/memoryLayoutC.png){#memoryLayoutC width="60%"} :::
 
 C program gets stored into not one but multiple sections of the memory. A typical memory layout of a running process is as follows:
 
@@ -533,6 +414,8 @@ Operator precedence is used to evaluate the order of operators evaluated in an e
 
 Operator associativity is used to evaluate the order of operators with equal precedence in an expression. In the C programming language, when an expression contains multiple operators with equal or same precedence, we use associativity to determine the order of evaluation of operators.
 
+Add operator table here
+
 ### Conditionals
 
 In c language, the statements are executed sequentially. Multiple times, one requires a functionality which is used multiple times in an execution. Programming languages provide various control structures that allow for more complicated execution paths.
@@ -553,21 +436,9 @@ if(boolean_expression) {
 
 If the Boolean expression evaluates to true, then the block of code inside the 'if' statement will be executed. If the Boolean expression evaluates to false, then the first set of code after the end of the 'if' statement (after the closing curly brace) will be executed.
 
-**if loop with multiple conditions**
 
-An if statement can check multiple conditions in order to execute statements when the Boolean expression is true. Syntax:
 
-```
-if(boolean_expression_1 && boolean_expression_2 || (! boolean_expression_3) ) {
-        /* statement(s) will execute if the boolean expression is true */
-    } 
-```
-
-C allows usage of three logical operators, namely, &&, || and !. These are to be read as 'AND' 'OR' and 'NOT' respectively. Don't use the single symbol | and & as they are bitwise operators. The first two operators, && and ||, allow two or more conditions to be combined in an if statement. The ! operator is a NOT operator which returns 1 if a boolean expression is not true.
-
-**if-else**
-
-An if statement can be followed by an optional else statement, which executes when the Boolean expression is false. Syntax:
+if-else An if statement can be followed by an optional else statement, which executes when the Boolean expression is false. Syntax:
 
 ```
 if(boolean_expression) {
@@ -708,8 +579,7 @@ Loop control statements change execution from its normal sequence. When executio
 
 **break**
 
-When a break statement is encountered inside a loop, the loop is immediately terminated and the program control resumes at the next statement following the loop.
-
+When a break statement is encountered inside a loop, the loop is immediately terminated and the program control resumes at the next statement following the loop.\
 It can also be used to terminate a case in the switch statement. If you are using nested loops, the break statement will stop the execution of the innermost loop and start executing the next line of code after the block. Syntax:
 
 ```
@@ -742,8 +612,7 @@ Here label can be any plain text except C keyword and it can be set anywhere in 
 
 #### The Infinite Loop
 
-An infinite loop is a looping construct that does not terminate the loop and executes the loop forever. It is also called an indefinite loop or an endless loop. It either produces a continuous output or no output.
-
+An infinite loop is a looping construct that does not terminate the loop and executes the loop forever. It is also called an indefinite loop or an endless loop. It either produces a continuous output or no output.\
 A loop becomes an infinite loop if a condition never becomes false. We can create an infinite loop through various loop structures like the following:
 
 1. for loop
@@ -778,93 +647,75 @@ This is how an infinite loop can be generated from the aforementioned structures
 
 **NOTE:** An infinite loop can be terminated by pressing Ctrl + C keys.
 
-### Functions
+### Functions & Pointers
 
 #### What is a Function
 
-A function is a self-contained block of statements that takes an input, perform a coherent task/computation and produces an output. Every C program can be thought of as a collection of these functions.
+A function is a self-contained block of statements that perform a coherent task of some kind. Every C program can be thought of as a collection of these functions.
 
-#### Need for a Function
-
-Why should anyone write separate functions at all:
-
-1. **Readability** Writing functions avoids rewriting the same code over and over.
-2. **Abstraction** If you are using the function in your program then you don't have to worry about how it works inside!
-3. **Reusability** Once the function is defined, it can be reused over and over again.
-4. **Modularity** Using functions it becomes easier to write programs and keep track of what they are doing. If the operation of a program can be divided into separate activities, and each activity placed in a different function, then each could be written and checked more or less independently. Separating the code into modular functions also makes the program easier to design and understand.
-
-#### Defining a Function
-
-A function can also be referred as a method or a sub-routine or a procedure, etc.
-
-The general form of a function definition in C programming language is as follows:
+Example of a function:
 
 ```
-return_type function_name ( parameter list ) {
-        body of the function
-     }
+main()
+{
+message();
+printf("\nCry, and you stop the monotony!");
+}
+
+message()
+{
+printf("\nSmile, and the world smiles with you...");
+}
 ```
 
-A function definition in C programming consists of a function header and a function body. Here are all the parts of a function:
-
-1. Return Type: A function may return a value. The return type is the data type of the value the function returns. Some functions perform the desired operations without returning a value.
-2. Function Name: This is the actual name of the function. The function name and the parameter list together constitute the function signature.
-3. Parameters: When a function is invoked, a value is passed to the parameter. This value is referred to as actual parameter or argument. The parameter list refers to the type, order, and number of the parameters of a function. Parameters are optional.
-4. Function Body: The function body contains a collection of statements that define what the function does.
-
-#### Function declaration
-
-Function declaration is also called as function prototype represents declaring the properties of a function to the compiler. A function declaration tells the compiler about a function's name, return type, and parameters. Syntax of a function declaration is:
+And here's the output:
 
 ```
-return_type function_name( parameter list );
+Smile, and the world smiles with you...
+Cry, and you stop the monotony!
 ```
 
-#### Calling a Function
+Here, main() itself is a function and through it we are calling the function message(). What do we mean when we say that main() "calls" the function message()? We mean that the control passes to the function message(). The activity of main() is temporarily suspended. It falls asleep while the message() function wakes up and goes to work. When the message() function runs out of statements to execute, the control returns to main(), which comes to life again and begins executing its code at the exact point where it left off. Thus, main() becomes the "calling" function, whereas message() becomes the "called" function.
 
-After creating a C function, to use it has to be called to perform the defined task. To call a function, the required parameters along with the function name need to be passed, and the returned value has to be stored if the function has one. Syntax for calling a function is,
+
+
+Calling multiple functions:
 
 ```
-return_value = function_name ( parameter list );
+main()
+{
+printf("\nI am in main");
+italy();
+brazil();
+argentina();
+}
+
+italy()
+{
+printf("\nI am in italy");
+}
+
+brazil()
+{
+printf("\nI am in brazil");
+}
+
+argentina()
+{
+printf("\nI am in argentina");
+}
 ```
 
-::: highlight The function which receives the control from a function call is referred as the called function.\
-The function which transfers the control with a function call is referred as the calling function. :::
+The output of the above program when executed would be as under:
 
-When a program (calling function) calls a function, the program control is transferred to the called function. A called function performs a defined task and upon reaching the end of functionality, it returns the program control back to the calling function.
+```
+I am in main
+I am in italy
+I am in brazil
+I am in argentina
+```
 
-#### Function Arguments
-
-* If a function is to use arguments, it must declare variables that accept the values of the arguments.
-* The variables declared in the function prototype or definition are known as **Formal arguments**
-* The values that are passed to the called function from the main function are known as **Actual arguments**.
-* The actual arguments and formal arguments must match in number, type, and order.
-* **Formal parameters** behave like other local variables inside the function and are created upon entry into the function and destroyed upon exit.
-* There are two methods of declaring the formal arguments:
-  1. Kernighan and Ritchie (or just K & R) method:\
-     function (x, y, z)\
-     int x, y, z ;
-  2. ANSI method: (Commonly used)\
-     function (int x, int y, int z)
-
-While calling a function, there are two ways in which arguments can be passed to a function:
-
-1. Call by value
-2. Call by reference
-
-**Call by value**
-
-In call by value method, the value of the actual parameters is copied into the formal parameters. In other words, the value of the variable is used in the function call.
-
-* We can not modify the value of the actual parameter by the formal parameter.
-* Different memory is allocated for actual and formal parameters since the value of the actual parameter is copied into the formal parameter.
-* The actual parameter is the argument which is used in the function call whereas formal parameter is the argument which is used in the function definition.
-
-**Call by reference**
-
-In call by reference, the address of the variable is passed into the function call as the actual parameter. As the variables are stored in the memory, so instead of passing the value of a variable, can we not pass the location number (or address) of the variable to a function? This feature of C functions needs at least an elementary knowledge of a concept called "pointers".
-
-#### Summary and additional concepts
+Summary:
 
 1. C program is a collection of one or more functions.
 2. Any C program contains at least one function.
@@ -874,28 +725,33 @@ In call by reference, the address of the variable is passed into the function ca
 6. A function can be called any number of times.
 7. Each function in a program is called in the sequence specified by the function calls in main().
 8. The order in which the functions are defined in a program and the order in which they get called need not necessarily be same.
-9. After each function has done its thing, control returns to main(). When main() runs out of function calls, the program ends.
-10. A function gets called when the function name is followed by a semicolon.
-11. In C language, arguments of a function are passed from right to left.
+9. After each function has done its thing, control returns to main().When main() runs out of function calls, the program ends.
+10. A function gets called when the function name is followed by a semicolon. Syntax for calling a function is,
+
+    ```
+    main()
+        {
+        argentina();
+        }
+    ```
+11. A function is defined when function name is followed by a pair of braces in which one or more statements may be present. Syntax for defining a function is,
+
+    ```
+    argentina()
+        {
+        statement 1 ;
+        statement 2 ;
+        statement 3 ;
+        }
+    ```
 12. A function can be called from other function, but a function cannot be defined in another function.
 13. A function can call itself. Such a process is called "recursion".
-14. The **return** statement is necessary for returning value to the calling function, if any. It serves two purposes:
-    1. On executing the return statement, it immediately transfers the control back to the calling program.
-    2. It returns the value present in the parentheses after return, to the calling program. In the above program the value of sum of three numbers is being returned.
-15. There is no restriction on the number of return statements that may be present in a function. Also, the return statement need not always be present at the end of the called function.
-16. Whenever the control returns from a function some value is definitely returned. If a meaningful value is returned then it should be accepted in the calling program by equating the called function to some variable.
-17. If we want that a called function should not return any value, in that case, we must mention so by using the keyword void.
-18. A function can return only one value at a time.
-19. If the value of a formal argument is changed in the called function, the corresponding change does not take place in the calling function.
+14. There are basically two types of functions:
 
-#### Types of functions
+    1. Library functions Ex. printf(), scanf() etc.
+    2. User-defined functions Ex. argentina(), brazil() etc.
 
-There are two primary types of functions:
-
-1. Library functions printf(), scanf() etc.
-2. User-defined functions function\_name\_1(), function\_name\_2() etc.
-
-As the name suggests, library functions are nothing but commonly required functions grouped together and stored in what is called a Library. This library of functions is present on the disk and is written for us by people who write compilers for us. Almost always a compiler comes with a library of standard functions. The procedure of calling both types of functions is exactly same.
+    As the name suggests, library functions are nothing but commonly required functions grouped together and stored in what is called a Library. This library of functions is present on the disk and is written for us by people who write compilers for us. Almost always a compiler comes with a library of standard functions. The procedure of calling both types of functions is exactly same.
 
 **printf() and scanf() functions**
 
@@ -916,16 +772,120 @@ printf() and scanf() functions are inbuilt library functions in C programming la
 * The format specifier %d is used in scanf() statement so that, the value entered is received as an integer and %s for string.
 * Ampersand is used before the variable name in scanf() statement to store the user input into that particular variable name as & Variable\_name.
 
-**Points to note**
+**Note**
 
 1. printf() is used to display the output and scanf() is used to read the inputs.
 2. printf() and scanf() functions are declared in "stdio.h" header file in C library.
 3. All syntax in C language including printf() and scanf() functions are case sensitive.
 4. All characters in printf() and scanf() functions must be in lower case as C is a case sensitive language.
 
-#### Static and dynamic scoping
+#### Why Use Functions
 
-### Pointers
+Why should anyone write separate functions at all:
+
+1. **Readability** Writing functions avoids rewriting the same code over and over.
+2. **Abstraction** If you are using the function in your program then you don't have to worry about how it works inside!
+3. **Reusability** Once the function is defined, it can be reused over and over again.
+4. **Modularity** Using functions it becomes easier to write programs and keep track of what they are doing. If the operation of a program can be divided into separate activities, and each activity placed in a different function, then each could be written and checked more or less independently. Separating the code into modular functions also makes the program easier to design and understand.
+
+#### Passing Values between Functions
+
+The 'calling' function has to communicate certain information to the 'called' function. The mechanism used to convey information to the function is the 'argument'. The arguments are sometimes also called 'parameters'.
+
+Consider the following program. In this program, in main()we receive the values of a, b and c through the keyboard and then output the sum of a, b and c. However, the calculation of sum is done in a different function called calsum(). If sum is to be calculated in calsum()and values of a, b and c are received in main(), then we must pass on these values to calsum(), and once calsum()calculates the sum we must return it from calsum()back to main().
+
+```
+/* Sending and receiving values between functions */
+main()
+{
+    int a, b, c, sum ;
+    printf("\nEnter any three numbers ");
+    scanf("%d %d %d", &a, &b, &c);
+    sum = calsum(a, b, c);
+    printf("\nSum = %d", sum);
+}
+
+calsum(x, y, z)
+int x, y, z ;
+{
+    int d ;
+    d = x + y + z ;
+    return(d);
+}
+```
+
+And here is the output:
+
+```
+Enter any three numbers 10 20 30
+Sum = 60
+```
+
+There are a number of things to note about this program:
+
+1. In this program, from the function main() the values of a, b and c are passed on to the function calsum(), by making a call to the function calsum().
+2. In the calsum() function these values get collected in three variables x, y and z.
+3. The variables a, b and c are called 'actual arguments', whereas the variables x, y and z are called 'formal arguments'.
+4. Any number of arguments can be passed to a function being called. However, the type, order and number of the actual and formal arguments must always be same.
+5. There are two methods of declaring the formal arguments.
+   1. Kernighan and Ritchie (or just K & R) method: (used in this program):\
+      calsum(x, y, z)\
+      int x, y, z ;
+   2. ANSI method: (Commonly used)\
+      calsum(int x, int y, int z)
+6. The **return** statement is necessary for returning value to the calling function, if any. It serves two purposes:
+   1. On executing the return statement, it immediately transfers the control back to the calling program.
+   2. It returns the value present in the parentheses after return, to the calling program. In the above program the value of sum of three numbers is being returned.
+7. There is no restriction on the number of return statements that may be present in a function. Also, the return statement need not always be present at the end of the called function.
+8. Whenever the control returns from a function some value is definitely returned. If a meaningful value is returned then it should be accepted in the calling program by equating the called function to some variable.
+9. If we want that a called function should not return any value, in that case, we must mention so by using the keyword void.
+10. A function can return only one value at a time.
+11. If the value of a formal argument is changed in the called function, the corresponding change does not take place in the calling function.
+
+#### Scope Rule of Functions
+
+Kindly refer to the Variables section.
+
+#### Calling Convention
+
+Calling convention indicates the order in which arguments are passed to a function when a function call is encountered. There are two possibilities here:
+
+1. Arguments might be passed from left to right.
+2. Arguments might be passed from right to left. (Followed by C)
+
+The order of passing arguments becomes an important consideration. For example:
+
+```
+int a = 1;
+printf("%d %d %d", a, ++a, a++);
+```
+
+It appears that this printf() would output 1 2 3. This however is not the case. Surprisingly, it outputs 3 3 1. As C's calling convention is from right to left, i.e. firstly 1 is passed through the expression a++ and then a is incremented to 2. Then result of ++a is passed. That is, a is incremented to 3 and then passed. Finally, latest value of a, i.e. 3, is passed. Thus in right to left order 1, 3, 3 get passed. Once printf() collects them it prints them in the order in which we have asked it to get them printed (and not the order in which they were passed). Thus 3 3 1 gets printed.
+
+#### Function Declaration and Prototypes
+
+Any C function by default returns an **int** value. More specifically, whenever a call is made to a function, the compiler assumes that this function would return a value of the type **int**. If we desire that a function should return a value other than an **int**, then it is necessary to explicitly mention so in the calling function as well as in the called function. What it means is square() is a function that receives a float and returns a float. For example,\
+float square (float);\
+This statement is often called the prototype declaration of the square() function.
+
+#### Call by Value and Call by Reference
+
+There are two methods to pass the data into the function in C language,
+
+1. Call by value
+2. Call by reference
+
+**Call by value**
+
+In call by value method, the value of the actual parameters is copied into the formal parameters. In other words, the value of the variable is used in the function call.
+
+* We can not modify the value of the actual parameter by the formal parameter.
+* Different memory is allocated for actual and formal parameters since the value of the actual parameter is copied into the formal parameter.
+* The actual parameter is the argument which is used in the function call whereas formal parameter is the argument which is used in the function definition.
+
+**Call by reference**
+
+In call by reference, the address of the variable is passed into the function call as the actual parameter. As the variables are stored in the memory, so instead of passing the value of a variable, can we not pass the location number (or address) of the variable to a function? This feature of C functions needs at least an elementary knowledge of a concept called "pointers".
 
 #### An Introduction to Pointers
 
@@ -942,7 +902,7 @@ This declaration tells the C compiler to:
 
 We may represent i's location in memory by the following memory map.
 
-::: center ![Variable memory map](../Cpp/images/pointer.png){#pointer width="\textwidth"} :::
+::: center ![Variable memory map](../ProgrammingLanguages/C/images/pointer.png){#pointer width="\textwidth"} :::
 
 We see that the computer has selected memory location 65524 as the place to store the value 3. **i's address in memory is a number.**
 
@@ -998,59 +958,48 @@ Address of i = 65524
 
 _**Note: Remember that, addresses (location numbers) are always going to be whole numbers, therefore pointers always contain whole numbers.**_
 
-### Arrays
+### C/C++ Preprocessors
 
-* Constant is something that never changes. In other words, once defined cannot be modified later in the code.
-* \#define is a preprocessor directive.
-  * Syntax: #define name value (name is also called macro)
-  * Avoid semicolon at the end in the syntax.
-  * Choosing capital letters for name is good practice.
-  * Preprocessor replaces Name with value.
-  * We can use macros like functions.
-  * First expansion then evaluation.
-  * There are current predefined / standard Macros ex. \_\_TIME\_\_ & \_\_DATE\_\_.
-* Const keyword
-  * A variable defined with the const modifier are considered variables, and not macro definitions.
-  * syntax: const data\_type variable\_name
-* Const-s are handled by the compiler, where as #define-s are handled by the pre-processor.
-* The big advantage of const-s over #define is type checking. #define-s can't be type checked.
-* Since const-s are considered variables, we can use pointers on them. This means we can typecast, move addresses, and everything else you'd be able to do with a regular variable besides change the data itself, since the data assigned to that variable is constant.
+As the name suggests Preprocessors are programs that process our source code before compilation. There are a number of steps involved between writing a program and executing a program in C / C++.
 
-### Structure
+::: center ![Preprocessor in C](../ProgrammingLanguages/C/images/Cpreprocessor.png){#Cpreprocessor width="60%"} :::
 
-* Constant is something that never changes. In other words, once defined cannot be modified later in the code.
-* \#define is a preprocessor directive.
-  * Syntax: #define name value (name is also called macro)
-  * Avoid semicolon at the end in the syntax.
-  * Choosing capital letters for name is good practice.
-  * Preprocessor replaces Name with value.
-  * We can use macros like functions.
-  * First expansion then evaluation.
-  * There are current predefined / standard Macros ex. \_\_TIME\_\_ & \_\_DATE\_\_.
-* Const keyword
-  * A variable defined with the const modifier are considered variables, and not macro definitions.
-  * syntax: const data\_type variable\_name
-* Const-s are handled by the compiler, where as #define-s are handled by the pre-processor.
-* The big advantage of const-s over #define is type checking. #define-s can't be type checked.
-* Since const-s are considered variables, we can use pointers on them. This means we can typecast, move addresses, and everything else you'd be able to do with a regular variable besides change the data itself, since the data assigned to that variable is constant.
+The source code file is processed by preprocessors and an expanded source code file is generated named program. This expanded file is compiled by the compiler and an object code file is generated named program .obj. Finally, the linker links this object code file to the object code of the library functions to generate the executable file program.exe.
 
-### File Input Output
+Preprocessor programs provide preprocessors directives which tell the compiler to preprocess the source code before compiling. All of these preprocessor directives begin with a '#' (hash) symbol. The '#' symbol indicates that, whatever statement starts with #, is going to the preprocessor program, and preprocessor program will execute this statement. Examples of some preprocessor directives are: #include, #define, #ifndef etc. Remember that # symbol only provides a path that it will go to the preprocessor, and command such as include is processed by preprocessor program. For example, include will include extra code to your program. We can place these preprocessor directives anywhere in our program.
 
-* Constant is something that never changes. In other words, once defined cannot be modified later in the code.
-* \#define is a preprocessor directive.
-  * Syntax: #define name value (name is also called macro)
-  * Avoid semicolon at the end in the syntax.
-  * Choosing capital letters for name is good practice.
-  * Preprocessor replaces Name with value.
-  * We can use macros like functions.
-  * First expansion then evaluation.
-  * There are current predefined / standard Macros ex. \_\_TIME\_\_ & \_\_DATE\_\_.
-* Const keyword
-  * A variable defined with the const modifier are considered variables, and not macro definitions.
-  * syntax: const data\_type variable\_name
-* Const-s are handled by the compiler, where as #define-s are handled by the pre-processor.
-* The big advantage of const-s over #define is type checking. #define-s can't be type checked.
-* Since const-s are considered variables, we can use pointers on them. This means we can typecast, move addresses, and everything else you'd be able to do with a regular variable besides change the data itself, since the data assigned to that variable is constant.
+There are 4 main types of preprocessor directives:
+
+1. Macros
+2. File Inclusion
+3. Conditional Compilation
+4. Other directives
+
+Macros: Macros are a piece of code in a program which is given some name. Whenever this name is encountered by the compiler the compiler replaces the name with the actual piece of code. The '#define' directive is used to define a macro.
+
+::: highlight Note: There is no semi-colon(';') at the end of macro definition. Macro definitions do not need a semi-colon to end. :::
+
+File Inclusion: This type of preprocessor directive tells the compiler to include a file in the source code program. There are two types of files which can be included by the user in the program: Header File or Standard files: These files contains definition of pre-defined functions like printf(), scanf() etc. These files must be included for working with these functions. Different function are declared in different header files. For example standard I/O functions are in 'iostream' file whereas functions which perform string operations are in 'string' file.
+
+user defined files: When a program becomes very large, it is good practice to divide it into smaller files and include whenever needed. These types of files are user defined files. These files can be included as:
+
+Conditional Compilation: Conditional Compilation directives are type of directives which helps to compile a specific portion of the program or to skip compilation of some specific part of the program based on some conditions. This can be done with the help of two preprocessing commands 'ifdef' and 'endif'.
+
+If the macro with name as 'macroname' is defined then the block of statements will execute normally but if it is not defined, the compiler will simply skip this block of statements.
+
+Other directives: Apart from the above directives there are two more directives which are not commonly used. These are: #undef Directive: The #undef directive is used to undefine an existing macro. This directive works as:
+
+Using this statement will undefine the existing macro LIMIT. After this statement every "#ifdef LIMIT" statement will evaluate to false.
+
+\#pragma Directive: This directive is a special purpose directive and is used to turn on or off some features. This type of directives are compiler-specific, i.e., they vary from compiler to compiler. Some of the #pragma directives are discussed below: #pragma startup and #pragma exit: These directives helps us to specify the functions that are needed to run before program startup( before the control passes to main()) and just before program exit (just before the control returns from main()). Note: Below program will not work with GCC compilers. Look at the below program:
+
+\#pragma warn Directive: This directive is used to hide the warning message which are displayed during compilation. We can hide the warnings as shown below: #pragma warn -rvl: This directive hides those warning which are raised when a function which is supposed to return a value does not returns a value. #pragma warn -par: This directive hides those warning which are raised when a function does not uses the parameters passed to it. #pragma warn -rch: This directive hides those warning which are raised when a code is unreachable. For example: any code written after the return statement in a function is unreachable.
+
+**Pragma Directive in C/C++**
+
+This directive is a special purpose directive and is used to turn on or off some features. This type of directives are compiler-specific i.e., they vary from compiler to compiler. Some of the pragma directives are discussed below:
+
+\#pragma startup and #pragma exit: These directives helps us to specify the functions that are needed to run before program startup( before the control passes to main()) and just before program exit (just before the control returns from main()). Note: Below program will not work with GCC compilers. Look at the below program:
 
 ### References
 
