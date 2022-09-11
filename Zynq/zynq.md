@@ -1,42 +1,8 @@
-Zynq Documentation
+Date: 2022-09-11 Name: Maitreya Ranade
 
-- [Zynq ultrascale+ MPsoc Architecture Overview](#zynq-ultrascale-mpsoc-architecture-overview)
-  - [Introduction to UltraScale Architecture](#introduction-to-ultrascale-architecture)
-- [Zynq ultrascale+ MPsoc Configurable logic blocks](#zynq-ultrascale-mpsoc-configurable-logic-blocks)
-- [Zynq ultrascale+ MPsoc Clocking Resources](#zynq-ultrascale-mpsoc-clocking-resources)
-  - [Clocking Resource Abbreviations](#clocking-resource-abbreviations)
-  - [Clocking Architecture Overview](#clocking-architecture-overview)
-  - [Clocking Resources](#clocking-resources)
-    - [Overview](#overview)
-    - [Clock Routing Resources Overview](#clock-routing-resources-overview)
-    - [Clock Buffers](#clock-buffers)
-    - [Global Clock Inputs](#global-clock-inputs)
-    - [Byte Clock Inputs](#byte-clock-inputs)
-    - [Clock Buffers and Clock Routing](#clock-buffers-and-clock-routing)
-    - [Clock Structure](#clock-structure)
-    - [Clock Buffers](#clock-buffers-1)
-      - [BUFGCTRL](#bufgctrl)
-        - [BUFGCE_1](#bufgce_1)
-        - [BUFGMUX and BUFGMUX_1](#bufgmux-and-bufgmux_1)
-        - [BUFGMUX_CTRL](#bufgmux_ctrl)
-      - [BUFGCE](#bufgce)
-      - [BUFG](#bufg)
-      - [BUFCE_LEAF](#bufce_leaf)
-      - [BUFGCE_DIV](#bufgce_div)
-      - [BUFG_GT and BUFG_GT_SYNC](#bufg_gt-and-bufg_gt_sync)
-      - [BUFG_PS](#bufg_ps)
-  - [Clock Management Tile (CMT)](#clock-management-tile-cmt)
-    - [Overview](#overview-1)
-    - [MMCMs](#mmcms)
-      - [MMCM Primitives](#mmcm-primitives)
-    - [PLLs](#plls)
-      - [PLL Primitives](#pll-primitives)
-    - [Dynamic Reconfiguration Port](#dynamic-reconfiguration-port)
-    - [VHDL and Verilog Templates and the Clocking Wizard](#vhdl-and-verilog-templates-and-the-clocking-wizard)
-    - [Clocking Guidelines](#clocking-guidelines)
-  - [Question & Answers](#question--answers)
-- [Zynq ultrascale+ MPsoc Memory Resources](#zynq-ultrascale-mpsoc-memory-resources)
-
+::: center
+Zynq Documentation\
+:::
 
 # Zynq ultrascale+ MPsoc Architecture Overview
 
@@ -312,11 +278,13 @@ and distribution resources can either connect to adjacent CRs or
 disconnect (isolated) at the border of the CR as needed. This concept
 extends to SSI devices as well.
 
-
+::: center
 ![Horizontal Clocking](images/HorizClock.png){#HorizClock width="70%"}
+:::
 
-
+::: center
 ![Vertical Clocking](images/VertClock.png){#VertClock width="70%"}
+:::
 
 The clocks can be distributed from their sources in one of two ways:
 
@@ -344,8 +312,9 @@ The clocks can be distributed from their sources in one of two ways:
     distribution tracks and distribute the clock in that manner. This
     reduces the clock insertion delay.
 
-
+::: center
 ![Clock Distribution](images/clockDistr.png){#clockDistr width="70%"}
+:::
 
 ### Clock Buffers
 
@@ -361,9 +330,10 @@ only 24 of them can be used at the same time.
 The BUFGCTRL Clock Buffer Primitives are designed to switch between two
 clock inputs without the possibility of a glitch.
 
-
+::: center
 ![BUFGCTRL Clock Buffer Primitive](images/BUFGCTRL.png){#BUFGCTRL
 width="70%"}
+:::
 
 All other global clock buffer primitives are derived from certain
 configurations of BUFGCTRL. Pins of the types of BUFGCTRL Clock Buffers:
@@ -546,8 +516,9 @@ the phase and frequency between the two clocks. This the VCO. The PFD
 produces an up or down signal to the charge pump and loop filter to
 determine whether the VCO should operate at a higher or lower frequency.
 
-
+::: center
 ![MMCM Block Diagram](images/MMCM.png){#MMCM width="\\textwidth"}
+:::
 
 #### MMCM Primitives
 
@@ -581,5 +552,6 @@ an E3.
 ## Question & Answers
 
 ::: itemize
+:::
 
 # Zynq ultrascale+ MPsoc Memory Resources
