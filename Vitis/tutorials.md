@@ -215,8 +215,7 @@ process for both the host program and the kernel code:
     options to tailor and optimize the results.
 
 
-![image](images/part1_build_flow.png){width="5in"} []{#part1_build_flow
-label="part1_build_flow"}
+![image](images/part1_build_flow.png){width="5in"} []
 
 
 #### Understanding Vitis Build Targets

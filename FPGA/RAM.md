@@ -22,7 +22,7 @@ uses latching circuitry (flip-flop) to store each bit. shows an SRAM
 cell.
 
 
-![Static RAM cell](images/SRAM.png){#SRAM width="5in"}
+![Static RAM cell](images/SRAM.png)
 
 
 SRAM cell can store 1 bit of information which consists of a row line
@@ -67,7 +67,7 @@ consisting of a tiny capacitor and a transistor, both typically based on
 metal-oxide-semiconductor (MOS) technology.
 
 
-![Dynamic RAM cell](images/DRAMCell.png){#DRAMCell width="5in"}
+![Dynamic RAM cell](images/DRAMCell.png)
 
 
 Bits are basically stored as charges on the capacitor and a memory cell
@@ -226,8 +226,7 @@ shows the organization of the DRAM.
 
 
 ![Organization of the
-DRAM](images/DRAMOrganization.png){#DRAMOrganization
-width="\\textwidth"}
+DRAM](images/DRAMOrganization.png)
 
 
 Going down another level, DRAM consists of a page mode structure. DRAM
@@ -266,8 +265,7 @@ Subsystem. DRAM Subsystem is made up of 3 components:
 -   A DRAM Controller
 
 
-![DRAM Subsystem](images/DRAMSubsystem.png){#DRAMSubsystem
-width="\\textwidth"}
+![DRAM Subsystem](images/DRAMSubsystem.png)
 
 
  {#tab:DRAMComponents}
@@ -441,14 +439,12 @@ DRAM Controller Operation is as follows:
 ### Internal Physical Structure of DRAM
 
 
-![Top Level DRAM block diagram](images/DRAMPHY.png){#Top Level
-width="\\textwidth"}
+![Top Level DRAM block diagram](images/DRAMPHY.png)
 
 
 Usually, DRAM has clock, reset, chip-select, address and data inputs as
 shown in . The mentions all the pins in detail.
 
 
-![DRAM block diagram](images/DRAMPorts.png){#DRAM ports
-width="\\textwidth"}
+![DRAM block diagram](images/DRAMPorts.png)
 

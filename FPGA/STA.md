@@ -128,7 +128,7 @@ timing paths. Each timing path consists of the following elements:
 
 
 ![Timing paths in a simple design
-example](images/STAPaths.jpg){#STAPaths width="4.5in"}
+example](images/STAPaths.jpg)
 
 
 A combinatorial logic cloud might contain multiple paths, as shown in
@@ -137,7 +137,7 @@ shortest path to calculate a minimum delay.
 
 
 ![Multiple timing paths in a combinatorial
-logic](images/STAMultipath.jpg){#STAMultipath width="4in"}
+logic](images/STAMultipath.jpg)
 
 
 The STA tool analyzes all the paths from each and every startpoint to
@@ -161,7 +161,7 @@ There are 4 types of Timing Paths:
 
 
 ![Types of timing paths in a combinatorial
-logic](images/STAPathTypes.jpg){#STAPathTypes width="4.5in"}
+logic](images/STAPathTypes.jpg)
 
 
 Each of the Timing Paths, is explained with the help of in sections
@@ -197,7 +197,7 @@ Points, there are 4 types of Timing Paths, which are mentioned below:
 
 
 ![Types of Data Paths in a combinatorial
-logic](images/STADataPath.png){#STADataPath width="\\textwidth"}
+logic](images/STADataPath.png)
 
 
 -   PATH1- starts at an input port and ends at the data input of a
@@ -285,7 +285,7 @@ positive edge of clock signal at the Clk pin.
 
 
 ![Setup and Hold Time of the
-system](images/STASetupHold.jpg){#STASetupHold width="4.5in"}
+system](images/STASetupHold.jpg)
 
 
 Where,
@@ -365,7 +365,7 @@ input of a Flip-Flop to be stable after the clock edge comes along.\
 
 
 ![Setup and Hold Time
-Definitions](images/STASetupHold2.jpg){#STASetupHold2 width="4.5in"}
+Definitions](images/STASetupHold2.jpg)
 
 
 As the D Flip-Flop can be constructed with various implementations like,
@@ -382,8 +382,7 @@ the clock, there is a hold violation at that Flip-Flop.
 
 
 ![Setup and Hold Time
-Violation](images/STASetupHoldViolation.jpg){#STASetupHoldViolation
-width="4.5in"}
+Violation](images/STASetupHoldViolation.jpg)
 
 
 is used to explain the Setup and Hold time Violation. The register
@@ -395,13 +394,11 @@ working on a single clock launching and capturing data with some form of
 combinatorial logic sitting between the two.
 
 
-![Basic concepts of Timing Analysis](images/TimingFF.png){#TimingFF
-width="\\textwidth"}
+![Basic concepts of Timing Analysis](images/TimingFF.png)
 
 
 
-![Timing Diagram](images/TimingDiaFF.png){#TimingDiaFF
-width="\\textwidth"}
+![Timing Diagram](images/TimingDiaFF.png)
 
 
 Following are the basic concepts of Timing Analysis & Setup, Hold
@@ -500,7 +497,7 @@ Violation:
 
 
 ![Timing Diagram for Removal and Recovery
-Time](images/TimingRR.png){#TimingRR width="\\textwidth"}
+Time](images/TimingRR.png)
 
 
 Formulae

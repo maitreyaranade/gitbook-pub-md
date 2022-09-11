@@ -80,7 +80,7 @@ represent information. shows the valid alphabets, numbers and special
 symbols allowed in C.
 
 
-![C Character Set](images/CCharSet.png){#CCharSet width="\\textwidth"}
+![C Character Set](images/CCharSet.png)
 
 
 ### Constants, Variables and Keywords

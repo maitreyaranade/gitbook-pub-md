@@ -60,7 +60,7 @@ Suggested Readings:
 FPGAs are a subset programmable logic devices.
 
 
-![PLD Classification](images/PLD.png){#PLD width="5in"}
+![PLD Classification](images/PLD.png)
 
 
 CPLD (Complex Programmable Logic Devices):\
@@ -160,12 +160,11 @@ Types: D FF, JK FF, T FF.
 -   D Flip-flop: Aligns input data to the clock edges.
 
     
-    ![D Flip Flop](images/D-FF.png){#DFF width="4in"}
+    ![D Flip Flop](images/D-FF.png)
     
 
     
-    ![Timing diagram of D Flip flop](images/D-FF-Timing.png){#DFFTime
-    width="4in"}
+    ![Timing diagram of D Flip flop](images/D-FF-Timing.png)
     
 
 -   JK Flip-flop
@@ -182,7 +181,7 @@ depending on a logic state in it's input. These open or closed states
 come from a special memory in the FPGA.
 
 
-![Switch Box](images/ICSwitch.png){#SwitchBox width="5in"}
+![Switch Box](images/ICSwitch.png)
 
 
 This is how a switch box may be implemented in . At the left we have six
@@ -196,7 +195,7 @@ that goes horizontally and one that goes vertically through the switch
 box.
 
 
-![Interconnect](images/IC.png){#Interconnect width="5in"}
+![Interconnect](images/IC.png)
 
 
 Interconnect seems simple enough and they are very simple indeed as

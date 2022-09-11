@@ -19,7 +19,7 @@ This declaration tells the C compiler to:
 We may represent i's location in memory by the following memory map.
 
 
-![Variable memory map](images/pointer.png){#pointer width="\\textwidth"}
+![Variable memory map](images/pointer.png)
 
 
 We see that the computer has selected memory location 65524 as the place

@@ -14,6 +14,5 @@ LogiCORE IP core is designed to interface with the AXI4-Lite protocol.
 The internals of AXI UART IP is shown in .
 
 
-![Internal block diagram of AXI UART IP](images/UART.png){#UART
-width="\\textwidth"}
+![Internal block diagram of AXI UART IP](images/UART.png)
 

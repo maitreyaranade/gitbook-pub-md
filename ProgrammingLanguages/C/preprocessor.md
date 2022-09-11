@@ -6,12 +6,12 @@ The input and output to each of these processors is shown in .
 
 
 ![Different stages of a C
-program](images/CCodingSteps.PNG){#CCodingSteps width="45%"}
+program](images/CCodingSteps.PNG)
 
 
 
 ![Input and Output to each stage of a C
-program](images/CCodingStepsIO.PNG){#CCodingStepsIO width="80%"}
+program](images/CCodingStepsIO.PNG)
 
 
 Note that if the source code is stored in a file PR1.C then the expanded

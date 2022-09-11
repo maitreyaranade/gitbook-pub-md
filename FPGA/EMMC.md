@@ -77,8 +77,7 @@ devices):
     (CMD15). The device will reset to Pre-idle state with power cycle.
 
 
-![Internal block diagram of EMMC IP](images/emmc.png){#emmc
-width="\\textwidth"}
+![Internal block diagram of EMMC IP](images/emmc.png)
 
 
 If the CMD line is held LOW for 74 clock cycles and more after powerup
@@ -91,8 +90,7 @@ sequence is shown in
 
 
 ![Timing diagram of EMMC IP Boot up
-sequence](images/BootUpSeqTiming.png){#BootUpSeqTiming
-width="\\textwidth"}
+sequence](images/BootUpSeqTiming.png)
 
 
 The partition from which the master will read the boot data can be
@@ -154,6 +152,5 @@ sequence in which will be operated by the eMMC driver in the hindsight
 for initialization and then for the operation of the eMMC memory.
 
 
-![EMMC IP Boot up sequence](images/BootUpSeq.png){#BootUpSeq
-width="\\textwidth"}
+![EMMC IP Boot up sequence](images/BootUpSeq.png)
 

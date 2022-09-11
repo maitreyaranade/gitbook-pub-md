@@ -61,7 +61,7 @@ as low as possible, allowing transmission over twisted pair.
 
 
 ![Internal block diagram of 1G/2.5G Ethernet Subsystem
-IP](images/1G.png){#1G width="\\textwidth"}
+IP](images/1G.png)
 
 
 The AXI Ethernet Subsystem provides a control interface to internal
@@ -93,7 +93,7 @@ PCS/PMA or SGMII module.
 
 
 ![Internal block diagram of 10G/25G Ethernet Subsystem
-IP](images/10G.png){#10G width="\\textwidth"}
+IP](images/10G.png)
 
 
 The Xilinx LogiCORE IP 10G/25G Ethernet solution provides a 10 Gigabit

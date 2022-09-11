@@ -14,8 +14,7 @@ observe how different types of memories are interfaced with a processor.
 
 
 ![Component of a Modern
-Computer](images/ModernComputer.png){#ModernComputer
-width="\\textwidth"}
+Computer](images/ModernComputer.png)
 
 
 ## Types of memory
@@ -71,8 +70,7 @@ memory hierarchy:
 
 
 ![Component of a Modern
-Computer](images/MemoryStructure.png){#MemoryStructure
-width="\\textwidth"}
+Computer](images/MemoryStructure.png)
 
 
 This Memory Hierarchy Design is divided into 2 main types:

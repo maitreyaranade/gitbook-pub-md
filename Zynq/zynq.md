@@ -279,11 +279,11 @@ disconnect (isolated) at the border of the CR as needed. This concept
 extends to SSI devices as well.
 
 
-![Horizontal Clocking](images/HorizClock.png){#HorizClock width="70%"}
+![Horizontal Clocking](images/HorizClock.png)
 
 
 
-![Vertical Clocking](images/VertClock.png){#VertClock width="70%"}
+![Vertical Clocking](images/VertClock.png)
 
 
 The clocks can be distributed from their sources in one of two ways:
@@ -313,7 +313,7 @@ The clocks can be distributed from their sources in one of two ways:
     reduces the clock insertion delay.
 
 
-![Clock Distribution](images/clockDistr.png){#clockDistr width="70%"}
+![Clock Distribution](images/clockDistr.png)
 
 
 ### Clock Buffers
@@ -331,8 +331,7 @@ The BUFGCTRL Clock Buffer Primitives are designed to switch between two
 clock inputs without the possibility of a glitch.
 
 
-![BUFGCTRL Clock Buffer Primitive](images/BUFGCTRL.png){#BUFGCTRL
-width="70%"}
+![BUFGCTRL Clock Buffer Primitive](images/BUFGCTRL.png)
 
 
 All other global clock buffer primitives are derived from certain
@@ -517,7 +516,7 @@ produces an up or down signal to the charge pump and loop filter to
 determine whether the VCO should operate at a higher or lower frequency.
 
 
-![MMCM Block Diagram](images/MMCM.png){#MMCM width="\\textwidth"}
+![MMCM Block Diagram](images/MMCM.png)
 
 
 #### MMCM Primitives

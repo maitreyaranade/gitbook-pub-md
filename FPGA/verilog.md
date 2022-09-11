@@ -155,8 +155,7 @@ override default.
 
 
 ![Operator
-Precedence](images/OperatorPrecedence.png){#OperatorPrecedence
-width="5in"}
+Precedence](images/OperatorPrecedence.png)
 
 
 ### Assignments
@@ -252,5 +251,5 @@ Tasks
 
     
     ![Verilog Functions and
-    Tasks](images/VerilogFuncTasks.png){#VerilogFuncTasks width="5in"}
+    Tasks](images/VerilogFuncTasks.png)
     

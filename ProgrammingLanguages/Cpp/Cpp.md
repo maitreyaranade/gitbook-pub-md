@@ -66,8 +66,7 @@ sections.
 5.  Stack
 
 
-![Memory Layout of C program](images/memoryLayoutC.png){#memoryLayoutC
-width="60%"}
+![Memory Layout of C program](images/memoryLayoutC.png)
 
 
 C program gets stored into not one but multiple sections of the memory.
@@ -176,8 +175,7 @@ code before compilation. There are a number of steps involved between
 writing a program and executing a program in C / C++.
 
 
-![Preprocessor in C](images/Cpreprocessor.png){#Cpreprocessor
-width="60%"}
+![Preprocessor in C](images/Cpreprocessor.png)
 
 
 The source code file is processed by preprocessors and an expanded

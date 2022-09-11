@@ -9,7 +9,7 @@ and others. SPI is a synchronous, full duplex master-slave-based
 interface. The SPI interface can be either 3-wire or 4-wire.
 
 
-![SPI Protocol Overview](images/SPI.png){#SPI width="4in"}
+![SPI Protocol Overview](images/SPI.png)
 
 
 4-wire SPI devices have four signals:
@@ -80,8 +80,7 @@ clock signal.
 
 
 ![SPI Mode 0, CPOL = 0, CPHA = 0: CLK idle state = low, data sampled on
-rising edge and shifted on falling edge.](images/SPIMode0.png){#SPIMode0
-width="90%"}
+rising edge and shifted on falling edge.](images/SPIMode0.png)
 
 
 shows the timing diagram for SPI Mode 1. In this mode, clock polarity is
@@ -93,7 +92,7 @@ clock signal.
 
 ![SPI Mode 1, CPOL = 0, CPHA = 1: CLK idle state = low, data sampled on
 the falling edge and shifted on the rising
-edge.](images/SPIMode1.png){#SPIMode1 width="90%"}
+edge.](images/SPIMode1.png)
 
 
 shows the timing diagram for SPI Mode 2. In this mode, the clock
@@ -105,7 +104,7 @@ rising edge of the clock signal.
 
 ![SPI Mode 2, CPOL = 1, CPHA = 1: CLK idle state = high, data sampled on
 the falling edge and shifted on the rising
-edge.](images/SPIMode2.png){#SPIMode2 width="90%"}
+edge.](images/SPIMode2.png)
 
 
 shows the timing diagram for SPI Mode 3. In this mode, the clock
@@ -117,7 +116,7 @@ falling edge of the clock signal.
 
 ![SPI Mode 3, CPOL = 1, CPHA = 0: CLK idle state = high, data sampled on
 the rising edge and shifted on the falling
-edge.](images/SPIMode3.png){#SPIMode3 width="90%"}
+edge.](images/SPIMode3.png)
 
 
 ## Multislave Configuration
@@ -128,8 +127,7 @@ connected in regular mode or daisy-chain mode.
 ### Regular SPI Mode
 
 
-![Multislave Configuration](images/SPIMultiSlave.png){#SPIMultiSlave
-width="4in"}
+![Multislave Configuration](images/SPIMultiSlave.png)
 
 
 In regular mode, an individual chip select for each slave is required
@@ -145,8 +143,7 @@ master and limit the number of slaves that can be used.
 ### Daisy-Chain Method
 
 
-![Daisy-Chain Multislave Configuration](images/SPIDaisy.png){#SPIDaisy
-width="2in"}
+![Daisy-Chain Multislave Configuration](images/SPIDaisy.png)
 
 
 In daisy-chain mode, the slaves are configured such that the chip select
@@ -164,5 +161,5 @@ SPI devices.
 
 
 ![Daisy-chain configuration: data
-propagation.](images/SPIDaisyTiming.png){#SPIDaisyTiming width="50%"}
+propagation.](images/SPIDaisyTiming.png)
 

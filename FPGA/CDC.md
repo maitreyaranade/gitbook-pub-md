@@ -617,7 +617,7 @@ external source.
 
 
 ![Crossing from Slow to Fast
-domain](images/SlowToFastCDC.png){#SlowToFastCDC width="5in"}
+domain](images/SlowToFastCDC.png)
 
 
 ### Case II : Crossing from Fast to Slow domain
@@ -631,7 +631,7 @@ clocks of fig .
 
 
 ![Crossing from Fast to Slow
-domain](images/FastToSlowCDC.png){#FastToSlowCDC width="5in"}
+domain](images/FastToSlowCDC.png)
 
 
 ### Case III : Crossing with Streaming Data
@@ -652,7 +652,7 @@ read from an empty FIFO and Never write to a Full FIFO. Don't go beyond
 overflow and underflow.
 
 
-![Signals of FIFO](images/FIFO.png){#FIFO width="5in"}
+![Signals of FIFO](images/FIFO.png)
 
 
 ### Timing Errors

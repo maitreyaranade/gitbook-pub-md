@@ -67,8 +67,7 @@ specific block and all other inner blocks of that block, but those
 variables cannot be accessed outside the block.
 
 
-![Scope of a variable](images/variableScope.png){#variableScope
-width="\\textwidth"}
+![Scope of a variable](images/variableScope.png)
 
 
 Local Variable Variables that are declared within the function block and
@@ -118,8 +117,7 @@ variables.
 
 
 ![Fixed point and Floating point
-representation](images/fixedFloating.png){#fixedFloating
-width="\\textwidth"}
+representation](images/fixedFloating.png)
 
 
 ### integer

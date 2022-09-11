@@ -40,7 +40,7 @@ The Vitis unified software platform includes:
 
 
 ![Vitis Unified Software Platform
-Overview](images/overview.jpg){#VitisOverview width="\\textwidth"}
+Overview](images/overview.jpg)
 
 
 Vitis Unified Software Platform documentation is divided into the

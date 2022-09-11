@@ -5,8 +5,7 @@
 FPGA generic design flow is shown in the .
 
 
-![FPGA generic design flow](images/GenFlow.png){#FPGAGenFlow
-width="\\textwidth"}
+![FPGA generic design flow](images/GenFlow.png)
 
 
 ### Design Entry
@@ -35,8 +34,7 @@ parts: implementation and verification.
     imagine, an iterative process.
 
 
-![FPGA development process](images/FPGADevelop.png){#FPGADevelopment
-width="\\textwidth"}
+![FPGA development process](images/FPGADevelop.png)
 
 
 These are the steps involved in the implementation process. The first
@@ -87,8 +85,7 @@ with the help of in-circuit verification tools often provided by the
 FPGA vendor.
 
 
-![Xilinx Vivado Workflow](images/FPGADesignFlow.png){#VivadoOverview
-width="\\textwidth"}
+![Xilinx Vivado Workflow](images/FPGADesignFlow.png)
 
 
 The individual blocks Xilinx Vivado Workflow are explained below:
@@ -299,7 +296,7 @@ ones are the inputs. Take your time to read the code and try to
 understand what it means.
 
 
-![HDL Code of Half Adder](images/HDL.png){#HDLCode width="5in"}
+![HDL Code of Half Adder](images/HDL.png)
 
 
 At the right we have its equivalent in VHDL, which is a language
@@ -309,7 +306,7 @@ is defined in an architecture. One can notice the differences and
 similarities between these languages.
 
 
-![HDL Testbenches of Half Adder](images/HDLTB.png){#HDLTB width="5in"}
+![HDL Testbenches of Half Adder](images/HDLTB.png)
 
 
 Finally, here's a partial test bench module in both languages describing
@@ -618,7 +615,7 @@ host, and the results of those instructions are then pushed back into
 the guest machine.
 
 
-![QEMU Functionality](images/QEMU.png){#QEMU width="\\textwidth"}
+![QEMU Functionality](images/QEMU.png)
 
 
 # Version Control: Git, Bitbucket

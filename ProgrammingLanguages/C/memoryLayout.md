@@ -12,8 +12,7 @@ sections.
 5.  Stack
 
 
-![Memory Layout of C program](images/memoryLayoutC.png){#memoryLayoutC
-width="60%"}
+![Memory Layout of C program](images/memoryLayoutC.png)
 
 
 C program gets stored into not one but multiple sections of the memory.
