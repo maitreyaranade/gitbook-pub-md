@@ -66,10 +66,10 @@ Variable(s) that are declared within a block can be accessed within that
 specific block and all other inner blocks of that block, but those
 variables cannot be accessed outside the block.
 
-::: center
+
 ![Scope of a variable](images/variableScope.png){#variableScope
 width="\\textwidth"}
-:::
+
 
 Local Variable Variables that are declared within the function block and
 can be used only within the function are called local variables.
@@ -116,11 +116,11 @@ variables.
         point is floating. A number in floating point representation is
         as follows: $+/- Mantissa * 10^{exponent}$
 
-::: center
+
 ![Fixed point and Floating point
 representation](images/fixedFloating.png){#fixedFloating
 width="\\textwidth"}
-:::
+
 
 ### integer
 

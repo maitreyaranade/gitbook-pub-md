@@ -1,4 +1,4 @@
-Data Science Bootcamp Course Udemy
+I attended a Data Science Bootcamp Course from Udemy online and these are the notes of the course.
 
 - [Introduction](#introduction)
 - [Probability](#probability)
@@ -61,8 +61,7 @@ Data Science Bootcamp Course Udemy
 
 Please find the Big picture of Data science here in :
 
-![Big picture of the data science term
-definitions](images/BigPicture.png){#BigPicture}
+![Big picture of the data science term definitions](images/BigPicture.png)
 
 Some important things to keep in mind:
 
@@ -83,18 +82,13 @@ Some important things to keep in mind:
 -   **Business intelligence** Simulating human knowledge and decision
     making with computers.
 
-![Overview of Course](images/CourseOverview.png){#CourseOverview}
+![Overview of Course](images/CourseOverview.png)
 
 # Probability
 
 ## Combinatorics
 
-Permutations (Arrange)(Used for arrangement of objects & order is
-relevant): Arrange entire set of elements in the sample space.\
-Variations (Pick and arrange) (Used for arrangement of objects & order
-is relevant): Arrange only a few elements from the set of elements in
-the sample space.\
-Combination (Pick)(order is irrelevant)
+Permutations (Arrange)(Used for arrangement of objects & order is relevant): Arrange entire set of elements in the sample space. Variations (Pick and arrange) (Used for arrangement of objects & order is relevant): Arrange only a few elements from the set of elements in the sample space. Combination (Pick)(order is irrelevant)
 
 No repetition
 

@@ -4,10 +4,10 @@
 
 FPGA generic design flow is shown in the .
 
-::: center
+
 ![FPGA generic design flow](images/GenFlow.png){#FPGAGenFlow
 width="\\textwidth"}
-:::
+
 
 ### Design Entry
 
@@ -34,10 +34,10 @@ parts: implementation and verification.
     design in every step of the implementation. And this is, as you may
     imagine, an iterative process.
 
-::: center
+
 ![FPGA development process](images/FPGADevelop.png){#FPGADevelopment
 width="\\textwidth"}
-:::
+
 
 These are the steps involved in the implementation process. The first
 step is to write the source code which is a description of the hardware
@@ -86,10 +86,10 @@ requirements, and the final application hardware can be put to the test
 with the help of in-circuit verification tools often provided by the
 FPGA vendor.
 
-::: center
+
 ![Xilinx Vivado Workflow](images/FPGADesignFlow.png){#VivadoOverview
 width="\\textwidth"}
-:::
+
 
 The individual blocks Xilinx Vivado Workflow are explained below:
 
@@ -298,9 +298,9 @@ Notice that the first wire specified is the output and the remaining
 ones are the inputs. Take your time to read the code and try to
 understand what it means.
 
-::: center
+
 ![HDL Code of Half Adder](images/HDL.png){#HDLCode width="5in"}
-:::
+
 
 At the right we have its equivalent in VHDL, which is a language
 inspired by the Ada and Pascal programming languages. In VHDL the port
@@ -308,9 +308,9 @@ list is specified in what is known as an entity and the implementation
 is defined in an architecture. One can notice the differences and
 similarities between these languages.
 
-::: center
+
 ![HDL Testbenches of Half Adder](images/HDLTB.png){#HDLTB width="5in"}
-:::
+
 
 Finally, here's a partial test bench module in both languages describing
 the same course of events for a simulation. In this example we have two
@@ -617,9 +617,9 @@ instructions. The equivalent host instructions are then executed on the
 host, and the results of those instructions are then pushed back into
 the guest machine.
 
-::: center
+
 ![QEMU Functionality](images/QEMU.png){#QEMU width="\\textwidth"}
-:::
+
 
 # Version Control: Git, Bitbucket
 

@@ -11,10 +11,10 @@ sections.
 
 5.  Stack
 
-::: center
+
 ![Memory Layout of C program](images/memoryLayoutC.png){#memoryLayoutC
 width="60%"}
-:::
+
 
 C program gets stored into not one but multiple sections of the memory.
 A typical memory layout of a running process is as follows:

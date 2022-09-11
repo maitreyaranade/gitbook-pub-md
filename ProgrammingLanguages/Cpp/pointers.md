@@ -407,9 +407,9 @@ This declaration tells the C compiler to:
 
 We may represent i's location in memory by the following memory map.
 
-::: center
+
 ![Variable memory map](images/pointer.png){#pointer width="\\textwidth"}
-:::
+
 
 We see that the computer has selected memory location 65524 as the place
 to store the value 3. **i's address in memory is a number.**

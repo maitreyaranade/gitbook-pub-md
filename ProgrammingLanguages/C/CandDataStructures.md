@@ -1,8 +1,8 @@
-Date: 2022-09-11 Name: Maitreya Ranade
 
-::: center
+
+
 C Language and Data Structures\
-:::
+
 
 # C Programming
 

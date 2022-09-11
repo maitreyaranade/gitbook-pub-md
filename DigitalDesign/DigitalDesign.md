@@ -1,21 +1,10 @@
-Date: 2022-09-11 Name: Maitreya Ranade\
+These are the notes of the Digital Logic Design by Morris Mano written/compiled by me.
 
-::: center
-Digital Logic Design Revision\
-:::
-
-# Digital Systems and Binary Numbers
-
-# Boolean Algebra and Logic Gates
-
-# Gate‐Level Minimization
-
-# Combinational Circuits
-
-# Synchronous Sequential Logic
-
-# Registers and Counters
-
-# Memory and Programmable Logic
-
-# Design at the Register Transfer Level
+## [Digital Systems and Binary Numbers](DigitalDesign/DigitalSystems.md)
+## [Boolean Algebra and Logic Gates](DigitalDesign/BooleanAlgebra.md)
+## [Gate‐Level Minimization](DigitalDesign/GateLevelMinimization.md)
+## [Combinational Circuits](DigitalDesign/CombinationalLogic.md)
+## [Synchronous Sequential Logic](DigitalDesign/SeqLogic.md)
+## [Registers and Counters](DigitalDesign/RegNCount.md)
+## [Memory and Programmable Logic](DigitalDesign/MemNPL.md)
+## [Design at the Register Transfer Level](DigitalDesign/RTL.md)

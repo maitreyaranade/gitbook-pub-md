@@ -1,17 +1,25 @@
-Date: 2022-09-11 Name: Maitreya Ranade
+This is an FPGA Primer written/compiled by me from multiple sources which I have listed in the links and references.
 
-::: center
-FPGA Primer\
-:::
-
-# Overview
-
-# Hardware
-
-# Protocols
-
-# Peripherals & IPs
-
-# Software & Tools
-
-# Links & References
+# [Overview](FPGA/overview.md)	
+# [Hardware](FPGA/hardware.md) 
+  * [FPGA History](FPGA/FPGAHistory.md)
+  * [FPGA Architecture](FPGA/FPGAArch.md)
+  * [Static Timing Analysis](FPGA/STA.md)
+  * [Clock Domain Crossing](FPGA/CDC.md)
+# [Protocols](FPGA/protocols.md)
+  * [UART](FPGA/UART.md)
+  * [AXI](FPGA/AXI.md)
+  * [SPI](FPGA/SPI.md)
+  * [PCIE](FPGA/PCIe.md)
+# [Peripherals & IPs](FPGA/peripherals.md)     
+  * [Memories](FPGA/memories.md)
+  * [RAM](FPGA/RAM.md)
+  * [DDR](FPGA/DDR.md)
+  * [DDR3](FPGA/DDR2.md)
+  * [Flash](FPGA/Flash.md)
+  * [EMMC](FPGA/EMMC.md)
+  * [Gigabit Ethernet](FPGA/GigabitEthernet.md)
+  * [DMA](FPGA/DMA.md)
+# [Software & Tools](FPGA/software.md)   
+  * [verilog](FPGA/verilog.md)
+# [Links & References](FPGA/references.md) 

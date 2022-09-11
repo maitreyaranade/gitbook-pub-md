@@ -217,10 +217,10 @@ through data‐processing circuits to perform an operation. **The device
 most commonly used for holding data is a register, and Binary variables
 are manipulated by means of digital logic circuits.**
 
-::: center
+
 ![Transfer of information among registers](images/RTL.png){#RTL
 width="4in"}
-:::
+
 
 # Binary logic
 
@@ -237,7 +237,7 @@ signals to produce an output signal. Binary information into voltage
 levels. Voltage ranges are assigned to logic 0 & Logic 1 for
 interpretation.
 
-::: center
+
 ![Logic Gates & their Truth tables](images/LogicGates.png){#LogicGates
 width="\\textwidth"}
-:::
+

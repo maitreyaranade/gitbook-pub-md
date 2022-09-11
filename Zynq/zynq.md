@@ -1,8 +1,8 @@
-Date: 2022-09-11 Name: Maitreya Ranade
 
-::: center
+
+
 Zynq Documentation\
-:::
+
 
 # Zynq ultrascale+ MPsoc Architecture Overview
 
@@ -278,13 +278,13 @@ and distribution resources can either connect to adjacent CRs or
 disconnect (isolated) at the border of the CR as needed. This concept
 extends to SSI devices as well.
 
-::: center
-![Horizontal Clocking](images/HorizClock.png){#HorizClock width="70%"}
-:::
 
-::: center
+![Horizontal Clocking](images/HorizClock.png){#HorizClock width="70%"}
+
+
+
 ![Vertical Clocking](images/VertClock.png){#VertClock width="70%"}
-:::
+
 
 The clocks can be distributed from their sources in one of two ways:
 
@@ -312,9 +312,9 @@ The clocks can be distributed from their sources in one of two ways:
     distribution tracks and distribute the clock in that manner. This
     reduces the clock insertion delay.
 
-::: center
+
 ![Clock Distribution](images/clockDistr.png){#clockDistr width="70%"}
-:::
+
 
 ### Clock Buffers
 
@@ -330,10 +330,10 @@ only 24 of them can be used at the same time.
 The BUFGCTRL Clock Buffer Primitives are designed to switch between two
 clock inputs without the possibility of a glitch.
 
-::: center
+
 ![BUFGCTRL Clock Buffer Primitive](images/BUFGCTRL.png){#BUFGCTRL
 width="70%"}
-:::
+
 
 All other global clock buffer primitives are derived from certain
 configurations of BUFGCTRL. Pins of the types of BUFGCTRL Clock Buffers:
@@ -516,9 +516,9 @@ the phase and frequency between the two clocks. This the VCO. The PFD
 produces an up or down signal to the charge pump and loop filter to
 determine whether the VCO should operate at a higher or lower frequency.
 
-::: center
+
 ![MMCM Block Diagram](images/MMCM.png){#MMCM width="\\textwidth"}
-:::
+
 
 #### MMCM Primitives
 
@@ -551,7 +551,7 @@ an E3.
 
 ## Question & Answers
 
-::: itemize
-:::
+ itemize
+
 
 # Zynq ultrascale+ MPsoc Memory Resources

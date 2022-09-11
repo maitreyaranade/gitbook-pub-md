@@ -4,9 +4,9 @@ A sequential circuit is specified by a time sequence of inputs, outputs,
 and internal states. It consists of a combinational circuit to which
 memory elements are connected to form a feedback path.
 
-::: highlight
+
 Insert Figure 5.1 Block diagram of sequential circuit
-:::
+
 
 The storage elements are devices capable of storing binary information.
 The binary information stored in the memory elements determines the
@@ -38,9 +38,9 @@ elements (memory) used in clocked sequential circuits are called
 Flip-Flops. A Flip-Flop is a binary storage device capable of storing
 one bit of information.
 
-::: highlight
+
 Insert fig 5.2 synchronous sequential circuits
-:::
+
 
 A storage element in a digital circuit can maintain a binary state
 indefinitely (as long as power is delivered to the circuit), until
@@ -64,10 +64,10 @@ latch is said to be in the set state. When output is tied low, the latch
 is said to be in the reset state. Outputs Q and Q' are normally the
 complement of each other.
 
-::: highlight
+
 Insert Figure 5.3 5.4 SR Latch implementation with NOR gates and NAND
 gates.
-:::
+
 
 SR latch with two cross-coupled NOR gates:
 
@@ -98,6 +98,6 @@ as the enable signal remains at 0. This is the quiescent condition for
 the SR latch. When the enable input goes to 1, information from the S or
 R input is allowed to affect the latch. The
 
-::: highlight
+
 Insert FIGURE 5.5 SR latch with control input
-:::
+

@@ -12,11 +12,11 @@ stored in memory.
 shows a logical picture of components of a Modern Computer. One can
 observe how different types of memories are interfaced with a processor.
 
-::: center
+
 ![Component of a Modern
 Computer](images/ModernComputer.png){#ModernComputer
 width="\\textwidth"}
-:::
+
 
 ## Types of memory
 
@@ -69,11 +69,11 @@ Memory Hierarchy was developed based on a program behavior known as
 locality of references. clearly demonstrates the different levels of
 memory hierarchy:
 
-::: center
+
 ![Component of a Modern
 Computer](images/MemoryStructure.png){#MemoryStructure
 width="\\textwidth"}
-:::
+
 
 This Memory Hierarchy Design is divided into 2 main types:
 

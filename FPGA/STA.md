@@ -126,19 +126,19 @@ timing paths. Each timing path consists of the following elements:
     Every endpoint must be either a register data input pin or an output
     port.
 
-::: center
+
 ![Timing paths in a simple design
 example](images/STAPaths.jpg){#STAPaths width="4.5in"}
-:::
+
 
 A combinatorial logic cloud might contain multiple paths, as shown in
 the . STA uses the longest path to calculate a maximum delay and the
 shortest path to calculate a minimum delay.
 
-::: center
+
 ![Multiple timing paths in a combinatorial
 logic](images/STAMultipath.jpg){#STAMultipath width="4in"}
-:::
+
 
 The STA tool analyzes all the paths from each and every startpoint to
 each and every endpoint and compares it against the constraint that
@@ -159,10 +159,10 @@ There are 4 types of Timing Paths:
 
 4.  Asynchronous Path
 
-::: center
+
 ![Types of timing paths in a combinatorial
 logic](images/STAPathTypes.jpg){#STAPathTypes width="4.5in"}
-:::
+
 
 Each of the Timing Paths, is explained with the help of in sections
 below.
@@ -195,10 +195,10 @@ Points, there are 4 types of Timing Paths, which are mentioned below:
 
 4.  Register (Flip-Flop) to Output pin/port
 
-::: center
+
 ![Types of Data Paths in a combinatorial
 logic](images/STADataPath.png){#STADataPath width="\\textwidth"}
-:::
+
 
 -   PATH1- starts at an input port and ends at the data input of a
     sequential element. (Input port to Register)
@@ -283,10 +283,10 @@ clock input of a D Flip-Flop (say positive edge triggered). To capture
 the data correctly at D Flip-Flop, data should be present at the time of
 positive edge of clock signal at the Clk pin.
 
-::: center
+
 ![Setup and Hold Time of the
 system](images/STASetupHold.jpg){#STASetupHold width="4.5in"}
-:::
+
 
 Where,
 
@@ -363,10 +363,10 @@ held steady after the clock event so that the data are reliably sampled.
 In other words, Hold time is the minimum amount of time required for the
 input of a Flip-Flop to be stable after the clock edge comes along.\
 
-::: center
+
 ![Setup and Hold Time
 Definitions](images/STASetupHold2.jpg){#STASetupHold2 width="4.5in"}
-:::
+
 
 As the D Flip-Flop can be constructed with various implementations like,
 JK Flip-Flop, master slave Flip-Flop, Using 2 D type latches etc. Since,
@@ -380,11 +380,11 @@ edge of the clock, there is a Setup violation at that Flip-Flop.\
 If the data is not stable after Hold time calculated from active edge of
 the clock, there is a hold violation at that Flip-Flop.
 
-::: center
+
 ![Setup and Hold Time
 Violation](images/STASetupHoldViolation.jpg){#STASetupHoldViolation
 width="4.5in"}
-:::
+
 
 is used to explain the Setup and Hold time Violation. The register
 transfer level is implemented on the hardware with VLSI technologies.
@@ -394,15 +394,15 @@ inside any digital design hardware implementations. Two registers
 working on a single clock launching and capturing data with some form of
 combinatorial logic sitting between the two.
 
-::: center
+
 ![Basic concepts of Timing Analysis](images/TimingFF.png){#TimingFF
 width="\\textwidth"}
-:::
 
-::: center
+
+
 ![Timing Diagram](images/TimingDiaFF.png){#TimingDiaFF
 width="\\textwidth"}
-:::
+
 
 Following are the basic concepts of Timing Analysis & Setup, Hold
 Violation:
@@ -498,10 +498,10 @@ Violation:
 -   **Recovery** The minimum time an asynchronous signal must be
     de-asserted BEFORE clock edge.
 
-::: center
+
 ![Timing Diagram for Removal and Recovery
 Time](images/TimingRR.png){#TimingRR width="\\textwidth"}
-:::
+
 
 Formulae
 

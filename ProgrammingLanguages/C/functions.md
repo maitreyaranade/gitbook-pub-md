@@ -79,12 +79,12 @@ if the function has one. Syntax for calling a function is,
 return_value = function_name ( parameter list );
 ```
 
-::: highlight
+
 The function which receives the control from a function call is referred
 as the called function.\
 The function which transfers the control with a function call is
 referred as the calling function.
-:::
+
 
 When a program (calling function) calls a function, the program control
 is transferred to the called function. A called function performs a

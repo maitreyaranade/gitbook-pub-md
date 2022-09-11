@@ -59,9 +59,9 @@ Suggested Readings:
 
 FPGAs are a subset programmable logic devices.
 
-::: center
+
 ![PLD Classification](images/PLD.png){#PLD width="5in"}
-:::
+
 
 CPLD (Complex Programmable Logic Devices):\
 CPLDs have several useful characteristics, including easy generation of
@@ -101,13 +101,13 @@ logic\" in order to connect large ICs. Reduces system complexity Density
 of FPGA continue to grow (gates/area) FPGA prototyping for ASIC
 verification
 
-::: center
+
   **Performance**   **Non recurring cost**   **Unit Cost**    **Time to Market**
   ----------------- ------------------------ ---------------- --------------------
   ASIC              ASIC                     FPGA             ASIC
   FPGA              FPGA                     Microprocessor   FPGA
   Microprocessor    Microprocessor           ASIC             Microprocessor
-:::
+
 
 # FPGA Architecture
 
@@ -159,14 +159,14 @@ Types: D FF, JK FF, T FF.
 
 -   D Flip-flop: Aligns input data to the clock edges.
 
-    ::: center
+    
     ![D Flip Flop](images/D-FF.png){#DFF width="4in"}
-    :::
+    
 
-    ::: center
+    
     ![Timing diagram of D Flip flop](images/D-FF-Timing.png){#DFFTime
     width="4in"}
-    :::
+    
 
 -   JK Flip-flop
 
@@ -181,9 +181,9 @@ semiconductor switches. Each of these switches is either open or closed
 depending on a logic state in it's input. These open or closed states
 come from a special memory in the FPGA.
 
-::: center
+
 ![Switch Box](images/ICSwitch.png){#SwitchBox width="5in"}
-:::
+
 
 This is how a switch box may be implemented in . At the left we have six
 different wires that may be connected between each other in any way.
@@ -195,9 +195,9 @@ switch box is capable of routing two different signals. For example, one
 that goes horizontally and one that goes vertically through the switch
 box.
 
-::: center
+
 ![Interconnect](images/IC.png){#Interconnect width="5in"}
-:::
+
 
 Interconnect seems simple enough and they are very simple indeed as
 shown in . But the real power in an FPGA comes from the enormous number

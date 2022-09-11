@@ -21,9 +21,9 @@ Static random access memory (static RAM or SRAM) is a type of RAM that
 uses latching circuitry (flip-flop) to store each bit. shows an SRAM
 cell.
 
-::: center
+
 ![Static RAM cell](images/SRAM.png){#SRAM width="5in"}
-:::
+
 
 SRAM cell can store 1 bit of information which consists of a row line
 and a bitline. A pair of bit lines is used for storage of every bit, one
@@ -66,9 +66,9 @@ access memory that stores each bit of data in a memory cell, usually
 consisting of a tiny capacitor and a transistor, both typically based on
 metal-oxide-semiconductor (MOS) technology.
 
-::: center
+
 ![Dynamic RAM cell](images/DRAMCell.png){#DRAMCell width="5in"}
-:::
+
 
 Bits are basically stored as charges on the capacitor and a memory cell
 lose charge when it is read. When there exists a potential difference
@@ -116,10 +116,10 @@ static in SRAM.
 
 -   Manufacturing compatible with logic process (no capacitor)
 
-::: highlight
+
 Density plays a crucial role in accommodating larger memory in a smaller
 size memory. DRAM is preferred in order to implement the primary memory.
-:::
+
 
 ### Asynchronous & Synchronous DRAM
 
@@ -224,11 +224,11 @@ shows the organization of the DRAM.
 
 -   Breaking down a bank, each bank consists of rows as well as columns.
 
-::: center
+
 ![Organization of the
 DRAM](images/DRAMOrganization.png){#DRAMOrganization
 width="\\textwidth"}
-:::
+
 
 Going down another level, DRAM consists of a page mode structure. DRAM
 bank is a 2D array of cells which consists of rows and columns. Each
@@ -265,12 +265,12 @@ Subsystem. DRAM Subsystem is made up of 3 components:
 
 -   A DRAM Controller
 
-::: center
+
 ![DRAM Subsystem](images/DRAMSubsystem.png){#DRAMSubsystem
 width="\\textwidth"}
-:::
 
-::: {#tab:DRAMComponents}
+
+ {#tab:DRAMComponents}
   -------------------------------------------------------------------
   **Block**         **Description**
   ----------------- -------------------------------------------------
@@ -305,7 +305,7 @@ width="\\textwidth"}
   -------------------------------------------------------------------
 
   : DRAM Memory Interface Design Major components & Descriptions
-:::
+
 
 The DRAM is soldered down on the board. The PHY and controller, along
 with user logic are typically part of the same FPGA or ASIC. The
@@ -341,7 +341,7 @@ Low throughout device operation.
 
 **DRAM Memory Commands:**
 
-::: description
+ description
 It is used to deactivate the open row in a particular bank. The bank is
 available for a subsequent row activation a specified time (tRP) after
 the Precharge command is issued.
@@ -380,7 +380,7 @@ row. The values in registers select the bank address & the starting
 column location in the active row. DRAMs use a Write Latency (WL) equal
 to Read Latency (RL) minus one clock cycle.\
 $Write Latency = Read Latency - 1 = (Additive Latency + CAS Latency) - 1$
-:::
+
 
 DRAM Controller Operation is as follows:
 
@@ -440,15 +440,15 @@ DRAM Controller Operation is as follows:
 
 ### Internal Physical Structure of DRAM
 
-::: center
+
 ![Top Level DRAM block diagram](images/DRAMPHY.png){#Top Level
 width="\\textwidth"}
-:::
+
 
 Usually, DRAM has clock, reset, chip-select, address and data inputs as
 shown in . The mentions all the pins in detail.
 
-::: center
+
 ![DRAM block diagram](images/DRAMPorts.png){#DRAM ports
 width="\\textwidth"}
-:::
+

@@ -1,8 +1,4 @@
-Date: 2022-09-11 Name: Maitreya Ranade
-
-::: center
-Vitis Unified Software Platform\
-:::
+Vitis Unified Software Platform
 
 # Vitis Unified Software Platform Overview
 
@@ -42,10 +38,10 @@ The Vitis unified software platform includes:
     be programmed for a wide range of packet processing functions from
     simple packet classification to complex packet editing.
 
-::: center
+
 ![Vitis Unified Software Platform
 Overview](images/overview.jpg){#VitisOverview width="\\textwidth"}
-:::
+
 
 Vitis Unified Software Platform documentation is divided into the
 following:
@@ -144,19 +140,14 @@ devices.
 
 -   [Vitis Tutorials](https://github.com/Xilinx/Vitis-Tutorials/)
 
--   [Vitis - Hardware Acceleration
-    Tutorials](https://github.com/Xilinx/Vitis-Tutorials/tree/2021.1/Hardware_Acceleration)
+-   [Vitis - Hardware Acceleration Tutorials](https://github.com/Xilinx/Vitis-Tutorials/tree/2021.1/Hardware_Acceleration)
 
--   [Vitis Accel Examples
-    Repository](https://github.com/Xilinx/Vitis_Accel_Examples)
+-   [Vitis Accel Examples Repository](https://github.com/Xilinx/Vitis_Accel_Examples)
 
--   [Vitis Unified Software Platform Documentation
-    (UG1393)](https://www.xilinx.com/support/documentation/sw_manuals/xilinx2020_2/ug1393-vitis-application-acceleration.pdf)
+-   [Vitis Unified Software Platform Documentation (UG1393)](https://www.xilinx.com/support/documentation/sw_manuals/xilinx2020_2/ug1393-vitis-application-acceleration.pdf)
 
--   [Vitis Vision Library User
-    Guide](https://xilinx.github.io/Vitis_Libraries/vision/2021.2/overview.html#)
+-   [Vitis Vision Library User Guide](https://xilinx.github.io/Vitis_Libraries/vision/2021.2/overview.html#)
 
--   [Vitis Vision
-    Library](https://github.com/Xilinx/Vitis_Libraries/tree/master/vision)
+-   [Vitis Vision Library](https://github.com/Xilinx/Vitis_Libraries/tree/master/vision)
 
 -   [XRT architecture documentation](https://xilinx.github.io/XRT/)

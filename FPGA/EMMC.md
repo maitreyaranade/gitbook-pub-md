@@ -76,10 +76,10 @@ devices):
     device can also enter inactive mode with GO_INACTIVE_STATE command
     (CMD15). The device will reset to Pre-idle state with power cycle.
 
-::: center
+
 ![Internal block diagram of EMMC IP](images/emmc.png){#emmc
 width="\\textwidth"}
-:::
+
 
 If the CMD line is held LOW for 74 clock cycles and more after powerup
 or reset operation (either through CMD0 with the argument of 0xF0F0F0F0
@@ -89,11 +89,11 @@ issued, the slave recognizes that boot mode is being initiated and
 starts preparing boot data internally. Timing diagram of EMMC IP Boot up
 sequence is shown in
 
-::: center
+
 ![Timing diagram of EMMC IP Boot up
 sequence](images/BootUpSeqTiming.png){#BootUpSeqTiming
 width="\\textwidth"}
-:::
+
 
 The partition from which the master will read the boot data can be
 selected in advance using EXT_CSD byte \[179\], bits \[5:3\]. The data
@@ -153,7 +153,7 @@ MMC initialization sequence by sending CMD1. Please find the boot
 sequence in which will be operated by the eMMC driver in the hindsight
 for initialization and then for the operation of the eMMC memory.
 
-::: center
+
 ![EMMC IP Boot up sequence](images/BootUpSeq.png){#BootUpSeq
 width="\\textwidth"}
-:::
+

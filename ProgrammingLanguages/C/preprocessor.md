@@ -4,15 +4,15 @@ stage of writing a C program to the stage of getting it executed. shows
 these different steps along with the files created during each stage.
 The input and output to each of these processors is shown in .
 
-::: center
+
 ![Different stages of a C
 program](images/CCodingSteps.PNG){#CCodingSteps width="45%"}
-:::
 
-::: center
+
+
 ![Input and Output to each stage of a C
 program](images/CCodingStepsIO.PNG){#CCodingStepsIO width="80%"}
-:::
+
 
 Note that if the source code is stored in a file PR1.C then the expanded
 source code gets stored in a file PR1.I. When this expanded source code

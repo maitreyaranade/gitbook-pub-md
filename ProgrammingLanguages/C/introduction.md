@@ -79,9 +79,9 @@ A character denotes any alphabet, digit or special symbol used to
 represent information. shows the valid alphabets, numbers and special
 symbols allowed in C.
 
-::: center
+
 ![C Character Set](images/CCharSet.png){#CCharSet width="\\textwidth"}
-:::
+
 
 ### Constants, Variables and Keywords
 

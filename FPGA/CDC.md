@@ -615,10 +615,10 @@ condition. One can add 2 flip flops with a clock of faster clock
 This is also used to bring non-clocked data into the FPGA from an
 external source.
 
-::: center
+
 ![Crossing from Slow to Fast
 domain](images/SlowToFastCDC.png){#SlowToFastCDC width="5in"}
-:::
+
 
 ### Case II : Crossing from Fast to Slow domain
 
@@ -629,10 +629,10 @@ condition. One can stretch the faster clock pulse for a duration in
 whcih the slower clock can definitely detect it as shown in the sample
 clocks of fig .
 
-::: center
+
 ![Crossing from Fast to Slow
 domain](images/FastToSlowCDC.png){#FastToSlowCDC width="5in"}
-:::
+
 
 ### Case III : Crossing with Streaming Data
 
@@ -651,9 +651,9 @@ for the input and output. There are two checklists for a FIFO: Never
 read from an empty FIFO and Never write to a Full FIFO. Don't go beyond
 overflow and underflow.
 
-::: center
+
 ![Signals of FIFO](images/FIFO.png){#FIFO width="5in"}
-:::
+
 
 ### Timing Errors
 

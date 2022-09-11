@@ -8,9 +8,9 @@ and peripheral ICs such as sensors, ADCs, DACs, shift registers, SRAM,
 and others. SPI is a synchronous, full duplex master-slave-based
 interface. The SPI interface can be either 3-wire or 4-wire.
 
-::: center
+
 ![SPI Protocol Overview](images/SPI.png){#SPI width="4in"}
-:::
+
 
 4-wire SPI devices have four signals:
 
@@ -65,8 +65,8 @@ must select the clock polarity and clock phase, as per the requirement
 of the slave. Depending on the CPOL and CPHA bit selection, four SPI
 modes are available.
 
-::: center
-:::
+
+
 
 through show an example of communication in four SPI modes. In these
 examples, the data is shown on the MOSI and MISO line. The start and end
@@ -78,11 +78,11 @@ clock phase in this mode is 0, which indicates that the data is sampled
 on the rising edge and the data is shifted on the falling edge of the
 clock signal.
 
-::: center
+
 ![SPI Mode 0, CPOL = 0, CPHA = 0: CLK idle state = low, data sampled on
 rising edge and shifted on falling edge.](images/SPIMode0.png){#SPIMode0
 width="90%"}
-:::
+
 
 shows the timing diagram for SPI Mode 1. In this mode, clock polarity is
 0, which indicates that the idle state of the clock signal is low. The
@@ -90,11 +90,11 @@ clock phase in this mode is 1, which indicates that the data is sampled
 on the falling edge and the data is shifted on the rising edge of the
 clock signal.
 
-::: center
+
 ![SPI Mode 1, CPOL = 0, CPHA = 1: CLK idle state = low, data sampled on
 the falling edge and shifted on the rising
 edge.](images/SPIMode1.png){#SPIMode1 width="90%"}
-:::
+
 
 shows the timing diagram for SPI Mode 2. In this mode, the clock
 polarity is 1, which indicates that the idle state of the clock signal
@@ -102,11 +102,11 @@ is high. The clock phase in this mode is 1, which indicates that the
 data is sampled on the falling edge and the data is shifted on the
 rising edge of the clock signal.
 
-::: center
+
 ![SPI Mode 2, CPOL = 1, CPHA = 1: CLK idle state = high, data sampled on
 the falling edge and shifted on the rising
 edge.](images/SPIMode2.png){#SPIMode2 width="90%"}
-:::
+
 
 shows the timing diagram for SPI Mode 3. In this mode, the clock
 polarity is 1, which indicates that the idle state of the clock signal
@@ -114,11 +114,11 @@ is high. The clock phase in this mode is 0, which indicates that the
 data is sampled on the rising edge and the data is shifted on the
 falling edge of the clock signal.
 
-::: center
+
 ![SPI Mode 3, CPOL = 1, CPHA = 0: CLK idle state = high, data sampled on
 the rising edge and shifted on the falling
 edge.](images/SPIMode3.png){#SPIMode3 width="90%"}
-:::
+
 
 ## Multislave Configuration
 
@@ -127,10 +127,10 @@ connected in regular mode or daisy-chain mode.
 
 ### Regular SPI Mode
 
-::: center
+
 ![Multislave Configuration](images/SPIMultiSlave.png){#SPIMultiSlave
 width="4in"}
-:::
+
 
 In regular mode, an individual chip select for each slave is required
 from the master. Once the chip select signal is enabled (pulled low) by
@@ -144,10 +144,10 @@ master and limit the number of slaves that can be used.
 
 ### Daisy-Chain Method
 
-::: center
+
 ![Daisy-Chain Multislave Configuration](images/SPIDaisy.png){#SPIDaisy
 width="2in"}
-:::
+
 
 In daisy-chain mode, the slaves are configured such that the chip select
 signal for all slaves is tied together and data propagates from one
@@ -162,7 +162,7 @@ in the daisy chain. shows the clock cycles and data propagating through
 the daisy chain. Daisy-chain mode is not necessarily supported by all
 SPI devices.
 
-::: center
+
 ![Daisy-chain configuration: data
 propagation.](images/SPIDaisyTiming.png){#SPIDaisyTiming width="50%"}
-:::
+

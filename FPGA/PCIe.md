@@ -30,9 +30,9 @@ decent speed of 133 to 533 MBps. PCI X, which is the next generation and
 was developedaround 1995, had one GBps. The latest, PCIe architectures,
 have very highr data rates as mentioned below:
 
-::: center
+
 ![PCIe Speeds](images/PCIeSpeeds.png){#PCIeSpeeds width="5in"}
-:::
+
 
 ## PCIe features
 
@@ -134,9 +134,9 @@ Most of the complex functions mentioned above are handled by the
 PCIExpress stack. PCIExpress stack is composed of three layers Physical
 layer, Datalink layer, and Transition layer.
 
-::: center
+
 ![PCIe Stack](images/PCIeStack.png){#PCIeStack width="5in"}
-:::
+
 
 PCI Express FPGA core usually which is a combination of the hard and
 soft core. This handles all the complexity. So as the user end, one only

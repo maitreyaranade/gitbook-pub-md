@@ -59,10 +59,10 @@ devices. IEEE 802.3ab, which defines the widely used 1000BASET interface
 type, uses a different encoding scheme in order to keep the symbol rate
 as low as possible, allowing transmission over twisted pair.
 
-::: center
+
 ![Internal block diagram of 1G/2.5G Ethernet Subsystem
 IP](images/1G.png){#1G width="\\textwidth"}
-:::
+
 
 The AXI Ethernet Subsystem provides a control interface to internal
 registers via a 32bit AXI4Lite Interface subset. This AXI4Lite slave
@@ -91,10 +91,10 @@ PCS/PMA or SGMII module.
 
 ## 10G/25G Ethernet IP
 
-::: center
+
 ![Internal block diagram of 10G/25G Ethernet Subsystem
 IP](images/10G.png){#10G width="\\textwidth"}
-:::
+
 
 The Xilinx LogiCORE IP 10G/25G Ethernet solution provides a 10 Gigabit
 or 25 Gigabit per second (Gbps) Ethernet Media Access Controller

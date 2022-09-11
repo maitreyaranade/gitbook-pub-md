@@ -74,16 +74,16 @@ There are three types of AXI4 interfaces:
 
 4.  AXI4 Read Transaction:
 
-    ::: center
+    
     ![AXI4 Read Transaction](images/AXIREAD.png){#AXIREAD width="4in"}
-    :::
+    
 
 5.  AXI4 Write Transaction:
 
-    ::: center
+    
     ![AXI4 Write Transaction](images/AXIWRITE.png){#AXIWRITE
     width="4in"}
-    :::
+    
 
 6.  At a hardware level, AXI4 allows systems to be built with a
     different clock for each AXI master-slave pair. In addition, the

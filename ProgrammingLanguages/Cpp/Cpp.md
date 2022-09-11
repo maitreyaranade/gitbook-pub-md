@@ -1,8 +1,8 @@
-Date: 2022-09-11 Name: Maitreya Ranade
 
-::: center
+
+
 C++ Language\
-:::
+
 
 # C Programming
 
@@ -65,10 +65,10 @@ sections.
 
 5.  Stack
 
-::: center
+
 ![Memory Layout of C program](images/memoryLayoutC.png){#memoryLayoutC
 width="60%"}
-:::
+
 
 C program gets stored into not one but multiple sections of the memory.
 A typical memory layout of a running process is as follows:
@@ -175,10 +175,10 @@ As the name suggests Preprocessors are programs that process our source
 code before compilation. There are a number of steps involved between
 writing a program and executing a program in C / C++.
 
-::: center
+
 ![Preprocessor in C](images/Cpreprocessor.png){#Cpreprocessor
 width="60%"}
-:::
+
 
 The source code file is processed by preprocessors and an expanded
 source code file is generated named program. This expanded file is
@@ -214,10 +214,10 @@ name. Whenever this name is encountered by the compiler the compiler
 replaces the name with the actual piece of code. The '#define' directive
 is used to define a macro.
 
-::: highlight
+
 Note: There is no semi-colon(';') at the end of macro definition. Macro
 definitions do not need a semi-colon to end.
-:::
+
 
 File Inclusion: This type of preprocessor directive tells the compiler
 to include a file in the source code program. There are two types of

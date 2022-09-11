@@ -112,7 +112,7 @@ Not all Verilog operators are synthesible (can produce gates). Some
 operators are similar to those in the C language. Remember, you are
 making gates, not an algorithm (in most cases).
 
-::: center
+
   **Character**                      **Operation**                  **Type of operator**
   ---------------------------------- ------------------------------ ----------------------
   \+                                 Add                            Arithmatic
@@ -147,17 +147,17 @@ making gates, not an algorithm (in most cases).
   ?                                  Conditions testing             Misc
   {}                                 Concatenate                    Misc
   {{}}                               Replicate                      Misc
-:::
+
 
 Operator Precedence: The order of the table tells what operation is made
 first, the first ones has the highest priority. The () can be used to
 override default.
 
-::: center
+
 ![Operator
 Precedence](images/OperatorPrecedence.png){#OperatorPrecedence
 width="5in"}
-:::
+
 
 ### Assignments
 
@@ -250,7 +250,7 @@ Tasks
     input, output, or inout arguments. Ex: stmOut(nxt, first, sel,
     filter)
 
-    ::: center
+    
     ![Verilog Functions and
     Tasks](images/VerilogFuncTasks.png){#VerilogFuncTasks width="5in"}
-    :::
+    

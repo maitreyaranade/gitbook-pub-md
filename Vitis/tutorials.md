@@ -155,10 +155,10 @@ device. Refer to C/C++ Kernels, or RTL Kernels in the Vitis
 documentation for coding requirements. The kernels are integrated with a
 Vitis hardware platform using standard AXI interfaces.
 
-::: center
+
 ![image](images/part1_execution_model.png){width="5in"}
 []{#part1_execution_model label="part1_execution_model"}
-:::
+
 
 Vitis accelerated applications can execute on either Data Center or
 Embedded Processor acceleration platforms:
@@ -214,10 +214,10 @@ process for both the host program and the kernel code:
     Command, the Vitis compiler and linker accepts a wide range of
     options to tailor and optimize the results.
 
-::: center
+
 ![image](images/part1_build_flow.png){width="5in"} []{#part1_build_flow
 label="part1_build_flow"}
-:::
+
 
 #### Understanding Vitis Build Targets
 
