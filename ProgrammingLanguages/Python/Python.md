@@ -1,10 +1,7 @@
 Date: 2022-09-11 Name: Maitreya Ranade
 
-::: center
-Python\
-This report is written for personal understanding and not for
-publication or distribution.
-:::
+
+Python
 
 # Python
 

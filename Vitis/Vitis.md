@@ -1,10 +1,115 @@
-Date: 2022-09-11 Name: Maitreya Ranade
+Vitis Unified Software Platform
 
-::: center
-Vitis Unified Software Platform\
-This report is written for personal understanding and not for
-publication or distribution.
-:::
+- [Vitis Unified Software Platform Overview](#vitis-unified-software-platform-overview)
+  - [Vitis AI Development Environment](#vitis-ai-development-environment)
+  - [Vitis Accelerated Libraries](#vitis-accelerated-libraries)
+  - [Vitis Core Development Kit](#vitis-core-development-kit)
+  - [Xilinx Runtime library](#xilinx-runtime-library)
+  - [Vitis Target Platforms](#vitis-target-platforms)
+  - [Vitis Model Composer](#vitis-model-composer)
+- [Vitis Application Acceleration Development](#vitis-application-acceleration-development)
+  - [Introduction to the Vitis Environment for Acceleration](#introduction-to-the-vitis-environment-for-acceleration)
+    - [Accelerated Flow Application Development Using the Vitis Software Platform](#accelerated-flow-application-development-using-the-vitis-software-platform)
+      - [FPGA Acceleration](#fpga-acceleration)
+    - [Execution Model](#execution-model)
+    - [Data Center Application Acceleration Development Flow](#data-center-application-acceleration-development-flow)
+    - [Embedded Processor Application Acceleration Development Flow](#embedded-processor-application-acceleration-development-flow)
+    - [Build Targets](#build-targets)
+  - [Methodology for Accelerating Applications with the Vitis Software Platform](#methodology-for-accelerating-applications-with-the-vitis-software-platform)
+    - [Introduction](#introduction)
+    - [Methodology Overview](#methodology-overview)
+    - [Methodology for Architecting a Device Accelerated Application](#methodology-for-architecting-a-device-accelerated-application)
+      - [Step 1: Establish a Baseline Application Performance and Establish Goals](#step-1-establish-a-baseline-application-performance-and-establish-goals)
+        - [Measure Running Time](#measure-running-time)
+        - [Measure Throughput](#measure-throughput)
+        - [Determine the Maximum Achievable Throughput](#determine-the-maximum-achievable-throughput)
+        - [Establish Overall Acceleration Goals](#establish-overall-acceleration-goals)
+      - [Step 2: Identify Functions to Accelerate](#step-2-identify-functions-to-accelerate)
+        - [Identify Performance Bottlenecks](#identify-performance-bottlenecks)
+        - [Identify Acceleration Potential](#identify-acceleration-potential)
+      - [Step 3: Identify Device Parallelization Needs](#step-3-identify-device-parallelization-needs)
+        - [Estimate Hardware Throughput without Parallelization](#estimate-hardware-throughput-without-parallelization)
+        - [Determine How Much Parallelism is Needed](#determine-how-much-parallelism-is-needed)
+        - [Determine How Many Samples the Datapath Should be Processing in Parallel](#determine-how-many-samples-the-datapath-should-be-processing-in-parallel)
+        - [Determine How Many Kernels Can and Should be Instantiated in the Device](#determine-how-many-kernels-can-and-should-be-instantiated-in-the-device)
+      - [Step 4: Identify Software Application Parallelization Needs](#step-4-identify-software-application-parallelization-needs)
+        - [Minimize CPU Idle Time While the Device Kernels are Running](#minimize-cpu-idle-time-while-the-device-kernels-are-running)
+        - [Keep the Device Kernels Utilized](#keep-the-device-kernels-utilized)
+        - [Optimize Data Transfers to and from the Device](#optimize-data-transfers-to-and-from-the-device)
+        - [Conceptualize the Desired Application Timeline](#conceptualize-the-desired-application-timeline)
+      - [Step 5: Refine Architectural Details](#step-5-refine-architectural-details)
+        - [Finalize Kernel Boundaries](#finalize-kernel-boundaries)
+        - [Decide Kernel Placement and Connectivity](#decide-kernel-placement-and-connectivity)
+    - [Methodology for Developing C/C++ Kernels](#methodology-for-developing-cc-kernels)
+      - [Step 1: Partition the Code into a Load-Compute-Store Pattern](#step-1-partition-the-code-into-a-load-compute-store-pattern)
+        - [Create a Top-Level Function with the Desired Interface](#create-a-top-level-function-with-the-desired-interface)
+        - [Code the Load and Store Functions](#code-the-load-and-store-functions)
+        - [Code the Compute Functions](#code-the-compute-functions)
+        - [Connect the Load, Compute, and Store Functions](#connect-the-load-compute-and-store-functions)
+      - [Step 2: Partition the Compute Blocks into Smaller Functions](#step-2-partition-the-compute-blocks-into-smaller-functions)
+        - [Decompose to Identify Throughput Goals](#decompose-to-identify-throughput-goals)
+        - [Aim for Functions with a Single Loop Nest](#aim-for-functions-with-a-single-loop-nest)
+        - [Connect Compute Functions Using the Dataflow 'Canonical Form'](#connect-compute-functions-using-the-dataflow-canonical-form)
+      - [Step 3: Identify Loops Requiring Optimization](#step-3-identify-loops-requiring-optimization)
+      - [Step 4: Improve Loop Latencies](#step-4-improve-loop-latencies)
+        - [Apply Loop Unrolling](#apply-loop-unrolling)
+        - [Apply Array Partitioning](#apply-array-partitioning)
+      - [Step 5: Improve Loop Throughput](#step-5-improve-loop-throughput)
+        - [Eliminate I/O Contentions](#eliminate-io-contentions)
+        - [Eliminate Loop-Carried Dependencies](#eliminate-loop-carried-dependencies)
+  - [Programming Model](#programming-model)
+    - [Device Topology](#device-topology)
+    - [Kernel Properties](#kernel-properties)
+  - [Host Programming](#host-programming)
+    - [Specifying the Device ID and Loading the XCLBIN](#specifying-the-device-id-and-loading-the-xclbin)
+    - [Setting Up XRT-Managed Kernels and Kernel Arguments](#setting-up-xrt-managed-kernels-and-kernel-arguments)
+    - [Transferring Data between Host and Kernels](#transferring-data-between-host-and-kernels)
+    - [Executing Kernels on the Device](#executing-kernels-on-the-device)
+    - [Setting Up User-Managed Kernels and Argument Buffers](#setting-up-user-managed-kernels-and-argument-buffers)
+    - [Summary](#summary)
+  - [C/C++ Kernels](#cc-kernels)
+    - [Process Execution Modes](#process-execution-modes)
+    - [Data Types](#data-types)
+    - [Interfaces](#interfaces)
+    - [Loops](#loops)
+    - [Dataflow Optimization](#dataflow-optimization)
+    - [Array Configuration](#array-configuration)
+    - [Function Inlining](#function-inlining)
+    - [Auto-Restarting Kernels](#auto-restarting-kernels)
+    - [Summary](#summary-1)
+  - [RTL Kernels](#rtl-kernels)
+    - [Requirements of an RTL Kernel](#requirements-of-an-rtl-kernel)
+    - [Creating User-Managed RTL Kernels](#creating-user-managed-rtl-kernels)
+    - [RTL Kernel Development Flow](#rtl-kernel-development-flow)
+    - [Design Recommendations for RTL Kernels](#design-recommendations-for-rtl-kernels)
+  - [Best Practices for Acceleration with Vitis](#best-practices-for-acceleration-with-vitis)
+- [Vitis Tutorials](#vitis-tutorials)
+  - [Getting Started](#getting-started)
+    - [Vitis Introduction and Getting Started](#vitis-introduction-and-getting-started)
+      - [Part 1 : Essential Concepts](#part-1--essential-concepts)
+        - [Understanding the Vitis Programming and Execution Model](#understanding-the-vitis-programming-and-execution-model)
+        - [Understanding the Vitis Build Process](#understanding-the-vitis-build-process)
+        - [Understanding Vitis Build Targets](#understanding-vitis-build-targets)
+    - [Vitis HLS](#vitis-hls)
+  - [Acceleration Tutorial](#acceleration-tutorial)
+  - [AI Engine Development](#ai-engine-development)
+  - [Platform Creation Tutorial](#platform-creation-tutorial)
+  - [Vitis Developers Contributed Tutorials](#vitis-developers-contributed-tutorials)
+  - [Other Vitis Tutorial Repositories](#other-vitis-tutorial-repositories)
+    - [Machine Learning Tutorial](#machine-learning-tutorial)
+    - [Embedded Design Tutorials](#embedded-design-tutorials)
+- [Vitis Accelerated Libraries](#vitis-accelerated-libraries-1)
+  - [Vitis Vision Library](#vitis-vision-library)
+    - [Overview](#overview)
+      - [Basic Features](#basic-features)
+      - [Vitis Vision Library Contents](#vitis-vision-library-contents)
+    - [Getting Started with Vitis Vision](#getting-started-with-vitis-vision)
+      - [Vitis Design Methodology](#vitis-design-methodology)
+        - [Host Code with OpenCL](#host-code-with-opencl)
+        - [Wrappers around HLS Kernel(s)](#wrappers-around-hls-kernels)
+      - [Evaluating the Functionality](#evaluating-the-functionality)
+- [References](#references)
+
 
 # Vitis Unified Software Platform Overview
 
@@ -44,10 +149,9 @@ The Vitis unified software platform includes:
     be programmed for a wide range of packet processing functions from
     simple packet classification to complex packet editing.
 
-::: center
+
 ![Vitis Unified Software Platform
 Overview](images/overview.jpg){#VitisOverview width="\\textwidth"}
-:::
 
 Vitis Unified Software Platform documentation is divided into the
 following:
@@ -263,10 +367,9 @@ the Alveo Data Center accelerator cards.
         your system on the hardware. The build process is automated to
         generate high quality results.
 
-::: center
+
 ![Application Development Flow for Data Center Accelerator
 Cards](images/DataCenterFlow.PNG){#DataCenterFlow width="\\textwidth"}
-:::
 
 ### Embedded Processor Application Acceleration Development Flow
 
@@ -275,11 +378,10 @@ application using Arm processors and kernels running in programmable
 logic regions of Versal ACAP, Zynq UltraScale+ MPSoC, and Zynq-7000 SoC
 devices. The steps are summarized below in .
 
-::: center
+
 ![Application Development Flow for Versal ACAP and Zynq UltraScale+
 MPSoC Devices](images/EmbeddedFlow.PNG){#EmbeddedFlow
 width="\\textwidth"}
-:::
 
 1.  PS Application Compilation: Compile the host application to run on
     the Cortex-A72 or Cortex-A53 core processor using the GNU Arm
@@ -387,7 +489,6 @@ units.
 Traditional software development is about programming functionality on a
 pre-defined architecture. Programmable device development is about
 programming an architecture to implement the desired functionality.
-:::
 
 ### Methodology Overview
 
@@ -407,10 +508,9 @@ primarily involves structuring source code and applying the desired
 compiler pragma to create the desired kernel architecture and meet the
 performance target.
 
-::: center
+
 ![Methodology Overview](images/Methodology.PNG){#Methodology
 width="75%"}
-:::
 
 ### Methodology for Architecting a Device Accelerated Application
 
@@ -420,11 +520,10 @@ determines factors such as what software functions should be mapped to
 device kernels, how much parallelism is needed, and how it should be
 delivered.
 
-::: center
+
 ![Methodology for Architecting the
 Application](images/MethodologyArchitect.PNG){#MethodologyArchitect
 width="75%"}
-:::
 
 #### Step 1: Establish a Baseline Application Performance and Establish Goals
 
@@ -487,7 +586,6 @@ for setting obtainable and meaningful acceleration goals.
 Minimize changes to the existing code at this point so you can quickly
 generate a working design on the FPGA and get the baselined performance
 and resource numbers.
-:::
 
 When selecting functions to accelerate in hardware, two aspects are
 considered:
@@ -614,11 +712,10 @@ following:
 
 -   Aim to optimize data transfers
 
-::: center
+
 ![Software Optimization
 Goals](images/SoftwareOptimization.PNG){#SoftwareOptimization
 width="90%"}
-:::
 
 ##### Minimize CPU Idle Time While the Device Kernels are Running
 
@@ -640,11 +737,10 @@ achieved by issuing the next requests before the current ones have
 completed. This results in pipelined and overlapping execution, leading
 to kernels being optimally utilized, as shown in
 
-::: center
+
 ![Pipelined Execution of
 Accelerators](images/AcceleratorPipeline.PNG){#AcceleratorPipeline
 width="90%"}
-:::
 
 ##### Optimize Data Transfers to and from the Device
 
@@ -780,20 +876,17 @@ Because the algorithm directly influences data access locality as well
 as potential for computational parallelism, your choice of algorithm has
 a major impact on achievable performance, more so than the compiler's
 abilities or user specified pragmas.
-:::
 
-::: center
+
 ![Kernel Development
 Methodology](images/KernelMethodology.PNG){#KernelMethodology
 width="90%"}
-:::
 
 #### Step 1: Partition the Code into a Load-Compute-Store Pattern
 
 ::: highlight
 A kernel is essentially a custom datapath (optimized for the desired
 functionality) and an associated data storage and motion network.
-:::
 
 Data storage and motion network is also referred to as the memory
 architecture or memory hierarchy of the kernel. It is responsible for
@@ -814,10 +907,9 @@ with:
 -   Local arrays or hls::stream variables to pass data between these
     functions.
 
-::: center
+
 ![Load-Compute-Store Pattern](images/LCSPattern.PNG){#LCSPattern
 width="90%"}
-:::
 
 Structuring the kernel code this way enables task-level pipelining, also
 known as HLS dataflow. This compiler optimization results in a design
@@ -899,11 +991,10 @@ Key recommendations for function connections include:
 The next step is to refine the main compute function, decomposing it
 into a sequence of smaller sub-functions, as shown in the
 
-::: center
+
 ![Compute Block
 Sub-Functions](images/computeSubFunctions.PNG){#computeSubFunctions
 width="90%"}
-:::
 
 ##### Decompose to Identify Throughput Goals
 
@@ -1306,10 +1397,9 @@ device. Refer to C/C++ Kernels, or RTL Kernels in the Vitis
 documentation for coding requirements. The kernels are integrated with a
 Vitis hardware platform using standard AXI interfaces.
 
-::: center
+
 ![image](images/part1_execution_model.png){width="5in"}
 []{#part1_execution_model label="part1_execution_model"}
-:::
 
 Vitis accelerated applications can execute on either Data Center or
 Embedded Processor acceleration platforms:
@@ -1365,10 +1455,9 @@ process for both the host program and the kernel code:
     Command, the Vitis compiler and linker accepts a wide range of
     options to tailor and optimize the results.
 
-::: center
+
 ![image](images/part1_build_flow.png){width="5in"} []{#part1_build_flow
 label="part1_build_flow"}
-:::
 
 ##### Understanding Vitis Build Targets
 

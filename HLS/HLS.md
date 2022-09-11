@@ -1,10 +1,7 @@
 Date: 2022-09-11 Name: Maitreya Ranade
 
-::: center
-High-Level Synthesis\
-This report is written for personal understanding and not for
-publication or distribution.
-:::
+
+High-Level Synthesis
 
 # High-Level Synthesis Prerequisites
 
@@ -125,9 +122,8 @@ of any algorithm, the efficiency of the resulting implementation is
 limited in terms of computational throughput, required resources, and
 achievable clock frequency.
 
-::: center
+
 ![Basic FPGA Architecture](images/FPGAArch.png){#FPGAArch width="75%"}
-:::
 
 Contemporary FPGA architectures incorporate the basic elements along
 with additional computational and data storage blocks that increase the
@@ -149,11 +145,9 @@ The combination of these elements provides the FPGA with the flexibility
 to implement any software algorithm running on a processor and results
 in the contemporary FPGA architecture shown in .
 
-::: center
+
 ![Contemporary FPGA
-Architecture](images/ContempFPGAArch.png){#ContempFPGAArch
-width="\\textwidth"}
-:::
+Architecture](images/ContempFPGAArch.png){#ContempFPGAArch}
 
 ### Look Up Table (LUT)
 
@@ -168,7 +162,6 @@ implement the following number of functions: $$2^{N^{N}}$$
 
 ::: highlight
 Note: A typical value for N in Xilinx FPGA devices is 6.
-:::
 
 The hardware implementation of a LUT can be thought of as a collection
 of memory cells connected to a set of multiplexers. The inputs to the
@@ -177,10 +170,9 @@ given point in time. It is important to keep this representation in
 mind, because a LUT can be used as both a function compute engine and a
 data storage element. shows this functional representation of the LUT.
 
-::: center
+
 ![Functional Representation of a LUT as Collection of Memory
 Cells](images/LUT.png){#LUT width="60%"}
-:::
 
 ### Flip-Flop
 
@@ -195,9 +187,8 @@ clock pulse. New data inputs are only latched and passed to the data
 output port when both clock and clock enable are equal to one. shows the
 structure of a flip-flop.
 
-::: center
+
 ![Structure of a Flip-Flop](images/flipflop.png){#flipflop width="40%"}
-:::
 
 ### DSP Block
 
@@ -210,9 +201,8 @@ a final add/subtract/accumulate engine. This chain allows a single DSP
 unit to implement functions of the form: $$p \: =\: a*( b + d) + c$$ or
 $$p \: +=\: a*( b + d)$$
 
-::: center
+
 ![Structure of a DSP Block](images/dsp.png){#dsp width="\\textwidth"}
-:::
 
 ### Storage Elements
 
@@ -293,7 +283,6 @@ instruction is not equal across instruction types.
 IMPORTANT: The level of effort required by the software engineer in
 restructuring algorithms to better fit the available processor cache is
 not required when the same operation is implemented in an FPGA.
-:::
 
 ### Program Execution on an FPGA
 
@@ -307,7 +296,6 @@ the output operand.
 
 ::: highlight
 NOTE: As a general rule, 1 LUT is equivalent to 1 bit of computation.
-:::
 
 LUTs used for a computation of a value are exclusive to that particular
 operation only. Unlike a processor, where all computations share the
@@ -492,10 +480,9 @@ clock cycle. Even if the compiler determined that all five EXE stages
 could execute in parallel, the structure of the process would prevent
 it.
 
-::: center
+
 ![Processor with Multiple Instruction Execution
 Units](images/multiProcessor.png){#multiProcessor width="80%"}
-:::
 
 An FPGA does not execute all software on a common computation platform.
 It executes a single program at a time on a custom circuit for that
@@ -505,10 +492,9 @@ to account for overhead stages in the platform and can find ways of
 maximizing instruction parallelism. Working with the same assumptions as
 in , the execution profile of the same software in an FPGA is shown in
 
-::: center
+
 ![FPGA with Multiple Instruction Execution
 Units](images/multiFPGA.png){#multiFPGA width="60%"}
-:::
 
 Based on the comparison of and , the FPGA has a nominal performance
 advantage of 9x compared to the processor. Actual numbers are always
@@ -564,10 +550,9 @@ that must be connected to implement an application. The Vivado HLS
 compiler can connect the blocks directly or through registers. shows an
 implementation of the EXE stages without Pipelining.
 
-::: center
+
 ![FPGA Implementation without
 Pipelining](images/FPGAWOPipe.png){#FPGAWOPipe width="60%"}
-:::
 
 -   **Operation timing** in an FPGA is the length of time it takes a
     signal to travel from a source register to a sink register.
@@ -598,15 +583,13 @@ circuit of has a latency of one clock cycle at the expense of a low
 clock frequency. In contrast, the circuit of has a latency of five clock
 cycles at a higher clock frequency.
 
-::: center
+
 ![FPGA Implementation with
 Pipelining](images/FPGAwithPipe.png){#FPGAwithPipe width="80%"}
-:::
 
 ::: highlight
 **IMPORTANT: The latency caused by pipelining is one of the trade-offs
 to consider during FPGA design.**
-:::
 
 ### Throughput
 
@@ -627,7 +610,6 @@ has higher performance, because it can accept a higher input data rate.
 ::: highlight
 Note: The definition of throughput described in this section can also be
 used when analyzing applications executing on a processor.
-:::
 
 ### Memory Architecture and Layout
 
@@ -676,7 +658,6 @@ instantaneous memory footprint of the program.
 Although all of these techniques are portable across processors, the
 results are not. A software program must be tuned for each processor it
 runs on to maximize performance.
-:::
 
 FPGA-based systems can be attached to slow and medium memories but
 exhibit the greatest degree of differentiation in terms of available
@@ -774,7 +755,6 @@ coding limitation for Vivado HLS is with dynamic language constructs
 typical in processors with a single memory space. When using Vivado HLS,
 the main dynamic constructs to consider are memory allocation and
 pointers.
-:::
 
 ### Operations
 
@@ -930,7 +910,6 @@ allocation.
 ::: highlight
 Note: HLS cannot synthesize code that includes any of the dynamic memory
 allocation keywords even if the allocation is constant.
-:::
 
 ``` {style="CStyle"}
 // Dynamic Memory Allocation in C/C++
@@ -1041,7 +1020,6 @@ RECOMMENDED: When working with HLS, it is recommended that the designer
 ensure that the software test bench compiles and executes the function
 without issues on a processor. This guarantees that the HLS-generated
 implementation will not result in a segmentation fault.
-:::
 
 The other purpose of the software test bench is to prove the functional
 correctness of an algorithm targeted towards FPGA execution. For the
@@ -1064,7 +1042,6 @@ to the C/C++ execution reveals the incorrect statement in the algorithm.
 IMPORTANT: Errors must not be fixed directly in the generated RTL. Any
 issues with functional correctness are a direct result of the functional
 correctness of the software algorithm.
-:::
 
 ::: highlight
 TIP: The software test bench used to exercise an algorithm targeted for
@@ -1072,7 +1049,6 @@ FPGA implementation with HLS does not have any coding style
 restrictions. The software engineer is free to use any valid C/C++
 coding style or construct to thoroughly test the functional correctness
 of an algorithm.
-:::
 
 ### Code Coverage
 
@@ -1164,7 +1140,6 @@ execution. This tool flags the following critical issues:
 RECOMMENDED: Before using HLS to compile a software function for FPGA
 execution, it is recommended that all of the issues flagged by a dynamic
 code checker are resolved by the designer.
-:::
 
 ### Co-Simulation
 
@@ -1201,7 +1176,6 @@ It is also important to remember that the purpose of co-simulation is
 not to verify the functional correctness of an algorithm. Instead, the
 purpose is to check that the algorithm was not broken by user guidance
 to the HLS compiler.
-:::
 
 ### When C/C++ Verification Is Not Possible
 
@@ -1275,7 +1249,6 @@ RECOMMENDED: When working with multiple projects or modules, it is
 recommended that the source code is separated into different files. This
 simple technique prevents issues with one module compilation affecting
 the other module in the design.
-:::
 
 HLS compilation can be controlled using a Tool Command Language (Tcl)
 script file. A Tcl script file, which is analogous to a compilation
@@ -1443,7 +1416,6 @@ IMPORTANT: It is important to remember that the purpose of this
 simulation is only to check connectivity and the proper flow of data
 through the system. The connectivity verification step does not verify
 the functional correctness of the application.
-:::
 
 #### Application Verification
 
@@ -1536,7 +1508,6 @@ connectivity testing and timing driver simulation.
 ::: highlight
 IMPORTANT: It is important to remember that adding RTL modules impacts
 the runtime on the virtual platform and slows down execution.
-:::
 
 #### Device Validation
 
@@ -1586,7 +1557,6 @@ the right.
 ::: highlight
 This general purpose flexibility comes at a cost in terms of power and
 peak throughput.
-:::
 
 To achieve higher throughput, the workload must be closer to memory,
 and/or into specialized functional units. So the new challenge is to
@@ -1702,7 +1672,6 @@ Pipelining does not decrease the latency, that is, the total time for
 one item to go through the whole system. It does however increase the
 system's throughput, that is, the rate at which new items are processed
 after the first one.
-:::
 
 -   Delay associated with the number of clock cycles lost before the
     first valid output is delivered is referred to as *Iteration
@@ -1717,7 +1686,6 @@ after the first one.
 
 ::: highlight
 Total Latency = Iteration Latency + II \* (iterations - 1)
-:::
 
 Pipelining is a classical micro-level architectural optimization that
 can be applied to multiple levels of abstraction. Similar tp task-level
@@ -1752,7 +1720,6 @@ from the function definition directly into the code of the calling
 function rather than creating a separate set of instructions in memory.
 This eliminates call-linkage overhead and can expose significant
 optimization opportunities.
-:::
 
 Loops are one of the most important constructs in your program. Since
 the body of a loop is iterated over a number of times, this property can
@@ -1776,7 +1743,6 @@ resources is to pipeline operators, loops, and/or functions.
 The three paradigms show how parallelism can be achieved in the design
 without needing the complexities of multi-threading and/or parallel
 programming languages.
-:::
 
 ### Conclusion - A Prescription for performance
 
@@ -2116,10 +2082,9 @@ Outputs of the Vitis/Vivado HLS are:
 
 The shows an overview of the Vitis/Vivado HLS input and output files.
 
-::: center
+
 ![Vitis/Vivado HLS Design Flow](images/VitisFlow.png){#VitisFlow
 width="70%"}
-:::
 
 ### Coding C/C++ Functions
 
@@ -2466,7 +2431,6 @@ for your code.
 In cases where pragmas or directives conflict with other pragmas or
 directives, the synthesis process returns an error until the conflict is
 resolved.
-:::
 
 ### Using Directives in Scripts vs Pragmas in Code
 
@@ -2520,7 +2484,6 @@ scopes:
 ::: highlight
 Directives that include a recursive option, such as the PIPELINE
 directive, can be applied recursively through the hierarchy.
-:::
 
 #### Applying Optimization Directives to Global Variables
 
@@ -2549,10 +2512,9 @@ source code.
 
 ### Automatically Verifying the RTL
 
-::: center
+
 ![C/RTL Verification
 Flow](images/CRTLVerification.PNG){#CRTLVerification.PNG width="90%"}
-:::
 
 C/RTL co-simulation uses a C test bench, running the main() function, to
 automatically verify the RTL design running in behavioral simulation.
@@ -2774,7 +2736,6 @@ open_project dct
 
 ::: highlight
 Revisit
-:::
 
 ## Vitis HLS Coding Styles
 
@@ -2822,7 +2783,6 @@ non-synthesizable code from the design.
 Only the \_\_SYNTHESIS\_\_ macro should be used in the code to be
 synthesized. Macro in the test bench should not be used, as it is not
 obeyed by C/C++ simulation or C/C++ RTL co-simulation.
-:::
 
 The \_\_SYNTHESIS\_\_ macro must not be defined or undefined in code or
 with compiler options, otherwise compilation might fail. The
@@ -2890,7 +2850,6 @@ synthesis. Sub-functions are synthesized into blocks in the RTL design.
 
 ::: highlight
 The top-level function cannot be a static function.
-:::
 
 #### Inlining Functions
 
@@ -2901,7 +2860,6 @@ be kept in memory and analyzed.
 
 ::: highlight
 Vitis HLS can perform automatic inlining of small functions.
-:::
 
 If a function is inlined, there is no report or separate RTL file for
 that function. The logic and loops of the sub-function are merged with
@@ -2934,7 +2892,6 @@ required while optimizing the loops.
 ::: highlight
 Avoid use of global variables for loop index variables, as this can
 inhibit some optimizations.
-:::
 
 The loop implementation techniques are as follows:
 
@@ -2974,7 +2931,6 @@ assumption:
 ::: highlight
 There should not be any inter-iteration dependency, only then a full
 loop unroll can be achieved.
-:::
 
 -   If a loop is completely unrolled, all operations will be performed
     in parallel if data dependencies and resources allow.
@@ -3002,14 +2958,12 @@ designer.
 As the loop is unrolled partially by a certain factor, the
 accesses/fetches from a memory are increased by the same factor. Hence,
 the array or memory must be split or partitioned.
-:::
 
 Syntax: #pragma HLS UNROLL factor=8
 
-::: center
+
 ![Loop roll, unroll and partially unroll](images/LoopRoll.png){#LoopRoll
 width="\\textwidth"}
-:::
 
 #### Loop Pipelining
 
@@ -3017,9 +2971,8 @@ Loop pipelining implementation allows the operations in a loop to be
 implemented in an overlapping manner. The pipeline executes until all
 iterations of the loop are completed.
 
-::: center
+
 ![Loop pipelining](images/LoopPipe.png){#LoopPipe width="\\textwidth"}
-:::
 
 Syntax: #pragma HLS PIPELINE II=1
 
@@ -3278,10 +3231,9 @@ array access. It can be done in two ways:
 
     -   Potentially improves the throughput of the design.
 
-::: center
+
 ![Array partitioning](images/ArrayPart.png){#ArrayPart
 width="\\textwidth"}
-:::
 
 ## Defining Interfaces
 
@@ -3299,7 +3251,6 @@ changing the C code.
 ::: highlight
 Reference for this sections: Vivado Design Suite Tutorial High-Level
 Synthesis UG871
-:::
 
 ## High-Level Synthesis Introduction
 
@@ -3345,10 +3296,9 @@ perform all the major steps in the HLS design flow:
 
 Regions in the Graphical User Interface (GUI) and their functions are:
 
-::: center
+
 ![Vivado HLS Graphical User Interface](images/panes.png){#panes
 width="80%"}
-:::
 
 Explorer Pane
 
@@ -3586,7 +3536,6 @@ Vivado HLS debug environment only with C++ or SystemC. When using
 arbitrary precision types with ANSI C,the debug environment cannot be
 used. With ANSI C, you must instead use printf or fprintf statements for
 debugging.
-:::
 
 ### Lab 3: C Validation with C++ Arbitrary Precision Types
 
@@ -3601,7 +3550,6 @@ Uses a design with arbitrary precision C++ types for C Validation.
 ::: highlight
 Arbitrary precision types are a powerful means to create
 high-performance, bit accurate hardware designs.
-:::
 
 ## Interface synthesis
 
@@ -3795,7 +3743,6 @@ When AXI4-Lite interface is added, the IP packaging process creates
 software driver files to enable an external block, typically a CPU, to
 control this block (start, stop , set port values, review the interrupt
 status).
-:::
 
 ## Arbitrary Precision Types
 
@@ -3825,7 +3772,6 @@ requiring more cycles to compute the result.
 Vivado High-Level Synthesis (HLS) provides a number of bit accurate or
 arbitrary precision data-types, allowing you to model variables using
 any (arbitrary) width.
-:::
 
 ### Lab 1: Arbitrary Precision
 
@@ -3844,7 +3790,6 @@ creating a more optimal hardware implementation.
 High-Level Synthesis can synthesize floating-point types directly into
 hardware, provided the operations are standard arithmetic operations (+,
 -, \*, %).
-:::
 
 ### Lab 2: Arbitrary Precision
 
@@ -3867,7 +3812,6 @@ and reviews the results.
 Changing data types from standard C types to arbitrary precision types,
 make sure to reduce the size of the data types. This results in smaller
 operators, reduced area, and fewer clock cycles to complete.
-:::
 
 ## Design Analysis
 
@@ -3887,7 +3831,6 @@ Subsequently,the design can be revisited to improve area.
 Vivado High-Level Synthesis (HLS) provides a number of bit accurate or
 arbitrary precision data-types, allowing you to model variables using
 any (arbitrary) width.
-:::
 
 ### Lab 1: Design Optimization
 

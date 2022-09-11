@@ -1,10 +1,95 @@
-Date: 2022-09-11 Name: Maitreya Ranade\
+Digital Logic Design Revision
 
-::: center
-Digital Logic Design Revision\
-This report is written for personal understanding and not for
-publication or distribution.
-:::
+- [Digital Systems and Binary Numbers](#digital-systems-and-binary-numbers)
+  - [Introduction](#introduction)
+  - [Number representation](#number-representation)
+  - [Number base conversion](#number-base-conversion)
+    - [Decimal](#decimal)
+    - [Binary, Octal, Hexadecimal](#binary-octal-hexadecimal)
+      - [Binary Octal Conversion](#binary-octal-conversion)
+      - [Binary Hexadecimal Conversion](#binary-hexadecimal-conversion)
+  - [Complements of numbers](#complements-of-numbers)
+    - [subtraction using complements](#subtraction-using-complements)
+  - [Signed Binary Numbers](#signed-binary-numbers)
+    - [Ordinary Arithmatic](#ordinary-arithmatic)
+    - [Signed Complement System](#signed-complement-system)
+    - [Addition of signed numbers](#addition-of-signed-numbers)
+    - [Subtraction of signed numbers](#subtraction-of-signed-numbers)
+  - [Binary codes](#binary-codes)
+    - [Binary coded Decimal code (BCD)](#binary-coded-decimal-code-bcd)
+      - [BCD addition](#bcd-addition)
+    - [Gray code](#gray-code)
+    - [ASCII character code](#ascii-character-code)
+    - [Error detecting code](#error-detecting-code)
+  - [Binary storage and registers](#binary-storage-and-registers)
+    - [Registers](#registers)
+    - [Register transfer](#register-transfer)
+  - [Binary logic](#binary-logic)
+    - [Logic gates](#logic-gates)
+- [Boolean Algebra and Logic Gates](#boolean-algebra-and-logic-gates)
+  - [Boolean algebra](#boolean-algebra)
+  - [Basic theorems & Properties of boolean algebra](#basic-theorems--properties-of-boolean-algebra)
+    - [Duality](#duality)
+    - [Basic theorems](#basic-theorems)
+    - [Operator Precedence](#operator-precedence)
+  - [Boolean functions](#boolean-functions)
+    - [Truth table](#truth-table)
+  - [Canonical & standard forms](#canonical--standard-forms)
+  - [Integrated Circuits](#integrated-circuits)
+    - [Levels of Integration](#levels-of-integration)
+  - [Computer Aided Design of VLSI circuits](#computer-aided-design-of-vlsi-circuits)
+- [Gate‐Level Minimization](#gatelevel-minimization)
+  - [Hardware Description Languages](#hardware-description-languages)
+- [Combinational Circuits](#combinational-circuits)
+  - [Introduction](#introduction-1)
+    - [Sequential circuits](#sequential-circuits)
+  - [Analysis of combinational circuits](#analysis-of-combinational-circuits)
+  - [Design procedure](#design-procedure)
+  - [Binary adder Subtractor](#binary-adder-subtractor)
+    - [Half Adder](#half-adder)
+    - [Full adder](#full-adder)
+    - [Binary Adder](#binary-adder)
+    - [Binary Subtractor](#binary-subtractor)
+    - [Adder Subtractor](#adder-subtractor)
+    - [Overflow](#overflow)
+  - [Binary Multiplier](#binary-multiplier)
+  - [Magnitude Comparator](#magnitude-comparator)
+    - [Test for equality](#test-for-equality)
+    - [Test for comparison](#test-for-comparison)
+    - [Boolean functions for Magnitude Comparator](#boolean-functions-for-magnitude-comparator)
+  - [Decoders](#decoders)
+    - [Decoder Applications](#decoder-applications)
+      - [Decoder Demultiplexer](#decoder-demultiplexer)
+      - [Nested Decoders](#nested-decoders)
+      - [combinational Logic](#combinational-logic)
+  - [Encoder](#encoder)
+    - [Priority encoder](#priority-encoder)
+  - [Multiplexer](#multiplexer)
+    - [Three state gate (Tristate gate) (Tristate buffer)](#three-state-gate-tristate-gate-tristate-buffer)
+      - [High impedence state](#high-impedence-state)
+- [Synchronous Sequential Logic](#synchronous-sequential-logic)
+  - [Introduction](#introduction-2)
+  - [Types of sequential circuits](#types-of-sequential-circuits)
+  - [Storage Elements: Latches](#storage-elements-latches)
+    - [SR Latch (Set Reset Latch)](#sr-latch-set-reset-latch)
+      - [SR latch with control input](#sr-latch-with-control-input)
+- [Registers and Counters](#registers-and-counters)
+  - [Number conversion. Revise, watch youtube videos](#number-conversion-revise-watch-youtube-videos)
+  - [Binary storage and registers](#binary-storage-and-registers-1)
+    - [Registers](#registers-1)
+    - [Register Transfer](#register-transfer-1)
+- [Memory and Programmable Logic](#memory-and-programmable-logic)
+  - [Number conversion. Revise, watch youtube videos](#number-conversion-revise-watch-youtube-videos-1)
+  - [Binary storage and registers](#binary-storage-and-registers-2)
+    - [Registers](#registers-2)
+    - [Register Transfer](#register-transfer-2)
+- [Design at the Register Transfer Level](#design-at-the-register-transfer-level)
+  - [Number conversion. Revise, watch youtube videos](#number-conversion-revise-watch-youtube-videos-2)
+  - [Binary storage and registers](#binary-storage-and-registers-3)
+    - [Registers](#registers-3)
+    - [Register Transfer](#register-transfer-3)
+
+
 
 # Digital Systems and Binary Numbers
 
@@ -227,10 +312,9 @@ through data‐processing circuits to perform an operation. **The device
 most commonly used for holding data is a register, and Binary variables
 are manipulated by means of digital logic circuits.**
 
-::: center
+
 ![Transfer of information among registers](images/RTL.png){#RTL
 width="4in"}
-:::
 
 ## Binary logic
 
@@ -247,10 +331,9 @@ signals to produce an output signal. Binary information into voltage
 levels. Voltage ranges are assigned to logic 0 & Logic 1 for
 interpretation.
 
-::: center
+
 ![Logic Gates & their Truth tables](images/LogicGates.png){#LogicGates
 width="\\textwidth"}
-:::
 
 # Boolean Algebra and Logic Gates
 
@@ -676,7 +759,6 @@ memory elements are connected to form a feedback path.
 
 ::: highlight
 Insert Figure 5.1 Block diagram of sequential circuit
-:::
 
 The storage elements are devices capable of storing binary information.
 The binary information stored in the memory elements determines the
@@ -710,7 +792,6 @@ one bit of information.
 
 ::: highlight
 Insert fig 5.2 synchronous sequential circuits
-:::
 
 A storage element in a digital circuit can maintain a binary state
 indefinitely (as long as power is delivered to the circuit), until
@@ -737,7 +818,6 @@ complement of each other.
 ::: highlight
 Insert Figure 5.3 5.4 SR Latch implementation with NOR gates and NAND
 gates.
-:::
 
 SR latch with two cross-coupled NOR gates:
 
@@ -770,7 +850,6 @@ R input is allowed to affect the latch. The
 
 ::: highlight
 Insert FIGURE 5.5 SR latch with control input
-:::
 
 # Registers and Counters
 

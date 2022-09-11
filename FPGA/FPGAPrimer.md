@@ -1,10 +1,236 @@
-Date: 2022-09-11 Name: Maitreya Ranade
+FPGA Primer
 
-::: center
-FPGA Primer\
-This report is written for personal understanding and not for
-publication or distribution.
-:::
+- [Overview](#overview)
+- [Hardware](#hardware)
+  - [Introduction](#introduction)
+    - [History of Programmable Logic](#history-of-programmable-logic)
+    - [What is an FPGA?](#what-is-an-fpga)
+    - [FPGAs are not microcontrollers](#fpgas-are-not-microcontrollers)
+    - [Programmable Logic Devices (PLD)](#programmable-logic-devices-pld)
+      - [Programmable Logic Devices](#programmable-logic-devices)
+      - [Application Specific Integrated Circuits](#application-specific-integrated-circuits)
+      - [FPGAs](#fpgas)
+  - [FPGA Architecture](#fpga-architecture)
+    - [Intel FPGA Architechture](#intel-fpga-architechture)
+      - [Look Up Tables(LUTs)](#look-up-tablesluts)
+      - [Programmable Register](#programmable-register)
+      - [Carry and Register chains](#carry-and-register-chains)
+      - [Adaptive Logic Module (ALM)](#adaptive-logic-module-alm)
+    - [Intel Products](#intel-products)
+      - [Intel FPGAs](#intel-fpgas)
+      - [Intel eASIC Devices](#intel-easic-devices)
+    - [Plain FPGA / Inside an FPGA: Logic blocks](#plain-fpga--inside-an-fpga-logic-blocks)
+      - [Logic blocks](#logic-blocks)
+      - [Interconnects](#interconnects)
+      - [I/O blocks](#io-blocks)
+      - [Clock management blocks](#clock-management-blocks)
+      - [Memory blocks](#memory-blocks)
+      - [Hard IP Cores](#hard-ip-cores)
+    - [System on Chip / SoC](#system-on-chip--soc)
+      - [Software Profiling](#software-profiling)
+  - [Timing Analysis](#timing-analysis)
+    - [Introduction](#introduction-1)
+    - [Reasons for performing Timing Analysis](#reasons-for-performing-timing-analysis)
+    - [Types of Timing Analysis](#types-of-timing-analysis)
+      - [Clock directives](#clock-directives)
+      - [Flip-Flop directives](#flip-flop-directives)
+  - [Static Timing Analysis (STA)](#static-timing-analysis-sta)
+      - [Definition](#definition)
+      - [Description](#description)
+    - [Timing Paths](#timing-paths)
+    - [Types of Timing Paths](#types-of-timing-paths)
+      - [Data path](#data-path)
+        - [Types of Data Paths](#types-of-data-paths)
+      - [Clock Path](#clock-path)
+      - [Clock Gating Path](#clock-gating-path)
+      - [Asynchronous path](#asynchronous-path)
+    - [Other types of Paths](#other-types-of-paths)
+    - [Setup and Hold Time](#setup-and-hold-time)
+      - [Definition](#definition-1)
+    - [Setup and Hold Violation](#setup-and-hold-violation)
+    - [Delay Calculation](#delay-calculation)
+    - [Timing Constraints](#timing-constraints)
+      - [About XDC Constraints](#about-xdc-constraints)
+      - [Recommended Constraints Sequence](#recommended-constraints-sequence)
+      - [create_clock](#create_clock)
+        - [virtual clock](#virtual-clock)
+      - [set_clock_uncertainty](#set_clock_uncertainty)
+      - [set_clock_latency](#set_clock_latency)
+      - [set_clock_transition](#set_clock_transition)
+      - [set_input_delay](#set_input_delay)
+      - [set_output_delay](#set_output_delay)
+      - [set_false_path](#set_false_path)
+      - [set_clock_groups](#set_clock_groups)
+      - [Timing effects](#timing-effects)
+  - [Clock Domain Crossing(CDC)](#clock-domain-crossingcdc)
+    - [Basic definitions](#basic-definitions)
+    - [Asynchronous Clocks](#asynchronous-clocks)
+    - [Basic definitions for CDC](#basic-definitions-for-cdc)
+      - [Setup Time](#setup-time)
+      - [Hold Time](#hold-time)
+      - [Metastability](#metastability)
+      - [Why is metastability a problem?](#why-is-metastability-a-problem)
+      - [Synchronizers](#synchronizers)
+      - [Two Flip-Flop synchronizer](#two-flip-flop-synchronizer)
+      - [Mean Time Before Failure (MTBF)](#mean-time-before-failure-mtbf)
+      - [Three Flip-Flop synchronizer](#three-flip-flop-synchronizer)
+    - [Synchronizing fast signals into slow clock domains](#synchronizing-fast-signals-into-slow-clock-domains)
+      - [The \"three edge\" guideline](#the-three-edge-guideline)
+      - [Open loop solution](#open-loop-solution)
+        - [Advantage](#advantage)
+        - [Disadvantage](#disadvantage)
+      - [Closed loop solution](#closed-loop-solution)
+        - [Advantage](#advantage-1)
+        - [Disadvantage](#disadvantage-1)
+    - [Passing multiple signals between clock domains](#passing-multiple-signals-between-clock-domains)
+      - [Multi-bit CDC strategies](#multi-bit-cdc-strategies)
+      - [Multi-bit signal consolidation](#multi-bit-signal-consolidation)
+      - [Multi-cycle path(MCP) formulations](#multi-cycle-pathmcp-formulations)
+        - [Advantages](#advantages)
+        - [MCP formulation using a synchronized enable pulse](#mcp-formulation-using-a-synchronized-enable-pulse)
+        - [Closed-loop - MCP formulation with feedback](#closed-loop---mcp-formulation-with-feedback)
+        - [Closed-loop - MCP formulation with acknowledge feedback](#closed-loop---mcp-formulation-with-acknowledge-feedback)
+      - [Passing multiple CDC bits using gray codes](#passing-multiple-cdc-bits-using-gray-codes)
+      - [Additional multi-bit CDC techniques](#additional-multi-bit-cdc-techniques)
+        - [Asynchronous FIFO implementation](#asynchronous-fifo-implementation)
+        - [1-deep / 2-register FIFO implementation](#1-deep--2-register-fifo-implementation)
+    - [Naming conventions & design partitioning](#naming-conventions--design-partitioning)
+      - [Clock & signal naming conventions](#clock--signal-naming-conventions)
+      - [Multi-clock / multi-source modules with no naming convention](#multi-clock--multi-source-modules-with-no-naming-convention)
+      - [Timing verification for each clock domain](#timing-verification-for-each-clock-domain)
+      - [Clock oriented design partitioning](#clock-oriented-design-partitioning)
+      - [Partitioning with MCP formulations](#partitioning-with-mcp-formulations)
+    - [Multi-clock gate-level simulation issues](#multi-clock-gate-level-simulation-issues)
+      - [Strategies to remove X-propagation from gate-level simulations](#strategies-to-remove-x-propagation-from-gate-level-simulations)
+    - [Summary](#summary)
+      - [Recommended 1-bit CDC techniques](#recommended-1-bit-cdc-techniques)
+      - [Recommended multi-bit CDC techniques](#recommended-multi-bit-cdc-techniques)
+      - [Recommended naming conventions and design partitioning](#recommended-naming-conventions-and-design-partitioning)
+      - [Recommended solutions to multi-clock gate-level CDC simulations](#recommended-solutions-to-multi-clock-gate-level-cdc-simulations)
+    - [Reference for CDC Section](#reference-for-cdc-section)
+    - [Clock Domain Crossing from NANDLAND](#clock-domain-crossing-from-nandland)
+      - [Case I : Crossing from Slow to Fast domain](#case-i--crossing-from-slow-to-fast-domain)
+      - [Case II : Crossing from Fast to Slow domain](#case-ii--crossing-from-fast-to-slow-domain)
+      - [Case III : Crossing with Streaming Data](#case-iii--crossing-with-streaming-data)
+      - [Timing Errors](#timing-errors)
+      - [Propogation Delay](#propogation-delay)
+- [Protocols](#protocols)
+  - [AXI UART](#axi-uart)
+  - [AXI](#axi)
+    - [Protocol Overview](#protocol-overview)
+      - [Summary of AXI4 Benefits](#summary-of-axi4-benefits)
+      - [How AXI Works](#how-axi-works)
+  - [SPI](#spi)
+    - [Protocol Overview](#protocol-overview-1)
+    - [Data Transmission](#data-transmission)
+    - [Clock Polarity and Clock Phase](#clock-polarity-and-clock-phase)
+    - [Multislave Configuration](#multislave-configuration)
+      - [Regular SPI Mode](#regular-spi-mode)
+      - [Daisy-Chain Method](#daisy-chain-method)
+  - [PCIe](#pcie)
+    - [PCI speeds](#pci-speeds)
+    - [PCIe features](#pcie-features)
+    - [PCI connector](#pci-connector)
+    - [PCIe clock recovery](#pcie-clock-recovery)
+      - [8b/10b encoding](#8b10b-encoding)
+      - [Packetized transactions](#packetized-transactions)
+    - [PCIe Stack](#pcie-stack)
+- [Peripherals & IPs](#peripherals--ips)
+  - [Memory](#memory)
+    - [Types of memory](#types-of-memory)
+    - [Memory Hierarchy Design](#memory-hierarchy-design)
+  - [RAM](#ram)
+    - [SRAM](#sram)
+      - [Large SRAM implementation](#large-sram-implementation)
+    - [DRAM](#dram)
+      - [DRAM vs SRAM](#dram-vs-sram)
+      - [Asynchronous & Synchronous DRAM](#asynchronous--synchronous-dram)
+      - [Interleaving](#interleaving)
+      - [Organization of the DRAM](#organization-of-the-dram)
+      - [DRAM Subsystem](#dram-subsystem)
+  - [::: {#tab:DRAMComponents}](#-tabdramcomponents)
+      - [Basic DRAM Controller Operation](#basic-dram-controller-operation)
+      - [Internal Physical Structure of DRAM](#internal-physical-structure-of-dram)
+    - [DDR RAM](#ddr-ram)
+    - [DDR2 RAM](#ddr2-ram)
+    - [DDR3 RAM](#ddr3-ram)
+    - [DDR4 RAM](#ddr4-ram)
+    - [Application specific DDR versions](#application-specific-ddr-versions)
+    - [DDR Packaging](#ddr-packaging)
+    - [Xilinx DDR MIG Controller IP](#xilinx-ddr-mig-controller-ip)
+  - [Flash Memory](#flash-memory)
+    - [QSPI Flash](#qspi-flash)
+  - [EMMC](#emmc)
+    - [eMMC Device Overview](#emmc-device-overview)
+  - [Gigabit Ethernet](#gigabit-ethernet)
+    - [1G/2.5G Ethernet IP](#1g25g-ethernet-ip)
+    - [10G/25G Ethernet IP](#10g25g-ethernet-ip)
+  - [Direct Memory Access](#direct-memory-access)
+- [Software & Tools](#software--tools)
+  - [FPGA development process overview](#fpga-development-process-overview)
+    - [FPGA generic design flow](#fpga-generic-design-flow)
+      - [Design Entry](#design-entry)
+      - [Design Implementation](#design-implementation)
+      - [Design Verification](#design-verification)
+    - [RTL Design](#rtl-design)
+    - [IP Design and System-Level Design Integration](#ip-design-and-system-level-design-integration)
+    - [IP Subsystem Design](#ip-subsystem-design)
+    - [I/O and Clock Planning](#io-and-clock-planning)
+    - [Xilinx Platform Board Support](#xilinx-platform-board-support)
+      - [Board Files](#board-files)
+    - [Synthesis](#synthesis)
+    - [Design Analysis and Simulation](#design-analysis-and-simulation)
+      - [Simulation](#simulation)
+    - [Placement and Routing](#placement-and-routing)
+    - [Hardware Debug and Validation](#hardware-debug-and-validation)
+    - [Generate Bitstream](#generate-bitstream)
+    - [Program FPGA](#program-fpga)
+    - [FAQs](#faqs)
+  - [Vivado](#vivado)
+  - [HDL](#hdl)
+    - [Digital system modeling](#digital-system-modeling)
+      - [Levels of abstraction](#levels-of-abstraction)
+    - [Verilog](#verilog)
+      - [Features of Verilog](#features-of-verilog)
+      - [Verilog Code structure](#verilog-code-structure)
+      - [Net data types](#net-data-types)
+      - [Variable data types](#variable-data-types)
+      - [Two methods to define port connections](#two-methods-to-define-port-connections)
+      - [Operators](#operators)
+      - [Assignments](#assignments)
+      - [RTL processes](#rtl-processes)
+      - [Behavioral statements](#behavioral-statements)
+      - [Subprograms](#subprograms)
+    - [Verilog vs SystemVerilog](#verilog-vs-systemverilog)
+  - [Petalinux](#petalinux)
+    - [Petalinux Design Flow](#petalinux-design-flow)
+    - [QEMU](#qemu)
+  - [Version Control: Git, Bitbucket](#version-control-git-bitbucket)
+  - [Scripting](#scripting)
+    - [Shell](#shell)
+      - [Time commands and set variables](#time-commands-and-set-variables)
+      - [Bash startup](#bash-startup)
+      - [Sourcing and aliasing with bash](#sourcing-and-aliasing-with-bash)
+      - [echo command](#echo-command)
+      - [The typeset and declare commands for variables](#the-typeset-and-declare-commands-for-variables)
+      - [Debugging](#debugging)
+    - [TCL](#tcl)
+  - [CMake](#cmake)
+  - [Linux Commands](#linux-commands)
+    - [File Commands](#file-commands)
+    - [Process management](#process-management)
+    - [File permission](#file-permission)
+    - [Searching](#searching)
+    - [System Info](#system-info)
+    - [Compression](#compression)
+    - [Network](#network)
+    - [Shortcuts](#shortcuts)
+    - [Miscellaneous](#miscellaneous)
+- [Links & References](#links--references)
+  - [FPGA overview Material](#fpga-overview-material)
+  - [Important References for additional information](#important-references-for-additional-information)
+  - [Books](#books)
+
 
 # Overview
 
@@ -152,9 +378,8 @@ Suggested Readings:
 
 FPGAs are a subset programmable logic devices.
 
-::: center
+
 ![PLD Classification](images/PLD.png){#PLD width="5in"}
-:::
 
 CPLD (Complex Programmable Logic Devices):\
 CPLDs have several useful characteristics, including easy generation of
@@ -194,13 +419,12 @@ logic\" in order to connect large ICs. Reduces system complexity Density
 of FPGA continue to grow (gates/area) FPGA prototyping for ASIC
 verification
 
-::: center
+
   **Performance**   **Non recurring cost**   **Unit Cost**    **Time to Market**
   ----------------- ------------------------ ---------------- --------------------
   ASIC              ASIC                     FPGA             ASIC
   FPGA              FPGA                     Microprocessor   FPGA
   Microprocessor    Microprocessor           ASIC             Microprocessor
-:::
 
 ## FPGA Architecture
 
@@ -372,15 +596,13 @@ Types: D FF, JK FF, T FF.
 
 -   D Flip-flop: Aligns input data to the clock edges.
 
-    ::: center
+    
     ![D Flip Flop](images/D-FF.png){#DFF width="4in"}
-    :::
-
-    ::: center
+    
+    
     ![Timing diagram of D Flip flop](images/D-FF-Timing.png){#DFFTime
     width="4in"}
-    :::
-
+    
 -   JK Flip-flop
 
 -   T Flip-flop
@@ -394,9 +616,8 @@ semiconductor switches. Each of these switches is either open or closed
 depending on a logic state in it's input. These open or closed states
 come from a special memory in the FPGA.
 
-::: center
+
 ![Switch Box](images/ICSwitch.png){#SwitchBox width="5in"}
-:::
 
 This is how a switch box may be implemented in . At the left we have six
 different wires that may be connected between each other in any way.
@@ -408,9 +629,8 @@ switch box is capable of routing two different signals. For example, one
 that goes horizontally and one that goes vertically through the switch
 box.
 
-::: center
+
 ![Interconnect](images/IC.png){#Interconnect width="5in"}
-:::
 
 Interconnect seems simple enough and they are very simple indeed as
 shown in . But the real power in an FPGA comes from the enormous number
@@ -624,19 +844,17 @@ timing paths. Each timing path consists of the following elements:
     Every endpoint must be either a register data input pin or an output
     port.
 
-::: center
+
 ![Timing paths in a simple design
 example](images/STAPaths.jpg){#STAPaths width="4.5in"}
-:::
 
 A combinatorial logic cloud might contain multiple paths, as shown in
 the . STA uses the longest path to calculate a maximum delay and the
 shortest path to calculate a minimum delay.
 
-::: center
+
 ![Multiple timing paths in a combinatorial
 logic](images/STAMultipath.jpg){#STAMultipath width="4in"}
-:::
 
 The STA tool analyzes all the paths from each and every startpoint to
 each and every endpoint and compares it against the constraint that
@@ -657,10 +875,9 @@ There are 4 types of Timing Paths:
 
 4.  Asynchronous Path
 
-::: center
+
 ![Types of timing paths in a combinatorial
 logic](images/STAPathTypes.jpg){#STAPathTypes width="4.5in"}
-:::
 
 Each of the Timing Paths, is explained with the help of in sections
 below.
@@ -693,10 +910,9 @@ Points, there are 4 types of Timing Paths, which are mentioned below:
 
 4.  Register (Flip-Flop) to Output pin/port
 
-::: center
+
 ![Types of Data Paths in a combinatorial
 logic](images/STADataPath.png){#STADataPath width="\\textwidth"}
-:::
 
 -   PATH1- starts at an input port and ends at the data input of a
     sequential element. (Input port to Register)
@@ -781,10 +997,9 @@ clock input of a D Flip-Flop (say positive edge triggered). To capture
 the data correctly at D Flip-Flop, data should be present at the time of
 positive edge of clock signal at the Clk pin.
 
-::: center
+
 ![Setup and Hold Time of the
 system](images/STASetupHold.jpg){#STASetupHold width="4.5in"}
-:::
 
 Where,
 
@@ -861,10 +1076,9 @@ held steady after the clock event so that the data are reliably sampled.
 In other words, Hold time is the minimum amount of time required for the
 input of a Flip-Flop to be stable after the clock edge comes along.\
 
-::: center
+
 ![Setup and Hold Time
 Definitions](images/STASetupHold2.jpg){#STASetupHold2 width="4.5in"}
-:::
 
 As the D Flip-Flop can be constructed with various implementations like,
 JK Flip-Flop, master slave Flip-Flop, Using 2 D type latches etc. Since,
@@ -878,11 +1092,10 @@ edge of the clock, there is a Setup violation at that Flip-Flop.\
 If the data is not stable after Hold time calculated from active edge of
 the clock, there is a hold violation at that Flip-Flop.
 
-::: center
+
 ![Setup and Hold Time
 Violation](images/STASetupHoldViolation.jpg){#STASetupHoldViolation
 width="4.5in"}
-:::
 
 is used to explain the Setup and Hold time Violation. The register
 transfer level is implemented on the hardware with VLSI technologies.
@@ -892,15 +1105,13 @@ inside any digital design hardware implementations. Two registers
 working on a single clock launching and capturing data with some form of
 combinatorial logic sitting between the two.
 
-::: center
+
 ![Basic concepts of Timing Analysis](images/TimingFF.png){#TimingFF
 width="\\textwidth"}
-:::
 
-::: center
+
 ![Timing Diagram](images/TimingDiaFF.png){#TimingDiaFF
 width="\\textwidth"}
-:::
 
 Following are the basic concepts of Timing Analysis & Setup, Hold
 Violation:
@@ -996,10 +1207,9 @@ Violation:
 -   **Recovery** The minimum time an asynchronous signal must be
     de-asserted BEFORE clock edge.
 
-::: center
+
 ![Timing Diagram for Removal and Recovery
 Time](images/TimingRR.png){#TimingRR width="\\textwidth"}
-:::
 
 Formulae
 
@@ -1870,10 +2080,9 @@ condition. One can add 2 flip flops with a clock of faster clock
 This is also used to bring non-clocked data into the FPGA from an
 external source.
 
-::: center
+
 ![Crossing from Slow to Fast
 domain](images/SlowToFastCDC.png){#SlowToFastCDC width="5in"}
-:::
 
 #### Case II : Crossing from Fast to Slow domain
 
@@ -1884,10 +2093,9 @@ condition. One can stretch the faster clock pulse for a duration in
 whcih the slower clock can definitely detect it as shown in the sample
 clocks of fig .
 
-::: center
+
 ![Crossing from Fast to Slow
 domain](images/FastToSlowCDC.png){#FastToSlowCDC width="5in"}
-:::
 
 #### Case III : Crossing with Streaming Data
 
@@ -1906,9 +2114,8 @@ for the input and output. There are two checklists for a FIFO: Never
 read from an empty FIFO and Never write to a Full FIFO. Don't go beyond
 overflow and underflow.
 
-::: center
+
 ![Signals of FIFO](images/FIFO.png){#FIFO width="5in"}
-:::
 
 #### Timing Errors
 
@@ -1942,10 +2149,9 @@ controller interface for asynchronous serial data transfer. This soft
 LogiCORE IP core is designed to interface with the AXI4-Lite protocol.
 The internals of AXI UART IP is shown in .
 
-::: center
+
 ![Internal block diagram of AXI UART IP](images/UART.png){#UART
 width="\\textwidth"}
-:::
 
 ## AXI
 
@@ -2023,17 +2229,15 @@ There are three types of AXI4 interfaces:
 
 4.  AXI4 Read Transaction:
 
-    ::: center
+    
     ![AXI4 Read Transaction](images/AXIREAD.png){#AXIREAD width="4in"}
-    :::
-
+    
 5.  AXI4 Write Transaction:
 
-    ::: center
+    
     ![AXI4 Write Transaction](images/AXIWRITE.png){#AXIWRITE
     width="4in"}
-    :::
-
+    
 6.  At a hardware level, AXI4 allows systems to be built with a
     different clock for each AXI master-slave pair. In addition, the
     AXI4 protocol allows the insertion of register slices (often called
@@ -2057,9 +2261,8 @@ and peripheral ICs such as sensors, ADCs, DACs, shift registers, SRAM,
 and others. SPI is a synchronous, full duplex master-slave-based
 interface. The SPI interface can be either 3-wire or 4-wire.
 
-::: center
+
 ![SPI Protocol Overview](images/SPI.png){#SPI width="4in"}
-:::
 
 4-wire SPI devices have four signals:
 
@@ -2114,8 +2317,7 @@ must select the clock polarity and clock phase, as per the requirement
 of the slave. Depending on the CPOL and CPHA bit selection, four SPI
 modes are available.
 
-::: center
-:::
+
 
 through show an example of communication in four SPI modes. In these
 examples, the data is shown on the MOSI and MISO line. The start and end
@@ -2127,11 +2329,10 @@ clock phase in this mode is 0, which indicates that the data is sampled
 on the rising edge and the data is shifted on the falling edge of the
 clock signal.
 
-::: center
+
 ![SPI Mode 0, CPOL = 0, CPHA = 0: CLK idle state = low, data sampled on
 rising edge and shifted on falling edge.](images/SPIMode0.png){#SPIMode0
 width="90%"}
-:::
 
 shows the timing diagram for SPI Mode 1. In this mode, clock polarity is
 0, which indicates that the idle state of the clock signal is low. The
@@ -2139,11 +2340,10 @@ clock phase in this mode is 1, which indicates that the data is sampled
 on the falling edge and the data is shifted on the rising edge of the
 clock signal.
 
-::: center
+
 ![SPI Mode 1, CPOL = 0, CPHA = 1: CLK idle state = low, data sampled on
 the falling edge and shifted on the rising
 edge.](images/SPIMode1.png){#SPIMode1 width="90%"}
-:::
 
 shows the timing diagram for SPI Mode 2. In this mode, the clock
 polarity is 1, which indicates that the idle state of the clock signal
@@ -2151,11 +2351,10 @@ is high. The clock phase in this mode is 1, which indicates that the
 data is sampled on the falling edge and the data is shifted on the
 rising edge of the clock signal.
 
-::: center
+
 ![SPI Mode 2, CPOL = 1, CPHA = 1: CLK idle state = high, data sampled on
 the falling edge and shifted on the rising
 edge.](images/SPIMode2.png){#SPIMode2 width="90%"}
-:::
 
 shows the timing diagram for SPI Mode 3. In this mode, the clock
 polarity is 1, which indicates that the idle state of the clock signal
@@ -2163,11 +2362,10 @@ is high. The clock phase in this mode is 0, which indicates that the
 data is sampled on the rising edge and the data is shifted on the
 falling edge of the clock signal.
 
-::: center
+
 ![SPI Mode 3, CPOL = 1, CPHA = 0: CLK idle state = high, data sampled on
 the rising edge and shifted on the falling
 edge.](images/SPIMode3.png){#SPIMode3 width="90%"}
-:::
 
 ### Multislave Configuration
 
@@ -2176,10 +2374,9 @@ connected in regular mode or daisy-chain mode.
 
 #### Regular SPI Mode
 
-::: center
+
 ![Multislave Configuration](images/SPIMultiSlave.png){#SPIMultiSlave
 width="4in"}
-:::
 
 In regular mode, an individual chip select for each slave is required
 from the master. Once the chip select signal is enabled (pulled low) by
@@ -2193,10 +2390,9 @@ master and limit the number of slaves that can be used.
 
 #### Daisy-Chain Method
 
-::: center
+
 ![Daisy-Chain Multislave Configuration](images/SPIDaisy.png){#SPIDaisy
 width="2in"}
-:::
 
 In daisy-chain mode, the slaves are configured such that the chip select
 signal for all slaves is tied together and data propagates from one
@@ -2211,10 +2407,9 @@ in the daisy chain. shows the clock cycles and data propagating through
 the daisy chain. Daisy-chain mode is not necessarily supported by all
 SPI devices.
 
-::: center
+
 ![Daisy-chain configuration: data
 propagation.](images/SPIDaisyTiming.png){#SPIDaisyTiming width="50%"}
-:::
 
 ## PCIe
 
@@ -2248,9 +2443,8 @@ decent speed of 133 to 533 MBps. PCI X, which is the next generation and
 was developedaround 1995, had one GBps. The latest, PCIe architectures,
 have very highr data rates as mentioned below:
 
-::: center
+
 ![PCIe Speeds](images/PCIeSpeeds.png){#PCIeSpeeds width="5in"}
-:::
 
 ### PCIe features
 
@@ -2352,9 +2546,8 @@ Most of the complex functions mentioned above are handled by the
 PCIExpress stack. PCIExpress stack is composed of three layers Physical
 layer, Datalink layer, and Transition layer.
 
-::: center
+
 ![PCIe Stack](images/PCIeStack.png){#PCIeStack width="5in"}
-:::
 
 PCI Express FPGA core usually which is a combination of the hard and
 soft core. This handles all the complexity. So as the user end, one only
@@ -2391,11 +2584,10 @@ stored in memory.
 shows a logical picture of components of a Modern Computer. One can
 observe how different types of memories are interfaced with a processor.
 
-::: center
+
 ![Component of a Modern
 Computer](images/ModernComputer.png){#ModernComputer
 width="\\textwidth"}
-:::
 
 ### Types of memory
 
@@ -2448,11 +2640,10 @@ Memory Hierarchy was developed based on a program behavior known as
 locality of references. clearly demonstrates the different levels of
 memory hierarchy:
 
-::: center
+
 ![Component of a Modern
 Computer](images/MemoryStructure.png){#MemoryStructure
 width="\\textwidth"}
-:::
 
 This Memory Hierarchy Design is divided into 2 main types:
 
@@ -2497,9 +2688,8 @@ Static random access memory (static RAM or SRAM) is a type of RAM that
 uses latching circuitry (flip-flop) to store each bit. shows an SRAM
 cell.
 
-::: center
+
 ![Static RAM cell](images/SRAM.png){#SRAM width="5in"}
-:::
 
 SRAM cell can store 1 bit of information which consists of a row line
 and a bitline. A pair of bit lines is used for storage of every bit, one
@@ -2542,9 +2732,8 @@ access memory that stores each bit of data in a memory cell, usually
 consisting of a tiny capacitor and a transistor, both typically based on
 metal-oxide-semiconductor (MOS) technology.
 
-::: center
+
 ![Dynamic RAM cell](images/DRAMCell.png){#DRAMCell width="5in"}
-:::
 
 Bits are basically stored as charges on the capacitor and a memory cell
 lose charge when it is read. When there exists a potential difference
@@ -2595,7 +2784,6 @@ static in SRAM.
 ::: highlight
 Density plays a crucial role in accommodating larger memory in a smaller
 size memory. DRAM is preferred in order to implement the primary memory.
-:::
 
 #### Asynchronous & Synchronous DRAM
 
@@ -2700,11 +2888,10 @@ shows the organization of the DRAM.
 
 -   Breaking down a bank, each bank consists of rows as well as columns.
 
-::: center
+
 ![Organization of the
 DRAM](images/DRAMOrganization.png){#DRAMOrganization
 width="\\textwidth"}
-:::
 
 Going down another level, DRAM consists of a page mode structure. DRAM
 bank is a 2D array of cells which consists of rows and columns. Each
@@ -2741,10 +2928,9 @@ Subsystem. DRAM Subsystem is made up of 3 components:
 
 -   A DRAM Controller
 
-::: center
+
 ![DRAM Subsystem](images/DRAMSubsystem.png){#DRAMSubsystem
 width="\\textwidth"}
-:::
 
 ::: {#tab:DRAMComponents}
   -------------------------------------------------------------------
@@ -2781,7 +2967,6 @@ width="\\textwidth"}
   -------------------------------------------------------------------
 
   : DRAM Memory Interface Design Major components & Descriptions
-:::
 
 The DRAM is soldered down on the board. The PHY and controller, along
 with user logic are typically part of the same FPGA or ASIC. The
@@ -2856,7 +3041,6 @@ row. The values in registers select the bank address & the starting
 column location in the active row. DRAMs use a Write Latency (WL) equal
 to Read Latency (RL) minus one clock cycle.\
 $Write Latency = Read Latency - 1 = (Additive Latency + CAS Latency) - 1$
-:::
 
 DRAM Controller Operation is as follows:
 
@@ -2916,18 +3100,16 @@ DRAM Controller Operation is as follows:
 
 #### Internal Physical Structure of DRAM
 
-::: center
+
 ![Top Level DRAM block diagram](images/DRAMPHY.png){#Top Level
 width="\\textwidth"}
-:::
 
 Usually, DRAM has clock, reset, chip-select, address and data inputs as
 shown in . The mentions all the pins in detail.
 
-::: center
+
 ![DRAM block diagram](images/DRAMPorts.png){#DRAM ports
 width="\\textwidth"}
-:::
 
 ### DDR RAM
 
@@ -3255,10 +3437,9 @@ devices):
     device can also enter inactive mode with GO_INACTIVE_STATE command
     (CMD15). The device will reset to Pre-idle state with power cycle.
 
-::: center
+
 ![Internal block diagram of EMMC IP](images/emmc.png){#emmc
 width="\\textwidth"}
-:::
 
 If the CMD line is held LOW for 74 clock cycles and more after powerup
 or reset operation (either through CMD0 with the argument of 0xF0F0F0F0
@@ -3268,11 +3449,10 @@ issued, the slave recognizes that boot mode is being initiated and
 starts preparing boot data internally. Timing diagram of EMMC IP Boot up
 sequence is shown in
 
-::: center
+
 ![Timing diagram of EMMC IP Boot up
 sequence](images/BootUpSeqTiming.png){#BootUpSeqTiming
 width="\\textwidth"}
-:::
 
 The partition from which the master will read the boot data can be
 selected in advance using EXT_CSD byte \[179\], bits \[5:3\]. The data
@@ -3332,10 +3512,9 @@ MMC initialization sequence by sending CMD1. Please find the boot
 sequence in which will be operated by the eMMC driver in the hindsight
 for initialization and then for the operation of the eMMC memory.
 
-::: center
+
 ![EMMC IP Boot up sequence](images/BootUpSeq.png){#BootUpSeq
 width="\\textwidth"}
-:::
 
 ## Gigabit Ethernet
 
@@ -3398,10 +3577,9 @@ devices. IEEE 802.3ab, which defines the widely used 1000BASET interface
 type, uses a different encoding scheme in order to keep the symbol rate
 as low as possible, allowing transmission over twisted pair.
 
-::: center
+
 ![Internal block diagram of 1G/2.5G Ethernet Subsystem
 IP](images/1G.png){#1G width="\\textwidth"}
-:::
 
 The AXI Ethernet Subsystem provides a control interface to internal
 registers via a 32bit AXI4Lite Interface subset. This AXI4Lite slave
@@ -3430,10 +3608,9 @@ PCS/PMA or SGMII module.
 
 ### 10G/25G Ethernet IP
 
-::: center
+
 ![Internal block diagram of 10G/25G Ethernet Subsystem
 IP](images/10G.png){#10G width="\\textwidth"}
-:::
 
 The Xilinx LogiCORE IP 10G/25G Ethernet solution provides a 10 Gigabit
 or 25 Gigabit per second (Gbps) Ethernet Media Access Controller
@@ -3456,10 +3633,9 @@ Subsystem IP is shown in .
 
 FPGA generic design flow is shown in the .
 
-::: center
+
 ![FPGA generic design flow](images/GenFlow.png){#FPGAGenFlow
 width="\\textwidth"}
-:::
 
 #### Design Entry
 
@@ -3486,10 +3662,9 @@ parts: implementation and verification.
     design in every step of the implementation. And this is, as you may
     imagine, an iterative process.
 
-::: center
+
 ![FPGA development process](images/FPGADevelop.png){#FPGADevelopment
 width="\\textwidth"}
-:::
 
 These are the steps involved in the implementation process. The first
 step is to write the source code which is a description of the hardware
@@ -3538,10 +3713,9 @@ requirements, and the final application hardware can be put to the test
 with the help of in-circuit verification tools often provided by the
 FPGA vendor.
 
-::: center
+
 ![Xilinx Vivado Workflow](images/FPGADesignFlow.png){#VivadoOverview
 width="\\textwidth"}
-:::
 
 The individual blocks Xilinx Vivado Workflow are explained below:
 
@@ -3750,9 +3924,8 @@ Notice that the first wire specified is the output and the remaining
 ones are the inputs. Take your time to read the code and try to
 understand what it means.
 
-::: center
+
 ![HDL Code of Half Adder](images/HDL.png){#HDLCode width="5in"}
-:::
 
 At the right we have its equivalent in VHDL, which is a language
 inspired by the Ada and Pascal programming languages. In VHDL the port
@@ -3760,9 +3933,8 @@ list is specified in what is known as an entity and the implementation
 is defined in an architecture. One can notice the differences and
 similarities between these languages.
 
-::: center
+
 ![HDL Testbenches of Half Adder](images/HDLTB.png){#HDLTB width="5in"}
-:::
 
 Finally, here's a partial test bench module in both languages describing
 the same course of events for a simulation. In this example we have two
@@ -3967,7 +4139,7 @@ Not all Verilog operators are synthesible (can produce gates). Some
 operators are similar to those in the C language. Remember, you are
 making gates, not an algorithm (in most cases).
 
-::: center
+
   **Character**                      **Operation**                  **Type of operator**
   ---------------------------------- ------------------------------ ----------------------
   \+                                 Add                            Arithmatic
@@ -4002,17 +4174,15 @@ making gates, not an algorithm (in most cases).
   ?                                  Conditions testing             Misc
   {}                                 Concatenate                    Misc
   {{}}                               Replicate                      Misc
-:::
 
 Operator Precedence: The order of the table tells what operation is made
 first, the first ones has the highest priority. The () can be used to
 override default.
 
-::: center
+
 ![Operator
 Precedence](images/OperatorPrecedence.png){#OperatorPrecedence
 width="5in"}
-:::
 
 #### Assignments
 
@@ -4105,11 +4275,10 @@ Tasks
     input, output, or inout arguments. Ex: stmOut(nxt, first, sel,
     filter)
 
-    ::: center
+    
     ![Verilog Functions and
     Tasks](images/VerilogFuncTasks.png){#VerilogFuncTasks width="5in"}
-    :::
-
+    
 ### Verilog vs SystemVerilog
 
 System Verilog and verilog both Both are IEEE standards, Verilog is IEEE
@@ -4326,9 +4495,8 @@ instructions. The equivalent host instructions are then executed on the
 host, and the results of those instructions are then pushed back into
 the guest machine.
 
-::: center
+
 ![QEMU Functionality](images/QEMU.png){#QEMU width="\\textwidth"}
-:::
 
 ## Version Control: Git, Bitbucket
 
