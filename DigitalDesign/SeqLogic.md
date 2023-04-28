@@ -1,30 +1,37 @@
+# Synchronous Sequential Logic 
+
+- [Synchronous Sequential Logic](#synchronous-sequential-logic)
+- [Introduction](#introduction)
+- [Types of sequential circuits](#types-of-sequential-circuits)
+- [Storage Elements: Latches](#storage-elements-latches)
+- [SR Latch (Set Reset Latch)](#sr-latch-set-reset-latch)
+- [SR latch with control input](#sr-latch-with-control-input)
+
+
+---
+
 # Introduction
 
-A sequential circuit is specified by a time sequence of inputs, outputs,
-and internal states. It consists of a combinational circuit to which
-memory elements are connected to form a feedback path.
+A sequential circuit is specified by a time sequence of inputs, outputs, and internal states. It consists of a combinational circuit to which memory elements are connected to form a feedback path.
 
+> Insert Figure 5.1 Block diagram of sequential circuit
 
-Insert Figure 5.1 Block diagram of sequential circuit
+![Block diagram of sequential circuit](images/.png)
 
+- The storage elements are devices capable of storing binary information. 
+- The binary information stored in the memory elements determines the "state" of the sequential circuit.
+- The sequential circuits receive binary information from the external inputs that, together with the present state of the storage elements, determine the binary value of the outputs. 
+- The next state of the storage elements is also a function of external inputs and the present state.
 
-The storage elements are devices capable of storing binary information.
-The binary information stored in the memory elements determines the
-\"state\" of the sequential circuit. The sequential circuits receive
-binary information from the external inputs that, together with the
-present state of the storage elements, determine the binary value of the
-outputs. The next state of the storage elements is also a function of
-external inputs and the present state.
+![Synchronous Sequential circuit](images/SequentialCircuit.png)
+
+---
 
 # Types of sequential circuits
 
--   Synchronous sequential circuits: Circuits whose behavior can be
-    defined from the knowledge of it's signals at discrete instances of
-    time.
+-   Synchronous sequential circuits: Circuits whose behavior can be defined from the knowledge of it's signals at discrete instances of time.
 
--   Asynchronous sequential circuits: Circuits whose behavior depends on
-    the input signals at any instance of time and the order in which the
-    input changes.
+-   Asynchronous sequential circuits: Circuits whose behavior depends on the input signals at any instance of time and the order in which the input changes.
 
 In synchronous sequential circuits, synchronization is achieved by a
 timing device called as *clock generator*, which provides a periodic
@@ -46,6 +53,8 @@ A storage element in a digital circuit can maintain a binary state
 indefinitely (as long as power is delivered to the circuit), until
 directed by an input signal to switch states.
 
+---
+
 # Storage Elements: Latches
 
 Storage elements that operate with signal levels (rather than signal
@@ -55,7 +64,9 @@ sensitive devices; flip-flops are edge-sensitive devices. The two types
 of storage elements are related because latches are the basic circuits
 from which all flip-flops are constructed.
 
-## SR Latch (Set Reset Latch)
+#---
+
+# SR Latch (Set Reset Latch)
 
 The SR latch is a circuit with two cross-coupled NOR gates or two
 cross-coupled NAND gates, and two inputs labeled for set(S) and
@@ -85,7 +96,9 @@ SR latch with two cross-coupled NOR gates:
 -   When inputs are applied, the resulting (next) state is a function of
     inputs as well as present state of the latch.
 
-### SR latch with control input
+##---
+
+# SR latch with control input
 
 The operation of the basic SR latch can be modified by providing an
 additional control input signal that controls when the state of the
