@@ -5,8 +5,14 @@
 - [Digital Systems and Binary Numbers](#digital-systems-and-binary-numbers)
 - [Introduction](#introduction)
 - [Number representation](#number-representation)
+  - [Binary Addition](#binary-addition)
+  - [Binary Subtraction](#binary-subtraction)
+  - [Binary Multiplication](#binary-multiplication)
+  - [Binary Division](#binary-division)
 - [Number base conversion](#number-base-conversion)
-  - [Binary  Octal Conversion](#binary--octal-conversion)
+  - [Decimal Binary Conversion](#decimal-binary-conversion)
+  - [Decimal Octal \& Hexadecimal Conversion](#decimal-octal--hexadecimal-conversion)
+  - [Binary Octal Conversion](#binary-octal-conversion)
   - [Binary Hexadecimal Conversion](#binary-hexadecimal-conversion)
 - [Complements of numbers](#complements-of-numbers)
   - [Subtraction using complements](#subtraction-using-complements)
@@ -27,16 +33,18 @@
 - [Binary logic](#binary-logic)
   - [Logic gates](#logic-gates)
 
-
 ---
 # Introduction
 
 - The binary information in a digital computer must have a physical existence in some medium for storing individual bits. 
 - A binary cell is a device that possesses two stable states and is capable of storing one bit (0 or 1) of information. 
 - Bit is a binary digit with only 2 discrete values 0 & 1. 
-- Digital system is an interconnection of digital modules.
-These manipulate discrete quantities of information that are represented in binary form.
-
+- Bit is the smallest unit of data.
+  - 1 nibble = 4 bits
+  - 1 byte = 8 bits
+  - 1 word = 16 bits = 2 bytes
+  - 1 double word = 32 bits = 4 bytes
+- Digital system is an interconnection of digital modules. These manipulate discrete quantities of information that are represented in binary form.
 
 ---
 # Number representation
@@ -48,13 +56,54 @@ where,
 - r = base of the number system,
 - $a_{i}$ = coefficients of bases with values varying from 0 to r-1
 
+## Binary Addition
+- The sum of 2 binary numbers is calculated by the same rules as in decimal.
+- Any carry obtained in a given significant position is used by the pair of digits one significant position higher.
+- Binary addition for a single bit is:
+  - 0+0 = sum: 0 & carry:0
+  - 1+0 or 0+1 = sum: 1 & carry:0
+  - 1+1 = sum: 0 & carry:1
+
+## Binary Subtraction
+The subtraction of 2 binary numbers is calculated by the same rules as in decimal except that the borrow in a given significant position adds 2 to a minuend digit.
+
+## Binary Multiplication
+In binary multiplication, the result is onn only when both the input bits are 1. It looks like this:
+  - 0x0 = 0
+  - 1x0 or 0x1 = 0
+  - 1x1 = 1
+
+## Binary Division
+The division of 2 binary numbers is calculated by the same rules as in decimal.
 
 ---
 # Number base conversion
 
 If a number includes a radix point, the number is split into an integer and a fraction part. Then conversion of decimal integer to a number in base-r is done by dividing the number and all successive quotients by r and accumulating the reminders. In case of fractions, multiplication is used instead of division.
 
-## Binary  Octal Conversion
+## Decimal Binary Conversion
+
+- Decimal to Binary Conversion: There are 2 methods for this:
+  - By division:
+    - Divide by 2
+    - Mark the remainder
+    - Divide the quotient by 2
+    - Append to the remainder
+    - Repeat this until quotient < 2
+    - For fractional part, multiply by 2
+  - By subtraction:
+    - Take highest power of 2 which is lesser than or equal to the decimal number
+    - Subtract it from the number 
+    - Repeat this until the remainder becomes zero
+    - Collect all the powers of 2 subtracted from the number to compute the bits
+    - For fractional part, add by powers of 2
+- Binary to Decimal Conversion: Add weighted powers of 2 just like the number representation
+  
+## Decimal Octal & Hexadecimal Conversion
+
+- Exactly similar to binary just, use the base as 8, 16 respectively.
+- 
+## Binary Octal Conversion
 
 - Binary to Octal Conversion: Clubbing 3 bits to obtain a single Octal digit.
 - Octal to Binary Conversion: Replace octal digit into corresponding 3 binary digits.
@@ -65,6 +114,7 @@ If a number includes a radix point, the number is split into an integer and a fr
 - HEX to Binary Conversion: Replace Hex digit into corresponding 4 binary digits.
 
 ---
+
 # Complements of numbers
 
 Complements are used in digital systems to simplify the subtraction operation and logical manipulation. There are 2 types of complements:
@@ -80,14 +130,14 @@ Complements are used in digital systems to simplify the subtraction operation an
 
     > '0' for N = 0 
 
-     - r's complement = (r-1)'s complement + 1
-       - For eg. 9's complement of 546 is 453
-       - For eg. 10's complement of 546 is 454 = 453+1
-       - For eg. 1's complement of 1100 is 0011
-       - For eg. 2's complement of 1100 is 0100 = 0011+1
+  > **r's complement = (r-1)'s complement + 1**
+  > **Complement of the complement restores the number to its original value.**
 
-> Complement of the complement restores the number to its original value.
- 
+- For eg. 9's complement of 546 is 453
+- For eg. 10's complement of 546 is 454 = 453+1
+- For eg. 1's complement of 1100 is 0011
+- For eg. 2's complement of 1100 is 0100 = 0011+1
+
 ## Subtraction using complements
 
 Consider M & N are 2 n-digit unsigned numbers in base-r.
@@ -103,6 +153,10 @@ if M < N :
 > = r's complement of (N-M) (answer) result is negative.
 > 
 > = - (r's complement of answer) (familiar representation)
+>
+> Final carry bit acts as a sign bitt for the answer.
+>   - If carry bit = 1, then the result is positive.
+>   - If carry bit = 0, then the result is negative.
 
 - For eg. 
   - Decimal number: 
@@ -111,8 +165,8 @@ if M < N :
       - = 530 + (759+1) 
       - = (1)290 = 290 (neglecting carry)
     - 240 - 530
-      - = - (10's complement of ( 240 + (10's complement of 530))
-      - = - (10's complement of ( 240 + (469+1))
+      - = - (10's complement of ( 240 + (10's complement of 530)))
+      - = - (10's complement of ( 240 + (469+1)))
       - = - (10's complement of 710)
       - = - (289+1) = -290
   - Binary number:
@@ -122,8 +176,8 @@ if M < N :
       - = 1100 + 0110
       - = (1)0010 = 0010
     - 1010 - 1100
-      - = - (2's complement of ( 1010 + (2's complement of 1100))
-      - = - (2's complement of ( 1010 + (0011+1))
+      - = - (2's complement of ( 1010 + (2's complement of 1100)))
+      - = - (2's complement of ( 1010 + (0011+1)))
       - = - (2's complement of 1110)
       - = - (0001+1) = - (0010)
   
@@ -154,11 +208,21 @@ There are 2 representations of the Signed Complement System:
   - Signed 1's complement
   - Signed 2's complement
   
-> Complement could be (l's or 2's) but usually 2's complement.
+> Complement could be (1's or 2's) but usually 2's complement.
 - For eg. '-9' has three different representations:
   - Signed magnitude: 1-0001001 (Changing the leftmost bit)
   - Signed 1's compliment: 1-1110110 (Complement of all the bits including sign bit)
   - **Preferred method** : Signed 2's compliment: 1-1110111 (Complement of all the bits & add 1) 
+- Range of the number representations:
+  - Signed magnitude: $-2^{n-1}+1$ to $2^{n-1}-1$ for ex. -7 to 7 for 4 bit numbers
+  - Signed 1's compliment: $-2^{n-1}+1$ to $2^{n-1}-1$ for ex. -7 to 7 for 4 bit numbers
+  - Signed 2's compliment:  $-2^{n-1}$ to $2^{n-1} -1$ for ex. -8 to 7 for 4 bit numbers
+
+> In signed 1's compliment, zero is represented as:
+>   - Positive zero: 0  for ex. 0000&
+>   - Negative zero: $2^{n-1}$ for ex. 1111
+
+> Positive numbers are same in all the representations.
 
 ## Addition of signed numbers
 
@@ -180,6 +244,7 @@ There are 2 representations of the Signed Complement System:
 
 ---
 # Binary codes
+Code is nothing but group of symbols.
 
 ## Binary coded Decimal code (BCD)
 
@@ -223,7 +288,7 @@ Eighth bit of the ASCII code is used to detect errors. The bit is called as pari
 ---
 # Binary storage and registers
 
-- The binary information in a digital computer must a physical existence in some medium for storing bits. 
+- The binary information in a digital computer must have a physical existence in some medium for storing bits. 
 - A binary cell is a device that possesses 2 stable states and is capable of storing one bit of information (0 or 1).
 
 ## Registers
@@ -239,7 +304,6 @@ A digital system is characterized by its registers and the components that perfo
 
 ![Transfer of information among registers](images/RTL.png)
 
-
 ---
 # Binary logic
 
@@ -251,8 +315,12 @@ A digital system is characterized by its registers and the components that perfo
 ## Logic gates
 
 - Logic gates are the electronic circuits that operate on one or more physical input signals to produce an output signal.
-- Binary information into voltage levels. 
+- Binary information is stored into voltage levels. 
 - Voltage ranges are assigned to logic 0 & Logic 1 for interpretation.
+- Basic gates: NOT, AND, & OR (with these gates we can create all the other gates)
+- Universal gates: NAND, & NOR 
+- Arithmatic gates: XOR, & XNOR 
 
 ![Logic Gates & their Truth tables](images/LogicGates.png)
 
+---

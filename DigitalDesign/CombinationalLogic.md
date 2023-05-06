@@ -1,16 +1,19 @@
 # Combinational Logic
+
+---
+
 - [Combinational Logic](#combinational-logic)
 - [Introduction](#introduction)
   - [Combinational circuits](#combinational-circuits)
   - [Sequential circuits](#sequential-circuits)
 - [Analysis of combinational circuits](#analysis-of-combinational-circuits)
 - [Design procedure](#design-procedure)
-- [Binary Adder Subtractor](#binary-adder-subtractor)
+- [Binary Adder](#binary-adder)
   - [Half Adder](#half-adder)
   - [Full adder](#full-adder)
-  - [Binary Adder](#binary-adder)
+  - [Binary Adder](#binary-adder-1)
     - [Carry propogation](#carry-propogation)
-  - [Binary Subtractor](#binary-subtractor)
+- [Binary Subtractor](#binary-subtractor)
   - [Overflow subtractor](#overflow-subtractor)
 - [Binary Multiplier](#binary-multiplier)
 - [Magnitude Comparator](#magnitude-comparator)
@@ -48,8 +51,7 @@
 ---
 # Analysis of combinational circuits
 - The logic diagram of a combinational circuit has logic gates with no feedback paths or memory elements. 
-- Analysis of a combinational circuit determines its functionality i.e. the logic function that the circuit
-implements.
+- Analysis of a combinational circuit determines its functionality i.e. the logic function that the circuit implements.
 
 Analysis of combinational circuits can be done through the following 2 methods:
 
@@ -76,7 +78,7 @@ These are the steps involved in the design procedure of combinational circuits:
 5.  Draw the logic diagram & verify correctness of the design. (Manually or by simulation.)
 
 ---
-# Binary Adder Subtractor
+# Binary Adder
 
 - A binary adder performs an addition of 2 bits. 
 - Extra bit needed for the addition which is the higher significant bit of the addition is called a "Carry". 
@@ -105,7 +107,8 @@ or
 $$S = (x \bigoplus y) \bigoplus z$$
 $$C = (x \bigoplus y) \bigoplus z + xy$$
 
-![Full Adder with Half adder implementation](images/FullAdderwithHA.png)
+Full Adder implementation using Half adder:
+![Full Adder implementation using Half adder](images/FullAdderwithHA.png)
 
 ## Binary Adder
 Binary adder is a digital circuit that produces the arithmatic sum of 2 binary members. 
@@ -134,8 +137,6 @@ In the ripple carry adder, to obtain the stable output of the adder, the carry h
 - For an n-bit adder, there are 2n gate levels for the carry to ripple from input to output.
 - **Carry lookahead logic** is the widely used solution for reducing the carry propogation time in a parallel adder.
 
-
-
 In the Carry lookahead logic, the full adder intermediate outputs are named as 2 new binary variables, Carry Propogate $(P_i)$ and Carry Generate $(G_i)$ as shown below:
 
 - $P_i$ = $A_i \bigoplus B_i$
@@ -158,10 +159,10 @@ Individual carry is calculated and expanded in the primary terms like this:
 
 | Carry Lookahead Generator                                        | 4-bit adder with Carry Lookahead                                            |
 |------------------------------------------------------------------|-----------------------------------------------------------------------------|
-| ![Carry Lookahead Generator](images/CarryLookaheadGenerator.PNG) | ![4-bit adder with Carry Lookahead](images/4bitAdderwithCarryLookahead.PNG) |
+| ![Carry Lookahead Generator](images/CarryLookaheadGenerator.png) | ![4-bit adder with Carry Lookahead](images/4bitAdderwithCarryLookahead.png) |
 
 ---
-## Binary Subtractor
+# Binary Subtractor
 
 Subtraction of binary numbers can be done with the help of
 compliments. 
@@ -200,7 +201,6 @@ Overflow occurs if 2 'n'-bit numbers are added with 'n+1'-bit result for signed,
 - An XOR gate can be implemented for the detection as shown in 4-bit Adder Subtractor.
 
 --- 
-
 # Binary Multiplier
 
 - Multiplication in binary form is the same as multiplication in decimal form. 
@@ -251,7 +251,7 @@ These expressions can be implemented on hardware with basic logic gates.
 
 # Decoders
 
-A Decoder is a combinational circuit that converts binary information from 'n' input lines to a maximum of an unique output lines. 
+A Decoder is a combinational circuit that converts binary information from 'n' input lines to a maximum of 'm' unique output lines. 
 - The decoders that convert n-line inputs to m-line outputs are called n to m line decoders where, $m \leqslant 2^n$.
 - Ex. **3 to 8 line decoder**: 3 inputs are decoded into 8 outputs.
 - The input variables represent a binary number & the outputs represent all the combinations of that binary number.
@@ -282,7 +282,7 @@ An encoder generates the binary code corresponding to each input value. Encoder 
 
 ## Priority encoder
 
-A priority encoder is an encoder that handles inputs with certain predefined priority, to generate output accordingly. For eg. this is a 4-bit priority encoder with  
+A priority encoder is an encoder that handles inputs with certain predefined priority, to generate output accordingly. For eg. this is a 4-bit priority encoder with the following truth table.
 
 | D0 | D1 | D2 | D3 |   | a | b | V |
 |----|----|----|----|---|---|---|---|
@@ -314,7 +314,7 @@ A multiplexer is a combinational circuit that selects binary information from on
 
 MUXs can be combined with common select lines to provide multiple bit selection logic. For eg. Quadrapule 2:1 line Mux below uses same select line to select either A or B channel.
 
-![Quadrapule 2:1 line Mux](images/quadrupleMUX.PNG)
+![Quadrapule 2:1 line Mux](images/quadrupleMUX.png)
 
 ## Three state gate (Tristate gate) (Tristate buffer)
 MUX can be constructed with Three State Gates (digital circuits that exhibit 3 States) These 3 states include :
@@ -333,7 +333,7 @@ MUX can be constructed with Three State Gates (digital circuits that exhibit 3 S
 - However, the most commonly used tristate gate is the buffer gate. 
 - For eg. Implementation of 2:1 Mux with tristate gates.
 
-![Implementation of Mux with tristate gates](images/TriStateMUX.PNG)
+![Implementation of Mux with tristate gates](images/TriStateMUX.png)
 
 ---
 # HDL models of combinational circuits

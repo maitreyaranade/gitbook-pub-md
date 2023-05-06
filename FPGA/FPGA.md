@@ -21,5 +21,4 @@ This is an FPGA Primer written/compiled by me from multiple sources which I have
   * [Gigabit Ethernet](GigabitEthernet.md)
   * [DMA](DMA.md)
 # [Software & Tools](software.md)   
-  * [verilog](verilog.md)
 # [Links & References](references.md) 
