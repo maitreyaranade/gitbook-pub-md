@@ -2,7 +2,7 @@
 This documentation is written for personal understanding and not for publication or redistribution.
 
 ## Table of Contents
-[C](ProgrammingLanguages/C/CandDataStructures.md)
-[Cpp](ProgrammingLanguages/Cpp/Cpp.md)
-[HDL](ProgrammingLanguages/HDL/HDL.md)
-[Python](ProgrammingLanguages/Python/Python.md)
+### [C](C/CandDataStructures.md)
+### [Cpp](Cpp/Cpp.md)
+### [HDL](HDL/HDL.md)
+### [Python](Python/Python.md)
