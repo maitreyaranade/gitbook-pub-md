@@ -16,7 +16,9 @@ Manual methods for designing logic circuits are feasible only when the circuit i
 
 - It resembles an ordinary computer programming language, such as C, but is specifically oriented to describing hardware structures and the behavior of logic circuits.
 - It can be used to represent logic diagrams, truth tables, Boolean expressions, and complex abstractions of the behavior of a digital system.
-  
+- HDL jas a notion of time.
+- HDLs support concurrency.
+
 > In the public domain, there are two standard HDLs that are supported by the IEEE: **VHDL** and **Verilog**.
 
 - VHDL is a Department of Defense–mandated language. (The V in VHDL stands for the first letter in VHSIC, an acronym for very high-speed integrated circuit.)
@@ -41,7 +43,6 @@ HDLs are used in several major steps in the design flow of an integrated circuit
   - Fault simulation is used to identify input stimuli that can be used to reveal the difference between the faulty circuit and the fault-free circuit.
   - These test patterns will be used to test fabricated devices to ensure that only good devices are shipped to the customer.
 
-
 # Digital system modeling
 There are two main categories of digital systems:
 
@@ -63,11 +64,12 @@ The logic of a module can be described in any one (or a combination) of the foll
 
 - **Behavioral Model**: uses language-specific procedural statements to form an abstract model of a circuit.
   - This is a high level of abstraction in which you tell the toolchain:
-  - what your system is supposed to do &
-  - how it's supposed to behave.
+    - what your system is supposed to do &
+    - how it's supposed to behave.
 
 - **Dataflow Model**: uses HDL operators and assignment statements to describe the functionality represented by boolean equations.
   - In this model, internal functional blocks and the interconnections to those blocks are specified. This model is used when modules are instantiated.
+  - Continuous assignment is used in this model.
 
 - **Gate-level or structural Model**: In this model, a circuit is specified by its logic gates and their interconnections.
   - The gate level is the assembly language of FPGAs.
@@ -80,6 +82,50 @@ The logic of a module can be described in any one (or a combination) of the foll
 - Hardware description languages were created to implement a modular design.
 - A complete digital system is usually created by nesting basic building block instances which are defined separately. 
 - Hardware modules are rigid and they don't change dynamically.
+
+A simple verilog code for 2:1 MUX is written in different modeling styles for better understanding:
+
+```verilog
+// Gate-level modeling
+// Y = D0.Sbar + D1.S
+module m21(Y, D0, D1, S);
+output Y;
+input D0, D1, S;
+wire T1, T2, Sbar;
+
+and (T1, D1, S), (T2, D0, Sbar);
+not (Sbar, S);
+or (Y, T1, T2);
+
+endmodule
+```
+
+```verilog
+// Dataflow modeling
+module m21(D0, D1, S, Y);
+output Y;
+input D0, D1, S;
+
+assign Y=(S)?D1:D0;
+
+endmodule
+```
+
+```verilog
+// Behavioral modeling
+module m21( D0, D1, S, Y);
+input wire D0, D1, S;
+output reg Y;
+
+always @(D0 or D1 or S)
+begin
+  if(S) 
+    Y= D1;
+  else
+    Y=D0;
+end
+endmodule
+```
 
 # HDL Structure
 

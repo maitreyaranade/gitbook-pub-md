@@ -8,6 +8,22 @@
 ## [Verilog Codes](verilogCodes.md)
 
 
+
+## Verilog vs VHDL
+
+| VHDL                                     | Verilog                                 |
+|------------------------------------------|-----------------------------------------|
+| Strongly typed                           | Weakly typed                            |
+| Easier to understand                     | Less code to write                      |
+| More natural in use                      | More of a hardware modeling language    |
+| Wordy                                    | Concise                                 |
+| Non-C-like syntax                        | Similarities to the C language          |
+| Variables must be described by data type | A lower level of programming constructs |
+| Widely used for FPGAs and military       | A better grasp on hardware modeling     |
+| More difficult to learn                  | Simpler to learn                        |
+| Complex data tyepes                      | Simpler data tyepes                     |
+
+
 ## Verilog vs SystemVerilog
 
 System Verilog and verilog both Both are IEEE standards, Verilog is IEEE
@@ -25,12 +41,11 @@ System Verilog and verilog both Both are IEEE standards, Verilog is IEEE
 
 - **Interface** Verilog ports (larger designs) for describing a module's connectivity with other module is difficult. Whereas, System verilog uses interface to reduce the redundancy of port declarations between modules.
 
-- **Random** Verilog uses inbuit system functions like \$random and
-\$urandom, whereas System Verilog uses a method called Randomize().
+- **Random** Verilog uses inbuit system functions like $random and $urandom, whereas System Verilog uses a method called Randomize().
 
-- **Constraints** Verilog does not support any control over the variable to be randomized,Whereas System verilog uses constraints to have a control of what is being randomized.
+- **Constraints** Verilog does not support any control over the variable to be randomized, whereas System verilog uses constraints to have a control of what is being randomized.
 
-- **TB Environment** Verilog does not support for having reusable testbenches and so for complex designs verification will be a milestone.Whereas, System verilog supports for having reusable testbenches.
+- **TB Environment** Verilog does not support for having reusable testbenches and so for complex designs verification will be a milestone whereas, System verilog supports for having reusable testbenches.
 
 - **Synchronisation** SystemVerilog uses interface construct which has used for bunching of all the signals along with clocking block which is used for synchronisation unlike Verilog in which instantiation with the DUT becomes tedious because of large number of signals.
 
