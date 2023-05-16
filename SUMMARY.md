@@ -44,7 +44,7 @@
 * [Programming Languages](ProgrammingLanguages/ProgrammingLanguages.md)
   * [C](ProgrammingLanguages/C/CandDataStructures.md)
   * [Cpp](ProgrammingLanguages/Cpp/Cpp.md)
-  * [Verilog](ProgrammingLanguages/Verilog/Verilog.md)
+  * [HDL](ProgrammingLanguages/HDL/HDL.md)
   * [Python](ProgrammingLanguages/Python/Python.md)
 * [Vitis](vitis/README.md)
   * [Vitis](Vitis/Vitis.md)
