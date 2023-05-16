@@ -105,7 +105,7 @@ $$S = x'y'z + x'yz' + xy'z' + xyz$$
 $$C = xy + xz + yz$$ 
 or
 $$S = (x \bigoplus y) \bigoplus z$$
-$$C = (x \bigoplus y) \bigoplus z + xy$$
+$$C = (x \bigoplus y) z + xy$$
 
 Full Adder implementation using Half adder:
 ![Full Adder implementation using Half adder](images/FullAdderwithHA.png)
