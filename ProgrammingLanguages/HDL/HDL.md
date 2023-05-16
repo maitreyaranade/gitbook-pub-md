@@ -1,14 +1,17 @@
 # Hardware Description Language
 
+---
+# Table of Contents
+
 ## [HDL Basics](basics.md)
 ## [Verilog](verilog.md)
 ## [SystemVerilog](systemverilog.md)
 ## [VHDL](vhdl.md)
 ## [Verilog Codes](verilogCodes.md)
 
+---
 
-
-## Verilog vs VHDL
+# Verilog vs VHDL
 
 | VHDL                                     | Verilog                                 |
 |------------------------------------------|-----------------------------------------|
@@ -23,7 +26,9 @@
 | Complex data tyepes                      | Simpler data tyepes                     |
 
 
-## Verilog vs SystemVerilog
+---
+
+# Verilog vs SystemVerilog
 
 System Verilog and verilog both Both are IEEE standards, Verilog is IEEE
 1364 -2005 (Latest Version)and System verilog is IEEE 1800 - 2017( Latest version). Verilog is a Hardware Description Language , whereas System verilog is a combination of Hardware Description Language (HDL) and Hardware Verification Language (HVL). So, System verilog can be considered as an extension or a superset of Verilog.
