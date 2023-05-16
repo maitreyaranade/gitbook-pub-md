@@ -2,9 +2,8 @@
 
 ## [HDL Basics](basics.md)
 ## [Verilog](verilog.md)
-## [verilog FPGA Primer](verilogprimer.md)
 ## [SystemVerilog](systemverilog.md)
-<!-- ## [VHDL](vhdl.md) -->
+## [VHDL](vhdl.md)
 ## [Verilog Codes](verilogCodes.md)
 
 
