@@ -12,7 +12,7 @@
   * [Registers and Counters](DigitalDesign/RegNCount.md)
   * [Memory and Programmable Logic](DigitalDesign/MemNPL.md)
   * [Design at the Register Transfer Level](DigitalDesign/RTL.md)
-* [FPGA](FPGA/FPGAPrimer.md)
+* [FPGA](FPGA/FPGA.md)
   * [Overview](FPGA/overview.md)	
   * [Hardware](FPGA/hardware.md) 
     * [FPGA History](FPGA/FPGAHistory.md)
