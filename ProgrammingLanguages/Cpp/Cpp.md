@@ -284,15 +284,12 @@ compilers. Look at the below program:
 
 ## References
 
--   [Neso Academy (Youtube Channel) (C Programming & Data Structures
-    playlist)](https://youtube.com/playlist?list=PLBlnK6fEyqRhX6r2uhhlubuF5QextdCSM)
+-   [Neso Academy (Youtube Channel) (C Programming & Data Structures playlist)](https://youtube.com/playlist?list=PLBlnK6fEyqRhX6r2uhhlubuF5QextdCSM)
 
 -   Let us C by Yashwant Kanetkar
 
--   [Tutorials
-    Point](https://www.tutorialspoint.com/cprogramming/index.htm)
+-   [Tutorials Point](https://www.tutorialspoint.com/cprogramming/index.htm)
 
--   [Geeks for
-    geeks](https://www.geeksforgeeks.org/c-programming-language/)
+-   [Geeks for geeks](https://www.geeksforgeeks.org/c-programming-language/)
 
 -   [The C book](https://publications.gbdirect.co.uk/c_book/)
