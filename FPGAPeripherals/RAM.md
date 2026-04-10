@@ -376,8 +376,8 @@ is still available for subsequent access until it is precharged.
 The Write command is used to initiate a burst write access to an active
 row. The values in registers select the bank address & the starting
 column location in the active row. DRAMs use a Write Latency (WL) equal
-to Read Latency (RL) minus one clock cycle.\
-$Write Latency = Read Latency - 1 = (Additive Latency + CAS Latency) - 1$
+to Read Latency (RL) minus one clock cycle.
+\( Write Latency = Read Latency - 1 = (Additive Latency + CAS Latency) - 1 \)
 
 
 DRAM Controller Operation is as follows:
