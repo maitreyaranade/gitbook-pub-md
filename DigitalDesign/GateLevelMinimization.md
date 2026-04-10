@@ -3,7 +3,7 @@
 
 - [Gate-Level Minimization](#gate-level-minimization)
 - [Introduction](#introduction)
-- [The Map Method](#the-map-method)
+- [The K-Map Method](#the-k-map-method)
   - [Two-Variable K-Map](#two-variable-k-map)
   - [Three-Variable K-Map](#three-variable-k-map)
   - [Four‐Variable K-Map](#fourvariable-k-map)
@@ -29,7 +29,7 @@ Gate-level minimization is the design task of finding an optimal gate-level impl
 - It is important that a designer understand the underlying mathematical description and solution of the problem.
 
 ---
-# The Map Method
+# The K-Map Method
 
 - Boolean expressions may be simplified by algebraic means.
 - However, the map method provides a simple, straightforward & more efficient procedure for minimizing Boolean functions. 

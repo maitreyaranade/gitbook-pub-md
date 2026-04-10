@@ -10,10 +10,21 @@
   - [Binary Multiplication](#binary-multiplication)
   - [Binary Division](#binary-division)
 - [Number base conversion](#number-base-conversion)
-  - [Decimal Binary Conversion](#decimal-binary-conversion)
-  - [Decimal Octal \& Hexadecimal Conversion](#decimal-octal--hexadecimal-conversion)
-  - [Binary Octal Conversion](#binary-octal-conversion)
-  - [Binary Hexadecimal Conversion](#binary-hexadecimal-conversion)
+  - [Case 1: Higher Base to Lower Base](#case-1-higher-base-to-lower-base)
+    - [Process](#process)
+    - [Integral Part Conversion](#integral-part-conversion)
+    - [Fractional Part Conversion](#fractional-part-conversion)
+    - [Final Combined Result](#final-combined-result)
+  - [Case 2: Lower Base to Higher Base](#case-2-lower-base-to-higher-base)
+    - [Process](#process-1)
+    - [Integral Part Conversion](#integral-part-conversion-1)
+    - [Fractional Part Conversion](#fractional-part-conversion-1)
+    - [Final Combined Result](#final-combined-result-1)
+  - [Alternative methods for number base conversion](#alternative-methods-for-number-base-conversion)
+    - [Decimal Binary Conversion](#decimal-binary-conversion)
+    - [Decimal Octal \& Hexadecimal Conversion](#decimal-octal--hexadecimal-conversion)
+    - [Binary Octal Conversion](#binary-octal-conversion)
+    - [Binary Hexadecimal Conversion](#binary-hexadecimal-conversion)
 - [Complements of numbers](#complements-of-numbers)
   - [Subtraction using complements](#subtraction-using-complements)
 - [Signed Binary Numbers](#signed-binary-numbers)
@@ -81,7 +92,76 @@ The division of 2 binary numbers is calculated by the same rules as in decimal.
 
 If a number includes a radix point, the number is split into an integer and a fraction part. Then conversion of decimal integer to a number in base-r is done by dividing the number and all successive quotients by r and accumulating the reminders. In case of fractions, multiplication is used instead of division.
 
-## Decimal Binary Conversion
+## Case 1: Higher Base to Lower Base
+*(e.g., Decimal to Binary, Hex to Binary)*
+
+### Process
+- Convert the given number from Base 1 to **decimal (base 10)** first (if needed).  
+- Then convert decimal to Base 2 using:
+  - **Integral part**: repeated division by Base 2 
+  - **Fractional part**: repeated multiplication by Base 2 
+
+### Integral Part Conversion
+- Divide the number repeatedly by Base 2.  
+- Record remainders.  
+- Final result = **remainders read in reverse order**.
+
+**Example (Decimal to Binary):**  
+\[ 25_{10} = 11001_2 \]  
+- 25 ÷ 2 -> remainder 1  
+- 12 ÷ 2 -> remainder 0  
+- 6 ÷ 2 -> remainder 0  
+- 3 ÷ 2 -> remainder 1  
+- 1 ÷ 2 -> remainder 1  
+
+### Fractional Part Conversion
+- Multiply fractional part repeatedly by Base 2.  
+- Record integer part at each step.  
+- Final result = **digits read in order**.
+
+**Example:**  
+\[ 0.625_{10} = 0.101_2 \]  
+0.625 × 2 = 1.25 -> carry 1  
+0.25 × 2 = 0.5 -> carry 0  
+0.5 × 2 = 1.0 -> carry 1 
+
+
+### Final Combined Result
+\[ 25.625_{10} = 11001.101_2 \]
+
+---
+
+## Case 2: Lower Base to Higher Base
+*(e.g., Binary to Decimal, Binary to HEX)*
+
+### Process
+- Expand number using positional weights of Base 2.  
+- Separate **integral and fractional parts**.  
+- Use powers of 2 for conversion.
+
+### Integral Part Conversion
+- Multiply each digit by corresponding power of 2.  
+- Sum all terms.
+
+**Example:**  
+\[ 11001_2 = (1×2^4) + (1×2^3) + (0×2^2) + (0×2^1) + (1×2^0) \]  
+\[ = 16 + 8 + 0 + 0 + 1 = 25_{10} \]
+
+### Fractional Part Conversion
+- Multiply each digit by negative powers of 2.
+
+**Example:**  
+\[ 0.101_2 = (1×2^{-1}) + (0×2^{-2}) + (1×2^{-3}) \]  
+\[ = 0.5 + 0 + 0.125 = 0.625_{10} \]
+
+### Final Combined Result
+\[ 11001.101_2 = 25.625_{10} \]
+
+---
+
+## Alternative methods for number base conversion
+
+### Decimal Binary Conversion
 
 - Decimal to Binary Conversion: There are 2 methods for this:
   - By division:
@@ -99,16 +179,16 @@ If a number includes a radix point, the number is split into an integer and a fr
     - For fractional part, add by powers of 2
 - Binary to Decimal Conversion: Add weighted powers of 2 just like the number representation
   
-## Decimal Octal & Hexadecimal Conversion
+### Decimal Octal & Hexadecimal Conversion
 
 - Exactly similar to binary just, use the base as 8, 16 respectively.
-- 
-## Binary Octal Conversion
+
+### Binary Octal Conversion
 
 - Binary to Octal Conversion: Clubbing 3 bits to obtain a single Octal digit.
 - Octal to Binary Conversion: Replace octal digit into corresponding 3 binary digits.
 
-## Binary Hexadecimal Conversion
+### Binary Hexadecimal Conversion
 
 - Binary to HEX Conversion: Clubbing 4 bits to obtain a single Hex digit.
 - HEX to Binary Conversion: Replace Hex digit into corresponding 4 binary digits.
@@ -154,7 +234,7 @@ if M < N :
 > 
 > = - (r's complement of answer) (familiar representation)
 >
-> Final carry bit acts as a sign bitt for the answer.
+> Final carry bit acts as a sign bit for the answer.
 >   - If carry bit = 1, then the result is positive.
 >   - If carry bit = 0, then the result is negative.
 
@@ -216,11 +296,22 @@ There are 2 representations of the Signed Complement System:
 - Range of the number representations:
   - Signed magnitude: $-2^{n-1}+1$ to $2^{n-1}-1$ for ex. -7 to 7 for 4 bit numbers
   - Signed 1's compliment: $-2^{n-1}+1$ to $2^{n-1}-1$ for ex. -7 to 7 for 4 bit numbers
-  - Signed 2's compliment:  $-2^{n-1}$ to $2^{n-1} -1$ for ex. -8 to 7 for 4 bit numbers
+  - Signed 2's compliment:  $-2^{n-1}$ to $2^{n-1} -1$ for ex. -8 to 7 for 4 bit numbers 
+
+> *An extra number $-2^{n-1}$ is accommodated in 2's compliment representation.*
+
+> In signed magnitude's compliment, zero is represented as:
+>   - Positive zero: 0  for ex. 0000
+>   - Negative zero: $-0$ for ex. 1000
 
 > In signed 1's compliment, zero is represented as:
->   - Positive zero: 0  for ex. 0000&
->   - Negative zero: $2^{n-1}$ for ex. 1111
+>   - Positive zero: 0  for ex. 0000
+>   - Negative zero: $-0$ for ex. 1111
+
+> In signed 2's compliment, zero is represented as:
+>   - Positive zero: 0  for ex. 0000
+>   - Negative zero: Doesn't exist
+>   - Extra negative number: $-2^{n-1}$ for ex. -8 looks like 1000
 
 > Positive numbers are same in all the representations.
 
