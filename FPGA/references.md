@@ -1,33 +1,12 @@
 # FPGA overview Material
 This is a suggested flow for the basic FPGA overview:
 1.  [What is an FPGA?](https://www.youtube.com/watch?v=CfmlsDW3Z4c)
-2.  [What is an SoC?](https://www.youtube.com/watch?v=RVM-ESUMOMU)
-3.  [What is Zynq, basic Zynq
-    architecture](https://www.youtube.com/watch?v=-VE97r5XpEU)
-4.  Xilinx zynq 7 series FPGA:
-    1.  [Xilinx 7 series FPGA
-        overview](https://www.youtube.com/watch?v=yCXIodRwWYU)
-    2.  [Zynq 7000
-        documentation](https://www.xilinx.com/products/silicon-devices/soc/zynq-7000.html#documentation)
-    3.  [Zynq 7000
-        Architecture](https://www.youtube.com/watch?v=SIQD3_iQcU4)
-5.  Software Introduction Overview:
-    1.  [Zynq software Ecosystem
-        Overview](https://www.youtube.com/watch?v=ClsRJ3KKf08&list=PLRr5m7hDN9TKiMF5fhq3EyoOjQVHyZkry&index=16)
-    2.  [Zynq Development Tools
-        Overview](https://www.youtube.com/watch?v=K_nTqlimVlM&list=PLRr5m7hDN9TKiMF5fhq3EyoOjQVHyZkry&index=22)
-    3.  [Xilinx Vivado software, Basic tool
-        flow](https://www.youtube.com/watch?v=Grs0gjeMPOY)
-6.  Xilinx SDK Overview:
-    1.  [Xilinx SDK
-        overview](https://www.youtube.com/watch?v=K9NUiDW42BA&list=PLRr5m7hDN9TKiMF5fhq3EyoOjQVHyZkry&index=3)
-    2.  [Bare Metal Application Development using Xilinx
-        SDK](https://www.youtube.com/watch?v=hsvwCAH-uSw&list=PLRr5m7hDN9TKiMF5fhq3EyoOjQVHyZkry&index=12)
-    3.  [Create Linux Applications using Xilinx
-        SDK](https://www.youtube.com/watch?v=lBR3GlVQuTQ&list=PLRr5m7hDN9TKiMF5fhq3EyoOjQVHyZkry&index=8)
-    4.  [Building a Hardware and Software Project Vivado, SDK
-        flow](https://www.youtube.com/watch?v=u0bW6lQvsVI)
-7.  I highly recommend this video. This is a nice explanation and demonstration of Zynq PS - PL communication with an example in 2 parts:
+2.  Xilinx SDK Overview:
+    1.  [Xilinx SDK overview](https://www.youtube.com/watch?v=K9NUiDW42BA&list=PLRr5m7hDN9TKiMF5fhq3EyoOjQVHyZkry&index=3)
+    2.  [Bare Metal Application Development using Xilinx SDK](https://www.youtube.com/watch?v=hsvwCAH-uSw&list=PLRr5m7hDN9TKiMF5fhq3EyoOjQVHyZkry&index=12)
+    3.  [Create Linux Applications using Xilinx SDK](https://www.youtube.com/watch?v=lBR3GlVQuTQ&list=PLRr5m7hDN9TKiMF5fhq3EyoOjQVHyZkry&index=8)
+    4.  [Building a Hardware and Software Project Vivado, SDK flow](https://www.youtube.com/watch?v=u0bW6lQvsVI)
+3.  I highly recommend this video. This is a nice explanation and demonstration of Zynq PS - PL communication with an example in 2 parts:
     1.  [Part 1](https://www.youtube.com/watch?v=_odNhKOZjEo)
     2.  [Part 2](https://www.youtube.com/watch?v=AOy5l36DroY)
 
