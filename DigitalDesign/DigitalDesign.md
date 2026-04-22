@@ -10,5 +10,6 @@ These are the notes of the book "Digital Logic Design by Morris Mano" written/co
 ## [Registers and Counters](RegNCount.md)
 ## [Memory and Programmable Logic](MemNPL.md)
 ## [Design at the Register Transfer Level](RTL.md)
+## [Digital Integrated Circuits](DigitalIC.md)
 
 ---
