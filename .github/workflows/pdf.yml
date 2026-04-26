@@ -29,8 +29,8 @@ jobs:
           for dir in $folders
           do
             cd "$dir"
-            pandoc "$dir/$dir.md" \
-              -o "site/$dir.pdf" \
+            pandoc "$dir.md" \
+              -o "../build/$dir.pdf" \
               --toc \
               --number-sections \
               --pdf-engine=xelatex \
