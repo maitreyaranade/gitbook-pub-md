@@ -43,6 +43,7 @@
 
 
 ---
+
 # Introduction
 Verilog is a hardware description language standardized as IEEE 1364-2001. Verilog is used to describe the low level hardware.
 - **Features of Verilog** are:
@@ -50,6 +51,7 @@ Verilog is a hardware description language standardized as IEEE 1364-2001. Veril
   - Combinational logic can be described by a schematic connection of gates, by a set of Boolean equations, or by a truth table.
 
 ---
+
 # Modules & Instantiation
 - A module is the basic building block in verilog. A module is the fundamental descriptive unit in the Verilog language.
 - A module can be an element or a collection of lower-level design blocks.
@@ -101,6 +103,7 @@ Verilog is a hardware description language standardized as IEEE 1364-2001. Veril
 - Mixed is not possible.
 
 ---
+
 ## Delays
 There are 2 types of delays in verilog:
 
@@ -118,6 +121,7 @@ Delay values control the time between when the statement is encountered and when
 2. Intra-assignment delay: Evaluation happens at the current time but the value is assigned after the mentioned delay. For ex.: y = #10 x + 1;
   
 ---
+
 # Simulation
 Simulation is used to verify the functionality of the digital design that is modeled using HDL like verilog.
 
@@ -128,6 +132,7 @@ Simulation is used to verify the functionality of the digital design that is mod
 - Note that the test bench has no input or output ports, because it does not interact with its environment.
   
 ---
+
 # Data types
 Data type is a classification that specifies which type of value can be assigned to a variable. Data types used in Verilog are:
 - Nets
@@ -254,6 +259,7 @@ For ex: reg [1:40]bus;
 
 
 ---
+
 # Operators
 
 Verilog operators operate on several data types to produce an output. Not all Verilog operators are synthesizable (can produce gates). Some operators are similar to those in the C language. Remember, you are making gates, not an algorithm (in most cases).

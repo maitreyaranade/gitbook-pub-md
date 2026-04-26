@@ -45,6 +45,7 @@
   - [Logic gates](#logic-gates)
 
 ---
+
 # Introduction
 
 - The binary information in a digital computer must have a physical existence in some medium for storing individual bits. 
@@ -58,6 +59,7 @@
 - Digital system is an interconnection of digital modules. These manipulate discrete quantities of information that are represented in binary form.
 
 ---
+
 # Number representation
 
 Any number can be expressed in a specific number system. A general representation in a base-r system is:
@@ -88,6 +90,7 @@ In binary multiplication, the result is onn only when both the input bits are 1.
 The division of 2 binary numbers is calculated by the same rules as in decimal.
 
 ---
+
 # Number base conversion
 
 If a number includes a radix point, the number is split into an integer and a fraction part. Then conversion of decimal integer to a number in base-r is done by dividing the number and all successive quotients by r and accumulating the reminders. In case of fractions, multiplication is used instead of division.
@@ -262,6 +265,7 @@ if M < N :
       - = - (0001+1) = - (0010)
   
 ---
+
 # Signed Binary Numbers
 
 ## Ordinary Arithmatic
@@ -334,6 +338,7 @@ There are 2 representations of the Signed Complement System:
 - Computers need only one common hardware circuit to handle both types of arithmatic.
 
 ---
+
 # Binary codes
 Code is nothing but group of symbols.
 
@@ -377,6 +382,7 @@ Eighth bit of the ASCII code is used to detect errors. The bit is called as pari
 | 111        | 1111            | 0111           |
 
 ---
+
 # Binary storage and registers
 
 - The binary information in a digital computer must have a physical existence in some medium for storing bits. 
@@ -396,6 +402,7 @@ A digital system is characterized by its registers and the components that perfo
 ![Transfer of information among registers](images/RTL.png)
 
 ---
+
 # Binary logic
 
 - Binary logic deals with variables that take on 2 discrete values and with operations that assume logical meaning.

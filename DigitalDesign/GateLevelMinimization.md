@@ -21,6 +21,7 @@
 - [Exclusive‐OR Function](#exclusiveor-function)
 
 ---
+
 # Introduction
 Gate-level minimization is the design task of finding an optimal gate-level implementation of the Boolean functions describing a digital circuit.
 
@@ -29,6 +30,7 @@ Gate-level minimization is the design task of finding an optimal gate-level impl
 - It is important that a designer understand the underlying mathematical description and solution of the problem.
 
 ---
+
 # The K-Map Method
 
 - Boolean expressions may be simplified by algebraic means.
@@ -107,6 +109,7 @@ For the Boolean function F = A'C + A'B + AB'C + BC
 ![Example of Prime Implicants](images/ImplicantsKMap.png)
 
 ---
+
 # Product‐of‐Sums Simplification
 - The minimized Boolean functions derived from the map in all previous examples were expressed in sum-of-products form. With a minor modification, the product-of-sums form can be obtained.
 - We mark the empty squares by 0's and combine them
@@ -137,6 +140,7 @@ Hence, a function can be implemented in 2 ways:
 - The two-level implementation may not be practical, depending on the number of inputs to the gates.
 
 ---
+
 # Don't‐Care Conditions
 - In some applications, function is not specified for certain combinations of the variables.
 - Functions that have unspecified outputs for some input combinations are called incompletely specified functions.
@@ -145,6 +149,7 @@ Hence, a function can be implemented in 2 ways:
 - While evaluating the K-Map, the don't-care minterms may be assumed to be either 0 or 1.
 
 ---
+
 # NAND and NOR Implementation
 
 - Digital circuits are frequently constructed with NAND or NOR gates rather than with AND and OR gates. 
@@ -171,6 +176,7 @@ The implementation of Boolean functions with NAND gates requires that the functi
 A two-level implementation with NOR gates requires that the function be simplified into product-of-sums form. The implementation with AND and OR gates can easily be realized with the use of NOR gates only.
 
 ---
+
 # Exclusive‐OR Function
 
 The exclusive-OR (XOR), denoted by the symbol $\oplus$, is a logical operation that performs:

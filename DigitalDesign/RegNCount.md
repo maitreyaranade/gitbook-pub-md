@@ -18,6 +18,7 @@
 
 
 ---
+
 # Registers
 
 - A circuit with flip‐flops is considered a sequential circuit even in the absence of combinational gates.
@@ -56,6 +57,7 @@ Four‐bit register with parallel load:
 - The additional gates implement a two‐channel mux whose output drives the input to the register with either the data bus or the output of the register.
 
 ---
+
 # Shift Registers
 
 A register capable of shifting the binary information held in each cell to its neighboring cell, in a selected direction, is called a *shift register*.
@@ -154,6 +156,7 @@ s1 | s0 | Register Operation
 > Shift registers are often used to interface digital systems situated remotely from each other.
 
 ---
+
 # Ripple Counters
 
 A register that goes through a prescribed sequence of states upon the application of input pulses is called a _counter_.
@@ -234,6 +237,7 @@ It has an up control input and a down control input.
   3. Johnson Counter: A k‐bit ring counter circulates a single bit among the flip‐flops to provide k distinguishable states.
 
 ---
+
 # HDL for Registers and Counters
 
 Revisit

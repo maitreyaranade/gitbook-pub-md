@@ -1,6 +1,7 @@
 # Hardware Description Language
 
 ---
+
 # Table of Contents
 
 ## [HDL Basics](basics.md)

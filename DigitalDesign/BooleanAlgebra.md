@@ -25,6 +25,7 @@
 - [Computer Aided Design of VLSI circuits](#computer-aided-design-of-vlsi-circuits)
 
 ---
+
 # Introduction
 - Boolean algebra was introduced by George Boole. 
 - Boolean Algebra comprises of set of rules used to simplify the given logic expression without changing it's functionality.
@@ -43,6 +44,7 @@
 6.  Distributive law:\( x*(y.z) = (x*y).(x*z) \)
 
 ---
+
 # Basic theorems & Properties of boolean algebra
 
 ## Duality
@@ -125,6 +127,7 @@ A boolean function expresses the logical relationship between binary variables &
 - A boolean function can be transformed into a circuit diagram composing logic gates from algebraic expression which is also known as schematic.
 
 ---
+
 # Canonical & standard forms
 
 ## Minterms and Maxterms
@@ -181,6 +184,7 @@ The complement of a function expressed as the sum of minterms equals the sum of 
 - For example, \( F_{1} = AB + C(D + E) \)
 
 ---
+
 # Digital logic gates 
 ![some discription](images/GatePager.png "some discription")
 
@@ -188,6 +192,7 @@ The complement of a function expressed as the sum of minterms equals the sum of 
 operation it represents is commutative and associative.
 
 ---
+
 # Integrated Circuits
 
 An integrated circuit (IC) is fabricated on a die of a silicon semiconductor crystal, called a chip, containing the electronic components for constructing digital gates.
@@ -211,6 +216,7 @@ Digital ICs are categorized according to the complexity of their circuits as mea
 requiring low power consumption, hence dominant in the VLSI industry)
 
 ---
+
 # Computer Aided Design of VLSI circuits
 
 - Integrated circuits having sub-micron geometric features are manufactured by optically projecting light onto silicon wafers. 

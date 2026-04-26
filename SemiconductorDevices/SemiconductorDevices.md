@@ -133,6 +133,7 @@
 - Intrinsic carrier concentration depends on temperature and bandgap.
 
 ---
+
 ## Band Structure
 
 ### Band structure & fermi–dirac distribution

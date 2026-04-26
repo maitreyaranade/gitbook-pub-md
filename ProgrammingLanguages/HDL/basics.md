@@ -8,6 +8,7 @@
 - [HDL Structure](#hdl-structure)
 
 ---
+
 # Introduction
 
 Manual methods for designing logic circuits are feasible only when the circuit is small. For larger circuits (usual scenario), designers use computer-based design tools which use hardware description languages.

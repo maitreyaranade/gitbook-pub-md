@@ -28,6 +28,7 @@ jobs:
 
           for dir in $folders
           do
+            cd "$dir"
             pandoc "$dir/$dir.md" \
               -o "site/$dir.pdf" \
               --toc \
@@ -37,6 +38,7 @@ jobs:
               --resource-path=. \
               -V geometry:margin=1in \
               -V fontsize=11pt
+            cd ..
           done
 
       - name: Create Download Page

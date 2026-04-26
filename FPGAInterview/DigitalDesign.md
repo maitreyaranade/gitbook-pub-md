@@ -65,6 +65,7 @@ Topics to revise:
 
 
 ---
+
 # Sequential logic design
 
 1. What is a latch? Explain using NOT, NAND, and NOR gates.
@@ -111,6 +112,7 @@ Topics to revise:
 
 
 ---
+
 # Finite state machines (FSMs)
 
 1. What is a Finite State Machine?

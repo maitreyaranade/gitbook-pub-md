@@ -33,6 +33,7 @@
 - [HDL models of combinational circuits](#hdl-models-of-combinational-circuits)
 
 ---
+
 # Introduction
 - Logic circuits for digital systems maybe combinational or sequential. 
 - Combinational circuits employ boolean functions whereas, sequential circuits employ storage element in addition to logic gates.
@@ -49,6 +50,7 @@
 - Hence, the outputs of a sequential circuit depend at any time on not only the present values of inputs but also on past inputs.
 
 ---
+
 # Analysis of combinational circuits
 - The logic diagram of a combinational circuit has logic gates with no feedback paths or memory elements. 
 - Analysis of a combinational circuit determines its functionality i.e. the logic function that the circuit implements.
@@ -67,6 +69,7 @@ Analysis of combinational circuits can be done through the following 2 methods:
   3.  Step 1 still requires method 1
 
 ---
+
 # Design procedure
 
 These are the steps involved in the design procedure of combinational circuits:
@@ -78,6 +81,7 @@ These are the steps involved in the design procedure of combinational circuits:
 5.  Draw the logic diagram & verify correctness of the design. (Manually or by simulation.)
 
 ---
+
 # Binary Adder
 
 - A binary adder performs an addition of 2 bits. 
@@ -162,6 +166,7 @@ Individual carry is calculated and expanded in the primary terms like this:
 | ![Carry Lookahead Generator](images/CarryLookaheadGenerator.png) | ![4-bit adder with Carry Lookahead](images/4bitAdderwithCarryLookahead.png) |
 
 ---
+
 # Binary Subtractor
 
 Subtraction of binary numbers can be done with the help of
@@ -201,6 +206,7 @@ Overflow occurs if 2 'n'-bit numbers are added with 'n+1'-bit result for signed,
 - An XOR gate can be implemented for the detection as shown in 4-bit Adder Subtractor.
 
 --- 
+
 # Binary Multiplier
 
 - Multiplication in binary form is the same as multiplication in decimal form. 
@@ -336,5 +342,6 @@ MUX can be constructed with Three State Gates (digital circuits that exhibit 3 S
 ![Implementation of Mux with tristate gates](images/TriStateMUX.png)
 
 ---
+
 # HDL models of combinational circuits
 Revisit
