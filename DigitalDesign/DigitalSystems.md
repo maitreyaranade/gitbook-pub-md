@@ -110,7 +110,9 @@ If a number includes a radix point, the number is split into an integer and a fr
 - Final result = **remainders read in reverse order**.
 
 **Example (Decimal to Binary):**  
-\[ 25_{10} = 11001_2 \]  
+$$
+ 25_{10} = 11001_2 
+$$  
 - 25 ÷ 2 -> remainder 1  
 - 12 ÷ 2 -> remainder 0  
 - 6 ÷ 2 -> remainder 0  
@@ -123,14 +125,18 @@ If a number includes a radix point, the number is split into an integer and a fr
 - Final result = **digits read in order**.
 
 **Example:**  
-\[ 0.625_{10} = 0.101_2 \]  
+$$
+ 0.625_{10} = 0.101_2 
+$$  
 0.625 × 2 = 1.25 -> carry 1  
 0.25 × 2 = 0.5 -> carry 0  
 0.5 × 2 = 1.0 -> carry 1 
 
 
 ### Final Combined Result
-\[ 25.625_{10} = 11001.101_2 \]
+$$
+ 25.625_{10} = 11001.101_2 
+$$
 
 ---
 
@@ -147,18 +153,28 @@ If a number includes a radix point, the number is split into an integer and a fr
 - Sum all terms.
 
 **Example:**  
-\[ 11001_2 = (1×2^4) + (1×2^3) + (0×2^2) + (0×2^1) + (1×2^0) \]  
-\[ = 16 + 8 + 0 + 0 + 1 = 25_{10} \]
+$$
+ 11001_2 = (1×2^4) + (1×2^3) + (0×2^2) + (0×2^1) + (1×2^0) 
+$$  
+$$
+ = 16 + 8 + 0 + 0 + 1 = 25_{10} 
+$$
 
 ### Fractional Part Conversion
 - Multiply each digit by negative powers of 2.
 
 **Example:**  
-\[ 0.101_2 = (1×2^{-1}) + (0×2^{-2}) + (1×2^{-3}) \]  
-\[ = 0.5 + 0 + 0.125 = 0.625_{10} \]
+$$
+ 0.101_2 = (1×2^{-1}) + (0×2^{-2}) + (1×2^{-3}) 
+$$  
+$$
+ = 0.5 + 0 + 0.125 = 0.625_{10} 
+$$
 
 ### Final Combined Result
-\[ 11001.101_2 = 25.625_{10} \]
+$$
+ 11001.101_2 = 25.625_{10} 
+$$
 
 ---
 

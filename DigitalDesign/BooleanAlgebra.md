@@ -33,15 +33,15 @@
 
 1.  Closure: A set S is closed with respect to a binary operator if, for every pair of elements of S, the binary operator specifies a rule for obtaining a unique & element of S.
 
-2.  Associative law:\( (x*y)*z = x*(y*z)  \) for all \( x,y,z  \varepsilon S \)
+2.  Associative law:$ (x*y)*z = x*(y*z)  $ for all $ x,y,z  \varepsilon S $
 
-3.  Commutative law:\( x*y = y*x  \) for all \( x,y\varepsilon S \)
+3.  Commutative law:$ x*y = y*x  $ for all $ x,y\varepsilon S $
 
-4.  Identity element:\( e*x = x*e = x  \) for every \( x \varepsilon S \)
+4.  Identity element:$ e*x = x*e = x  $ for every $ x \varepsilon S $
 
-5.  Inverse: A set S having the identity element e - is said to have an  inverse when ,\( x*y=e \)
+5.  Inverse: A set S having the identity element e - is said to have an  inverse when ,$ x*y=e $
 
-6.  Distributive law:\( x*(y.z) = (x*y).(x*z) \)
+6.  Distributive law:$ x*(y.z) = (x*y).(x*z) $
 
 ---
 
@@ -54,57 +54,57 @@ If the operators and the elements are interchanged, every algebraic expression d
 ## Basic theorems
 
 - Postulate 2:
-  - \( x + 0 = x \)
-  - \( x . 1 = x \)
+  - $ x + 0 = x $
+  - $ x . 1 = x $
 - Postulate 5:
-  - \( x + x' = 1 \)
-  - \( x . x' = 0 \)
+  - $ x + x' = 1 $
+  - $ x . x' = 0 $
 - Theorem 1
-  - \( x + x = x \)
-  - \( x . x = x \)
+  - $ x + x = x $
+  - $ x . x = x $
 - Theorem 2
-  - \( x + 1 = 1 \)
-  - \( x \# 0 = 0 \)
+  - $ x + 1 = 1 $
+  - $ x \# 0 = 0 $
 - Theorem 3, involution
-  - \( (x ')' = x \)
+  - $ (x ')' = x $
 - Postulate 3, commutative
-  - \( x + y = y + x \)
-  - \( xy = yx \)
+  - $ x + y = y + x $
+  - $ xy = yx $
 - Theorem 4, associative
-  - \( x + (y + z) = (x + y) + z \)
-  - \( x(yz) = (xy)z \)
+  - $ x + (y + z) = (x + y) + z $
+  - $ x(yz) = (xy)z $
 - Postulate 4, distributive
-  - \( x(y + z) = xy + xz \)
-  - \( x + yz = (x + y)(x + z) \)
+  - $ x(y + z) = xy + xz $
+  - $ x + yz = (x + y)(x + z) $
 - Theorem 5, DeMorgan  
-  - \( (x + y)' = x 'y'   \)
-  - \( (xy)' = x ' + y' \)
+  - $ (x + y)' = x 'y'   $
+  - $ (xy)' = x ' + y' $
 - Theorem 6, absorption
-  - \( x + xy = x \)
-  - \( x(x + y) = x \)
+  - $ x + xy = x $
+  - $ x(x + y) = x $
 
 
 ## Summary operations:
 
-1. Compliment: \( (A')' = A \)
+1. Compliment: $ (A')' = A $
 2. AND:
-   1. \( A.A = A \)
-   2. \( A.0 = 0 \)
-   3. \( A.1 = A \)
-   4. \( A.A' = 0 \)
+   1. $ A.A = A $
+   2. $ A.0 = 0 $
+   3. $ A.1 = A $
+   4. $ A.A' = 0 $
 3. OR:
-   1. \( A+A = A \)
-   2. \( A+0 = A \)
-   3. \( A+1 = 1 \)
-   4. \( A+A' = 1 \)
+   1. $ A+A = A $
+   2. $ A+0 = A $
+   3. $ A+1 = 1 $
+   4. $ A+A' = 1 $
 4. Distributive: 
-   1. \( A+BC = (A+B).(A+C) \)
-   2. \( A.(B+C) = A.B + A.C \)
-   3. \( A+A'B = A+B \)
-   4. \( A'+AB = A'+B \)
+   1. $ A+BC = (A+B).(A+C) $
+   2. $ A.(B+C) = A.B + A.C $
+   3. $ A+A'B = A+B $
+   4. $ A'+AB = A'+B $
 5. De Morgan's law:
-   1. \((A+B)' = A'.B' \)
-   2. \((A.B)' = A'+B' \)
+   1. $(A+B)' = A'.B' $
+   2. $(A.B)' = A'+B' $
 
 ## Operator Precedence
 
@@ -116,7 +116,7 @@ If the operators and the elements are interchanged, every algebraic expression d
 # Boolean functions
 
 A boolean function is described by an algebraic expression consisting of binary variables, the constants (0 & 1) and the logic operation symbols. For eg.
-\( F_1 = x + y'z \)
+$ F_1 = x + y'z $
 
 A boolean function expresses the logical relationship between binary variables & is evaluated by determining the binary value of the expression for all possible values of the variables.
 
@@ -149,39 +149,39 @@ A boolean function expresses the logical relationship between binary variables &
 
 > **A Boolean function can be expressed by forming a minterm for each combination of the variables that produces a 1 in the function and then taking the OR of all those terms.**
 
-- Say, we have a boolean expression = \( f_{1} \)
+- Say, we have a boolean expression = $ f_{1} $
 - Firstly, obtain the truth table of the function directly from the algebraic expression
-- Read the minterms from the truth table that produce a 1 in the \( f_{1}\)
+- Read the minterms from the truth table that produce a 1 in the $ f_{1}$
 - Take OR of all those minterms.
   
-For example: \( f_{1} = x'y'z + xy'z' + xyz = m_{1}+m_{4}+m_{7}  = \Sigma(1,4,7) \) 
+For example: $ f_{1} = x'y'z + xy'z' + xyz = m_{1}+m_{4}+m_{7}  = \Sigma(1,4,7) $ 
 
 > **Similarly, a Boolean function can be also expressed by forming a maxterm for each combination of the variables that produces a 0 in the function and then taking the AND of all those terms.**
 
-- Similar to minterms, we have a boolean expression = \( f_{1} \)
+- Similar to minterms, we have a boolean expression = $ f_{1} $
 - Firstly, obtain the truth table of the function directly from the algebraic expression.
-- Read the maxterms from the truth table that produce a 0 in the \( f_{1} \)
+- Read the maxterms from the truth table that produce a 0 in the $ f_{1} $
 - Take AND of all those minterms.
 
-For example: \( f_{1} = (x+y+z)(x+y'+z)(x'+y+z')(x'+y'+z) = M_{0}.M_{2}.M_{3}.M_{5}.M_{6} = \Pi(0,2,3,5,6) \)
+For example: $ f_{1} = (x+y+z)(x+y'+z)(x'+y+z')(x'+y'+z) = M_{0}.M_{2}.M_{3}.M_{5}.M_{6} = \Pi(0,2,3,5,6) $
 
 > **Boolean functions expressed as a sum of minterms or product of maxterms are said to be in canonical form.**
 
 ## Conversion between Canonical Forms
 The complement of a function expressed as the sum of minterms equals the sum of minterms missing from the original function.
-\( m'_{j} = M_{j} \)
+$ m'_{j} = M_{j} $
 
 ## Standard Forms 
 - In canonical form, minterm or maxterm must contain, all the variables, either with or without complement.
 - Another way to express Boolean functions is in **standard form**. 
 - In this form, the terms that form the function may contain one, two, or any number of literals/variables.
-- For example, \( F_{1} = y' + xy + x'yz' \)
+- For example, $ F_{1} = y' + xy + x'yz' $
 - This standard type of expression results in a two‐level structure of gates. (Either group of OR gates followed by an AND gate or group of AND gates followed by an OR gate)
 
 ## Nonstandard Forms 
 - A Boolean function may be expressed in a nonstandard form. 
 - The function is neither in sum‐of‐products nor in product‐of‐sums form.
-- For example, \( F_{1} = AB + C(D + E) \)
+- For example, $ F_{1} = AB + C(D + E) $
 
 ---
 

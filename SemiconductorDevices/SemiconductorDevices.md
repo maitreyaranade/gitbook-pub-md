@@ -114,7 +114,7 @@
 ---
 
 ## Types of Semiconductors
-- **Intrinsic Semiconductors**: Pure materials with equal electron and hole concentration (\( n = p = n_i \)).
+- **Intrinsic Semiconductors**: Pure materials with equal electron and hole concentration ($ n = p = n_i $).
 - Intrinsic semiconductor (extremely pure): Materials which have exactly same holes and electrons or Fermi level sits exactly in the middle
 - **Extrinsic Semiconductors**: Doped materials with controlled carrier concentration.
 
@@ -138,28 +138,34 @@
 
 ### Band structure & fermi–dirac distribution
 - Fermi–Dirac distribution gives the probability of an energy state being occupied:
-  \[ f(E) = \frac{1}{1 + e^{(E - E_F)/kT}} \]
-- At \( T = 0K \), all states below \( E_F \) are filled and above are empty (step-like distribution).
+  $$
+ f(E) = \frac{1}{1 + e^{(E - E_F)/kT}} 
+$$
+- At $ T = 0K $, all states below $ E_F $ are filled and above are empty (step-like distribution).
 - At finite temperature, electrons get thermally excited to higher energy states, smoothing the distribution.
 - Fermi level shifts with doping: toward conduction band (n-type) and toward valence band (p-type).
 - It directly determines electron and hole concentrations in semiconductors.
 
 ### Density of states (DOS)
 - Density of states (DOS) represents the number of available energy states per unit energy per unit volume.
-- In 3D semiconductors, DOS increases as \( \sqrt{E - E_c} \) above the conduction band edge.
+- In 3D semiconductors, DOS increases as $ \sqrt{E - E_c} $ above the conduction band edge.
 - Carrier concentration is obtained by combining DOS with the Fermi–Dirac distribution.
 - DOS depends on effective mass and dimensionality of the system.
 - It is essential for calculating electron and hole populations in materials.
 
 ### Equilibrium carrier concentration
-- At thermal equilibrium, carrier concentrations follow: \[ np = n_i^2 \]
+- At thermal equilibrium, carrier concentrations follow: $$
+ np = n_i^2 
+$$
 - Charge neutrality ensures total positive and negative charges are balanced.
 - Majority carriers are approximately equal to dopant concentration.
 - Minority carriers are derived from intrinsic relations.
 - Fermi level position uniquely determines equilibrium carrier densities.
 
 ### Temperature dependence
-- Intrinsic carrier concentration increases exponentially with temperature: \[ n_i \propto e^{-E_g/2kT} \]
+- Intrinsic carrier concentration increases exponentially with temperature: $$
+ n_i \propto e^{-E_g/2kT} 
+$$
 - Three regions: freeze-out (low T), extrinsic (moderate T), intrinsic (high T).
 - At high temperatures, intrinsic carriers dominate over dopants.
 - Mobility decreases with temperature due to increased phonon scattering.
@@ -173,7 +179,9 @@
 - Critical in heavily doped regions like MOSFET source/drain.
 
 ### Carrier scattering & mobility
-- Mobility defines how easily carriers move under an electric field: \[ \mu = \frac{q\tau}{m^*} \]
+- Mobility defines how easily carriers move under an electric field: $$
+ \mu = \frac{q\tau}{m^*} 
+$$
 - Scattering mechanisms include phonon (lattice) scattering and impurity scattering.
 - Higher temperature increases phonon scattering, reducing mobility.
 - Higher doping increases impurity scattering, also reducing mobility.
@@ -188,11 +196,17 @@
 
 ### Drift–diffusion & traps
 - Drift current arises due to electric field:
-  \[ J_{drift} = q n \mu E \]
+  $$
+ J_{drift} = q n \mu E 
+$$
 - Diffusion current arises due to carrier concentration gradient:
-  \[ J_{diff} = q D \frac{dn}{dx} \]
+  $$
+ J_{diff} = q D \frac{dn}{dx} 
+$$
 - Einstein relation links diffusion and mobility:
-  \[ \frac{D}{\mu} = \frac{kT}{q} \]
+  $$
+ \frac{D}{\mu} = \frac{kT}{q} 
+$$
 - Trap states capture carriers and influence recombination and leakage.
 - Traps introduce non-ideal behavior such as reduced carrier lifetime.
 
@@ -205,7 +219,9 @@
 
 ### Continuity equation
 - Ensures conservation of charge:
-  \[ \frac{\partial n}{\partial t} = G - R + \frac{1}{q} \nabla J \]
+  $$
+ \frac{\partial n}{\partial t} = G - R + \frac{1}{q} \nabla J 
+$$
 - Accounts for generation (G), recombination (R), and current flow (J).
 - Used for both steady-state and transient analysis of devices.
 - Fundamental equation in semiconductor device modeling and simulation.
@@ -228,7 +244,9 @@
 - Reduces barrier potential and narrows depletion region.
 - Allows majority carriers to cross the junction easily.
 - Results in **large exponential current flow**:
-  \[ I = I_s (e^{V/V_T} - 1) \]
+  $$
+ I = I_s (e^{V/V_T} - 1) 
+$$
 - Turn-on voltage (~0.7V for Si) is required to significantly conduct.
 
 2. Reverse Bias
@@ -240,8 +258,10 @@
 
 ### Depletion Region & Built-in Potential
 - The depletion region acts as a **barrier** preventing free carrier movement.
-- Built-in potential \( V_{bi} \) depends on doping levels:
-  \[ V_{bi} \propto \ln\left(\frac{N_A N_D}{n_i^2}\right) \]
+- Built-in potential $ V_{bi} $ depends on doping levels:
+  $$
+ V_{bi} \propto \ln\left(\frac{N_A N_D}{n_i^2}\right) 
+$$
 - Width of depletion region changes with applied voltage.
 - This region is crucial for controlling current flow in the device.
 - Acts like an insulating layer between p and n regions.
@@ -277,7 +297,9 @@
 - Electrons and holes recombine at the junction, releasing energy as photons (light).
 - Emits light when forward biased due to **radiative recombination**.
 - Electron-hole recombination releases photons:
-  \[  E_{photon} \approx E_g  \]
+  $$
+  E_{photon} \approx E_g  
+$$
 - Color depends on semiconductor bandgap.
 - Used in displays, lighting, and indicators.
 
@@ -308,7 +330,7 @@
 ### Formation & Barrier
 - When metal and semiconductor come in contact, electrons flow to align their Fermi levels.
 - This creates a **depletion region in the semiconductor side only** (not in the metal).
-- A potential barrier called the **Schottky barrier height (\( \phi_B \))** is formed.
+- A potential barrier called the **Schottky barrier height ($ \phi_B $)** is formed.
 - Barrier height depends on **metal work function and semiconductor properties**.
 - The built-in electric field prevents further carrier diffusion at equilibrium.
 
@@ -385,24 +407,24 @@
 - **Emitter (E)**  Heavily doped region that injects majority carriers into the base.
 - **Collector (C)**  Moderately doped region that collects carriers from the base and delivers output current.
 - **Currents from E, B, C** : Emitter current splits into base and collector currents:
-  \( I_E = I_B + I_C \)
+  $ I_E = I_B + I_C $
 
 - **Gain (Current Gain)** : Ability of BJT to amplify current, defined as ratio of collector current to base current:
-  \( \beta = \frac{I_C}{I_B} \)
+  $ \beta = \frac{I_C}{I_B} $
 
 - **Beta (β)** : Common-emitter current gain representing amplification capability of the transistor:
-  \( \beta = \frac{I_C}{I_B} \)
+  $ \beta = \frac{I_C}{I_B} $
 
 - **Base Transport Factor (αₜ)** : Fraction of carriers injected from emitter that successfully reach the collector through the base:
-  \( \alpha_T = \frac{I_C}{I_E'} \)
+  $ \alpha_T = \frac{I_C}{I_E'} $
 
 - **Emitter Injection Efficiency (γ)** : Fraction of emitter current that contributes to useful carrier injection:
-  \( \gamma = \frac{\text{electron injection}}{\text{total emitter current}} \)
+  $ \gamma = \frac{\text{electron injection}}{\text{total emitter current}} $
 
 - **Transport Ratio / Common-base Gain (α)** : Fraction of emitter current that becomes collector current:
-  \( \alpha = \frac{I_C}{I_E} \)
+  $ \alpha = \frac{I_C}{I_E} $
 
-- **Important Relation** : \( \beta = \frac{\alpha}{1 - \alpha} \)
+- **Important Relation** : $ \beta = \frac{\alpha}{1 - \alpha} $
 
 ### BJT Operation
 - When a small positive voltage is applied to the base relative to the - emitter, electrons are injected from the emitter into the base.
@@ -434,7 +456,7 @@
 
 - Inversion: Occurs when sufficient gate voltage attracts minority carriers, forming a conductive channel at the surface.
 
-- Threshold Voltage \(V_T\): The gate voltage at which strong inversion begins and a conducting channel is formed.
+- Threshold Voltage $V_T$: The gate voltage at which strong inversion begins and a conducting channel is formed.
 
 ### MOSFET definition
 - A MOSFET (Metal–Oxide–Semiconductor Field-Effect Transistor) is a three-terminal device (Gate, Source, Drain) where current between source and drain is controlled by gate voltage.
@@ -453,24 +475,28 @@
 ### Operation of MOSFET (nMOS example)
 
 1. Cutoff Region (OFF)
-- When \( V_{GS} < V_T \), no inversion layer forms and no conduction path exists.
+- When $ V_{GS} < V_T $, no inversion layer forms and no conduction path exists.
 - Only very small leakage current flows.
 
 2. Linear / Triode Region
-- When \( V_{GS} > V_T \) and \( V_{DS} \) is small, a continuous channel forms.
+- When $ V_{GS} > V_T $ and $ V_{DS} $ is small, a continuous channel forms.
 - Device behaves like a voltage-controlled resistor.
 - Drain current:
-  \[
+  $$
+
   I_D = \mu_n C_{ox} \frac{W}{L} \left[(V_{GS}-V_T)V_{DS} - \frac{V_{DS}^2}{2}\right]
-  \]
+  
+$$
 
 3. Saturation Region
-- When \( V_{DS} \geq (V_{GS} - V_T) \), channel pinches off near drain.
-- Current becomes almost independent of \( V_{DS} \).
+- When $ V_{DS} \geq (V_{GS} - V_T) $, channel pinches off near drain.
+- Current becomes almost independent of $ V_{DS} $.
 - Drain current:
-  \[
+  $$
+
   I_D = \frac{1}{2} \mu_n C_{ox} \frac{W}{L} (V_{GS}-V_T)^2
-  \]
+  
+$$
 
 ### Key Physical Insight
 - Gate voltage controls surface potential → creates inversion layer → forms channel → enables current flow.
@@ -478,10 +504,10 @@
 - Device transitions from **no channel → resistive channel → pinch-off region** as voltages change.
 
 ### Important Parameters
-- \( V_T \): Threshold voltage (onset of inversion)
-- \( C_{ox} = \frac{\varepsilon_{ox}}{t_{ox}} \): Oxide capacitance per unit area
-- \( \mu_n \): Carrier mobility
-- \( W/L \): Device geometry (width/length ratio)
+- $ V_T $: Threshold voltage (onset of inversion)
+- $ C_{ox} = \frac{\varepsilon_{ox}}{t_{ox}} $: Oxide capacitance per unit area
+- $ \mu_n $: Carrier mobility
+- $ W/L $: Device geometry (width/length ratio)
 
 - Gate voltage controls channel formation.
 - Regions: cutoff, linear, saturation.
@@ -551,12 +577,12 @@
 - Solar cells are the fundamental units of solar panels used in renewable energy systems.
 - **Solar cells do not require external voltage application for generating current.**
 
-- **Short-Circuit Current (Isc)** : The current flowing through the solar cell when the output terminals are shorted (i.e., \( V = 0 \)), representing the maximum current generated under illumination.
+- **Short-Circuit Current (Isc)** : The current flowing through the solar cell when the output terminals are shorted (i.e., $ V = 0 $), representing the maximum current generated under illumination.
 
-- **Open-Circuit Voltage (Voc)** : The voltage across the solar cell when no external current flows (i.e., \( I = 0 \)), representing the maximum voltage developed due to carrier separation.
+- **Open-Circuit Voltage (Voc)** : The voltage across the solar cell when no external current flows (i.e., $ I = 0 $), representing the maximum voltage developed due to carrier separation.
 
 ### Working Principle
-- Photons with energy greater than bandgap (\( h\nu \geq E_g \)) generate electron–hole pairs.
+- Photons with energy greater than bandgap ($ h\nu \geq E_g $) generate electron–hole pairs.
 - The internal electric field drives electrons toward the n-side and holes toward the p-side.
 - This separation prevents recombination and creates a voltage across the junction.
 - External circuit allows current to flow, delivering power.
@@ -586,7 +612,7 @@
 - Widely used in optical communication, sensing, and imaging systems.
 
 ### Working Principle
-- Incident photons with energy \( h\nu \geq E_g \) generate electron–hole pairs.
+- Incident photons with energy $ h\nu \geq E_g $ generate electron–hole pairs.
 - These carriers are separated by the electric field in the depletion region.
 - Electrons move toward n-side and holes toward p-side, creating photocurrent.
 - Reverse bias is often applied to increase depletion width and speed.
@@ -600,7 +626,9 @@
 
 ### Key Performance Parameters
 - **Responsivity (R)**: Output current per unit optical power:
-  \[  R = \frac{I_{ph}}{P_{opt}}  \]
+  $$
+  R = \frac{I_{ph}}{P_{opt}}  
+$$
 - **Quantum Efficiency (η)**: Fraction of photons converted into carriers.
 - **Dark Current**: Leakage current in absence of light.
 - **Response Time / Bandwidth**: Speed of detector operation.
@@ -647,13 +675,17 @@
 
 ### Key Concepts
 - Radiative recombination rate is proportional to electron and hole concentrations:
-  \[
+  $$
+
   R_{rad} \propto np
-  \]
+  
+$$
 - Internal Quantum Efficiency (IQE):
-  \[
+  $$
+
   IQE = \frac{\text{radiative recombination}}{\text{total recombination}}
-  \]
+  
+$$
 - Higher radiative recombination results in brighter LED output.
 - Non-radiative processes reduce efficiency and generate heat.
 - Carrier confinement (using heterostructures) improves recombination efficiency.
@@ -673,7 +705,9 @@
 - These carriers recombine in the active region.
 - In direct bandgap materials, recombination releases energy as photons (light emission).
 - Photon energy is approximately equal to bandgap:
-  \[  E_{photon} \approx E_g = h\nu \]
+  $$
+  E_{photon} \approx E_g = h\nu 
+$$
 - Continuous carrier injection results in continuous light output.
 
 ### Key Concepts
