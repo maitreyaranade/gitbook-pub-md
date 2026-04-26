@@ -76,9 +76,11 @@ Verilog syntax is similar to the C programming language and consists of tokens s
 #### Sized Numbers
 - Format: `<size>'<base><value>`
 - Supported bases: binary (b), decimal (d), hexadecimal (h), octal (o)
+- Eg. 4'b1111; 12'habc;
 
 #### Unsized Numbers
 - Default to decimal and at least 32 bits.
+- Eg. 'b1111; 'hc3; // Both of these are 32 bit numbers
 
 #### Special Values
 - `x` represents unknown values.
@@ -86,8 +88,8 @@ Verilog syntax is similar to the C programming language and consists of tokens s
 - `?` can be used as an alternative to `z` in specific contexts.
 
 #### Additional Rules
-- Negative numbers use a minus sign before the size.
-- Underscores improve readability and are ignored.
+- Negative numbers use a minus sign before the size. Eg. -6'd3;
+- Underscores improve readability and are ignored. Eg. 8'b1110_0111;
 - Automatic bit extension applies based on the most significant bit.
 
 ### Strings

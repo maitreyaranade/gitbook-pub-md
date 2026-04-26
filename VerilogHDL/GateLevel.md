@@ -1,4 +1,4 @@
-- [Gate-Level Modeling in Verilog – Professional Revision Notes](#gate-level-modeling-in-verilog--professional-revision-notes)
+- [Gate-Level Modeling in Verilog](#gate-level-modeling-in-verilog)
   - [1. Overview of Gate-Level Modeling](#1-overview-of-gate-level-modeling)
   - [2. Gate Primitives in Verilog](#2-gate-primitives-in-verilog)
     - [Categories of Gates](#categories-of-gates)
@@ -7,28 +7,25 @@
       - [Controlled Gates (Bufif/Notif)](#controlled-gates-bufifnotif)
   - [3. Gate Instantiation](#3-gate-instantiation)
   - [4. Arrays of Gate Instances](#4-arrays-of-gate-instances)
-  - [5. Gate-Level Design Examples](#5-gate-level-design-examples)
-    - [Multiplexer Design](#multiplexer-design)
-    - [Ripple Carry Adder](#ripple-carry-adder)
-  - [6. Gate Delays](#6-gate-delays)
+  - [5. Gate Delays](#5-gate-delays)
     - [Types of Delays](#types-of-delays)
       - [Rise Delay](#rise-delay)
       - [Fall Delay](#fall-delay)
       - [Turn-Off Delay](#turn-off-delay)
-  - [7. Delay Specification](#7-delay-specification)
-  - [8. Min, Typical, and Max Delays](#8-min-typical-and-max-delays)
+  - [6. Delay Specification](#6-delay-specification)
+  - [7. Min, Typical, and Max Delays](#7-min-typical-and-max-delays)
     - [Usage](#usage)
-  - [9. Timing Behavior and Simulation](#9-timing-behavior-and-simulation)
+  - [8. Timing Behavior and Simulation](#8-timing-behavior-and-simulation)
 
 ---
 
-# Gate-Level Modeling in Verilog – Professional Revision Notes
+# Gate-Level Modeling in Verilog
 
 ## 1. Overview of Gate-Level Modeling
 
 Gate-level modeling describes digital circuits using logic gates such as AND, OR, and NOT. It operates at a lower level of abstraction than RTL and provides a direct correspondence between circuit diagrams and Verilog code.
 
-This modeling style is intuitive for designers familiar with digital logic because each Verilog construct maps closely to physical hardware components. While switch-level modeling is even lower, it is rarely used due to complexity. :contentReference[oaicite:0]{index=0}
+This modeling style is intuitive for designers familiar with digital logic because each Verilog construct maps closely to physical hardware components. While switch-level modeling is even lower, it is rarely used due to complexity.
 
 ---
 
@@ -48,6 +45,8 @@ Supported gates include:
 - `nand`, `nor`, `xnor`
 
 These gates can accept multiple inputs, and their outputs are computed by applying logic iteratively across all inputs.
+
+![Logic Gates](images/LogicGates.png)
 
 #### Buf/Not Type Gates
 - These gates have one input and one or more outputs.
@@ -80,11 +79,50 @@ Example concepts:
 - Gates can be used to directly translate logic diagrams into Verilog.
 - No separate module definition is required for primitive gates.
 
+```verilog
+wire OUT, IN1, IN2;
+
+// basic gate instantiations.
+and a1(OUT, IN1, IN2);
+nand na1(OUT, IN1, IN2);
+or or1(OUT, IN1, IN2);
+nor nor1(OUT, IN1, IN2);
+xor x1(OUT, IN1, IN2);
+xnor nx1(OUT, IN1, IN2);
+buf b1(OUT1, IN);
+not n1(OUT1, IN);
+bufif1 b1 (out, in, ctrl);
+bufif0 b0 (out, in, ctrl);
+notif1 n1 (out, in, ctrl);
+notif0 n0 (out, in, ctrl);
+
+// More than two inputs; 3 input nand gate
+nand na1_3inp(OUT, IN1, IN2, IN3);
+buf b1_2out(OUT1, OUT2, IN);
+
+// gate instantiation without instance name
+and (OUT, IN1, IN2); // legal gate instantiation
+not (OUT1, IN); // legal gate instantiation
+```
+
 ---
 
 ## 4. Arrays of Gate Instances
 
 Verilog allows creation of arrays of gate instances to simplify repetitive designs.
+
+```verilog
+wire [3:0] OUT, IN1, IN2;
+
+// basic gate instantiations.
+nand n_gate[3:0](OUT, IN1, IN2);
+
+// This is equivalent to the following 4 instantiations
+nand n_gate0(OUT[0], IN1[0], IN2[0]);
+nand n_gate1(OUT[1], IN1[1], IN2[1]);
+nand n_gate2(OUT[2], IN1[2], IN2[2]);
+nand n_gate3(OUT[3], IN1[3], IN2[3]);
+```
 
 - This is useful when performing identical operations across vectors.
 - Each instance operates on corresponding bits of input and output vectors.
@@ -93,24 +131,7 @@ This approach significantly reduces code duplication and improves readability.
 
 ---
 
-## 5. Gate-Level Design Examples
-
-### Multiplexer Design
-- A 4-to-1 multiplexer can be implemented using basic logic gates.
-- Intermediate signals (such as inverted select lines) are created using NOT gates.
-- AND gates are used to select inputs based on control signals.
-- OR gates combine intermediate outputs to produce the final result.
-
-The Verilog implementation closely mirrors the logic diagram, demonstrating the direct mapping between hardware and code.
-
-### Ripple Carry Adder
-- A 1-bit full adder is constructed using basic gates based on Boolean equations.
-- A multi-bit adder (e.g., 4-bit) is built by cascading multiple 1-bit full adders.
-- This illustrates hierarchical design combined with gate-level modeling.
-
----
-
-## 6. Gate Delays
+## 5. Gate Delays
 
 Real hardware exhibits propagation delays, which can be modeled in Verilog.
 
@@ -129,7 +150,7 @@ If the output transitions to an unknown value (`x`), the minimum of the specifie
 
 ---
 
-## 7. Delay Specification
+## 6. Delay Specification
 
 Verilog allows different levels of delay specification:
 
@@ -142,7 +163,7 @@ This flexibility allows designers to model timing behavior with varying levels o
 
 ---
 
-## 8. Min, Typical, and Max Delays
+## 7. Min, Typical, and Max Delays
 
 Each delay type (rise, fall, turn-off) can include three values:
 
@@ -155,10 +176,27 @@ Each delay type (rise, fall, turn-off) can include three values:
 - Selection is typically controlled via simulator options.
 
 This feature allows designers to analyze circuit behavior under different process variations without modifying the design.
+```verilog
+// Delay of delay_time for all transitions
+and #(delay_time) a1(out, i1, i2);
 
+// Rise and Fall Delay Specification.
+and #(rise_val, fall_val) a2(out, i1, i2);
+
+// Rise, Fall, and Turn-off Delay Specification
+and #(rise_val, fall_val, turnoff_val) a3(out, i1, i2);
+
+// Three delays - min max & typical
+// if +mindelays, rise= 2 fall= 3 turn-off = 4
+// if +typdelays, rise= 3 fall= 4 turn-off = 5
+// if +maxdelays, rise= 4 fall= 5 turn-off = 6
+and #(2:3:4, 3:4:5, 4:5:6) a3(out, i1,i2);
+
+
+```
 ---
 
-## 9. Timing Behavior and Simulation
+## 8. Timing Behavior and Simulation
 
 - Gate delays affect the timing of signal transitions in simulation.
 - Outputs do not change immediately but follow specified delays.

@@ -38,7 +38,7 @@ Dataflow modeling describes digital circuits in terms of how data moves and is t
 - It operates at a higher abstraction level compared to gate-level modeling.
 - It is widely used in modern design because logic synthesis tools can automatically convert dataflow descriptions into gate-level implementations.
 - In practice, designers combine dataflow and behavioral modeling to create RTL (Register Transfer Level) designs.
-- This approach improves productivity by allowing designers to focus on functionality and data movement instead of low-level hardware details. :contentReference[oaicite:0]{index=0}
+- This approach improves productivity by allowing designers to focus on functionality and data movement instead of low-level hardware details.
 
 ---
 
@@ -171,13 +171,14 @@ Verilog provides a wide range of operators to model complex logic.
 * Perform mathematical operations such as addition, subtraction, multiplication, division, modulus, and exponentiation.
 * If any operand contains unknown (`x`), the result becomes unknown.
 
-Example:
-
-```
-sum = a + b;
-```
-
----
+| Operator Type | Operator Symbol | Operation Performed | Number of Operands |
+|---|---|---|---|
+| Arithmetic | `*` | Multiply | Two |
+| Arithmetic | `/` | Divide | Two |
+| Arithmetic | `+` | Add | Two |
+| Arithmetic | `-` | Subtract | Two |
+| Arithmetic | `%` | Modulus | Two |
+| Arithmetic | `**` | Power (Exponent) | Two |
 
 ### 7.2 Logical Operators
 
@@ -185,54 +186,59 @@ sum = a + b;
 * Always produce a 1-bit result (0, 1, or x).
 * Any non-zero value is treated as true.
 
-Example:
-
-```
-valid = (a == 1) && (b == 0);
-```
-
----
+| Operator Type | Operator Symbol | Operation Performed | Number of Operands |
+|---|---|---|---|
+| Logical | `!` | Logical Negation | One |
+| Logical | `&&` | Logical AND | Two |
+| Logical | `\|\|` | Logical OR | Two |
 
 ### 7.3 Relational Operators
 
 * Compare values using operators such as `>`, `<`, `>=`, `<=`.
 * Result is 1 if true, 0 if false, and x if unknown values are involved.
 
----
+| Operator Type | Operator Symbol | Operation Performed | Number of Operands |
+|---|---|---|---|
+| Relational | `>` | Greater Than | Two |
+| Relational | `<` | Less Than | Two |
+| Relational | `>=` | Greater Than or Equal | Two |
+| Relational | `<=` | Less Than or Equal | Two |
 
 ### 7.4 Equality Operators
 
-* Logical equality (`==`, `!=`) and case equality (`===`, `!==`).
+| Operator Type | Operator Symbol | Operation Performed | Number of Operands |
+|---|---|---|---|
+| Equality | `==` | Equality | Two |
+| Equality | `!=` | Inequality | Two |
+| Equality | `===` | Case Equality | Two |
+| Equality | `!==` | Case Inequality | Two |
 
 Key difference:
-
 * Logical equality returns `x` if operands contain unknowns.
 * Case equality compares exact bit patterns including `x` and `z`.
 
-Example:
-
-```
-if (a === b) // exact match including unknowns
-```
-
----
-
 ### 7.5 Bitwise Operators
 
-* Operate bit-by-bit on vectors.
-* Include `&`, `|`, `^`, `~`.
-
-Example:
-
-```
-result = a & b;
-```
-
----
+| Operator Type | Operator Symbol | Operation Performed | Number of Operands |
+|---|---|---|---|
+| Bitwise | `~` | Bitwise Negation | One |
+| Bitwise | `&` | Bitwise AND | Two |
+| Bitwise | `\|` | Bitwise OR | Two |
+| Bitwise | `^` | Bitwise XOR | Two |
+| Bitwise | `^~` or `~^` | Bitwise XNOR | Two |
 
 ### 7.6 Reduction Operators
 
 * Operate on all bits of a single operand and produce a 1-bit result.
+
+| Operator Type | Operator Symbol | Operation Performed | Number of Operands |
+|---|---|---|---|
+| Reduction | `&` | Reduction AND | One |
+| Reduction | `~&` | Reduction NAND | One |
+| Reduction | `\|` | Reduction OR | One |
+| Reduction | `~\|` | Reduction NOR | One |
+| Reduction | `^` | Reduction XOR | One |
+| Reduction | `^~` or `~^` | Reduction XNOR | One |
 
 Example:
 
@@ -240,25 +246,25 @@ Example:
 parity = ^data; // XOR of all bits
 ```
 
----
-
 ### 7.7 Shift Operators
 
 * Shift bits left or right.
-
-Example:
-
-```
-out = data << 1;
-```
-
 * Arithmetic shifts preserve sign for signed data.
 
----
+| Operator Type | Operator Symbol | Operation Performed | Number of Operands |
+|---|---|---|---|
+| Shift | `>>` | Right Shift | Two |
+| Shift | `<<` | Left Shift | Two |
+| Shift | `>>>` | Arithmetic Right Shift | Two |
+| Shift | `<<<` | Arithmetic Left Shift | Two |
 
 ### 7.8 Concatenation Operator
 
 * Combines multiple signals into a single vector.
+
+| Operator Type | Operator Symbol | Operation Performed | Number of Operands |
+|---|---|---|---|
+| Concatenation | `{ }` | Concatenation | Any Number |
 
 Example:
 
@@ -266,11 +272,13 @@ Example:
 assign {carry, sum} = a + b;
 ```
 
----
-
 ### 7.9 Replication Operator
 
 * Repeats a value multiple times.
+
+| Operator Type | Operator Symbol | Operation Performed | Number of Operands |
+|---|---|---|---|
+| Replication | `{{ }}` | Replication | Any Number |
 
 Example:
 
@@ -278,19 +286,20 @@ Example:
 out = {4{1'b1}}; // 1111
 ```
 
----
-
 ### 7.10 Conditional Operator
 
 * Acts like a multiplexer.
+* If condition is unknown, both branches are evaluated and compared bitwise.
+
+| Operator Type | Operator Symbol | Operation Performed | Number of Operands |
+|---|---|---|---|
+| Conditional | `?:` | Conditional | Three |
 
 Example:
 
 ```
 assign out = sel ? in1 : in0;
 ```
-
-* If condition is unknown, both branches are evaluated and compared bitwise.
 
 ---
 

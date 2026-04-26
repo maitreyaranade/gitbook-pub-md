@@ -32,6 +32,8 @@ A module is the fundamental building block in Verilog and represents a self-cont
 ### Structure of a Module
 A Verilog module typically consists of the following components:
 
+![Structure of a verilog module](images/Verilog_module.png)
+
 - Module declaration, which includes the keyword `module`, module name, and optional port list.
 - Port declarations and optional parameters defined at the beginning.
 - Internal components, which may include:
@@ -44,7 +46,7 @@ A Verilog module typically consists of the following components:
 
 Only the module declaration and `endmodule` are mandatory. All other components are optional and can be arranged in any order within the module.
 
-Verilog allows multiple modules to be defined within a single file, and their order of definition is not constrained. :contentReference[oaicite:0]{index=0}
+Verilog allows multiple modules to be defined within a single file, and their order of definition is not constrained.
 
 ---
 
