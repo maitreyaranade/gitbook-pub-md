@@ -148,7 +148,7 @@ $$
 
 ### Density of states (DOS)
 - Density of states (DOS) represents the number of available energy states per unit energy per unit volume.
-- In 3D semiconductors, DOS increases as $ \sqrt{E - E_c} $ above the conduction band edge.
+- In 3D semiconductors, DOS increases as $$ \sqrt{E - E_c} $$ above the conduction band edge.
 - Carrier concentration is obtained by combining DOS with the Fermi–Dirac distribution.
 - DOS depends on effective mass and dimensionality of the system.
 - It is essential for calculating electron and hole populations in materials.
