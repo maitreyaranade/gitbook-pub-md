@@ -22,7 +22,8 @@ jobs:
 
       - name: Build PDFs
         run: |
-          mkdir site
+          mkdir -p build
+          mkdir -p site
 
           folders="DataScience DigitalDesign FPGA FPGAInterview FPGAPeripherals FPGAProtocols HLS ImageProcessing ProgrammingLanguages SemiconductorDevices StaticTimingAnalysis VerilogHDL Vitis"
 
@@ -30,7 +31,7 @@ jobs:
           do
             cd "$dir"
             pandoc "$dir.md" \
-              -o "../build/$dir.pdf" \
+              -o "../site/$dir.pdf" \
               --toc \
               --number-sections \
               --pdf-engine=xelatex \
