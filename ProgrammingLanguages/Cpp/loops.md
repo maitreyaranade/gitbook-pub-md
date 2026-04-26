@@ -15,7 +15,7 @@ A while loop in C programming repeatedly executes a target statement as
 long as a given condition is true. It tests the condition before
 executing the loop body. Syntax:
 
-``` {style="CStyle"}
+```c
 while(condition) {
       statement(s);
    }
@@ -38,7 +38,7 @@ A for loop is a repetition control structure that allows you to
 efficiently write a loop that needs to execute a specific number of
 times. Syntax:
 
-``` {style="CStyle"}
+```c
 for ( initialization; condition; increment/decrement) {
       statement(s);
    }
@@ -72,7 +72,7 @@ the loop, the do-while loop in C programming checks its condition at the
 bottom of the loop. A do-while loop is similar to a while loop, except
 the fact that it is guaranteed to execute at least one time. Syntax:
 
-``` {style="CStyle"}
+```c
 do {
       statement(s);
    } while( condition );
@@ -109,7 +109,7 @@ are using nested loops, the break statement will stop the execution of
 the innermost loop and start executing the next line of code after the
 block. Syntax:
 
-``` {style="CStyle"}
+```c
 break;
 ```
 
@@ -123,7 +123,7 @@ increment portions of the loop to execute. For the while and do\...while
 loops, continue statement causes the program control to pass to the
 conditional tests. Syntax:
 
-``` {style="CStyle"}
+```c
 break;
 ```
 
@@ -137,7 +137,7 @@ language because it makes difficult to trace the control flow of a
 program, making the program hard to understand and hard to modify. Any
 program that uses a goto can be rewritten to avoid them. Syntax:
 
-``` {style="CStyle"}
+```c
 goto label;
       /* statement(s) exempted from execution */
    label: statement;
@@ -166,7 +166,7 @@ following:
 This is how an infinite loop can be generated from the aforementioned
 structures.
 
-``` {style="CStyle"}
+```c
 // using for loop
    for( ; ; ) {
       statement(s)

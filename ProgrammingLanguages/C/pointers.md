@@ -58,7 +58,7 @@ address of an integer value. In other words, j points to an integer.
 Here is a program that demonstrates the relationships we have been
 discussing.
 
-``` {style="CStyle"}
+```c
 main( )
 {
     int i = 3 ;
@@ -77,7 +77,7 @@ main( )
 
 The output of the above program would be:
 
-``` {style="CStyle"}
+```c
 Address of i = 65524
     Address of i = 65524
     Address of j = 65522

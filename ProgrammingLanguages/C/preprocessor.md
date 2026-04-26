@@ -67,7 +67,7 @@ File Inclusion preprocessor directive tells the compiler to include a
 file in the source code program. There are two ways of writing #include
 statement:
 
-``` {style="CStyle"}
+```c
 #include "filename" // This command looks for the file in the current directory as well as the specified list of directories as mentioned in the include search path that might have been set up.
     
     #include <filename> // This command would look for the file in the specified list of directories only.
@@ -94,7 +94,7 @@ compile a specific portion of the program or to skip compilation of some
 specific part of the program based on some conditions. This can be done
 with the help of two preprocessing commands 'ifdef' and 'endif'.
 
-``` {style="CStyle"}
+```c
 #ifdef macroname
         statement 1 ;
         statement 2 ;

@@ -1,6 +1,6 @@
 Star Pyramid Pattern
 
-``` {style="CStyle"}
+```c
 #include <stdio.h>  
 #include <conio.h>  
 void main()  

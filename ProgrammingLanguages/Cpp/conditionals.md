@@ -20,7 +20,7 @@ types of Conditionals:
 An if statement consists of a boolean expression followed by one or more
 statements. Syntax:
 
-``` {style="CStyle"}
+```c
 if(boolean_expression) {
     /* statement(s) will execute if the boolean expression is true */
     }
@@ -36,7 +36,7 @@ statement (after the closing curly brace) will be executed.
 if-else An if statement can be followed by an optional else statement,
 which executes when the Boolean expression is false. Syntax:
 
-``` {style="CStyle"}
+```c
 if(boolean_expression) {
         /* statement(s) will execute if the boolean expression is true */
     } else {
@@ -53,7 +53,7 @@ It is always legal in C programming to nest if-else statements, which
 means one can use one if or else-if statement inside another if or
 else-if statement(s). Syntax:
 
-``` {style="CStyle"}
+```c
 if( boolean_expression 1) {    
        /* Executes when the boolean expression 1 is true */
        if(boolean_expression 2) {
@@ -72,7 +72,7 @@ list of values. Each value is called a case, and the variable being
 switched on is checked for each switch case. This is also a great
 replacement to long else if constructs. Syntax:
 
-``` {style="CStyle"}
+```c
 switch(expression) {
     
        case constant-expression  :
@@ -125,7 +125,7 @@ It is possible to have a switch as a part of the statement sequence of
 an outer switch. Even if the case constants of the inner and outer
 switch contain common values, no conflicts will arise. Syntax:
 
-``` {style="CStyle"}
+```c
 switch(ch1) {
     
        case 'A': 

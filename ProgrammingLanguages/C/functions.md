@@ -32,7 +32,7 @@ procedure, etc.
 The general form of a function definition in C programming language is
 as follows:
 
-``` {style="CStyle"}
+```c
 return_type function_name ( parameter list ) {
         body of the function
      }
@@ -64,7 +64,7 @@ declaring the properties of a function to the compiler. A function
 declaration tells the compiler about a function's name, return type, and
 parameters. Syntax of a function declaration is:
 
-``` {style="CStyle"}
+```c
 return_type function_name( parameter list );
 ```
 
@@ -75,7 +75,7 @@ defined task. To call a function, the required parameters along with the
 function name need to be passed, and the returned value has to be stored
 if the function has one. Syntax for calling a function is,
 
-``` {style="CStyle"}
+```c
 return_value = function_name ( parameter list );
 ```
 

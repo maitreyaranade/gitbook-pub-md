@@ -6,7 +6,7 @@ collection of these functions.
 
 Example of a function:
 
-``` {style="CStyle"}
+```c
 main()
 {
 message();
@@ -21,7 +21,7 @@ printf("\nSmile, and the world smiles with you...");
 
 And here's the output:
 
-``` {style="CStyle"}
+```c
 Smile, and the world smiles with you...
 Cry, and you stop the monotony!
 ```
@@ -40,7 +40,7 @@ code at the exact point where it left off. Thus, main() becomes the
 
 Calling multiple functions:
 
-``` {style="CStyle"}
+```c
 main()
 {
 printf("\nI am in main");
@@ -67,7 +67,7 @@ printf("\nI am in argentina");
 
 The output of the above program when executed would be as under:
 
-``` {style="CStyle"}
+```c
 I am in main
 I am in italy
 I am in brazil
@@ -103,7 +103,7 @@ Summary:
 10. A function gets called when the function name is followed by a
     semicolon. Syntax for calling a function is,
 
-    ``` {style="CStyle"}
+    ```c
     main()
         {
         argentina();
@@ -114,7 +114,7 @@ Summary:
     braces in which one or more statements may be present. Syntax for
     defining a function is,
 
-    ``` {style="CStyle"}
+    ```c
     argentina()
         {
         statement 1 ;
@@ -227,7 +227,7 @@ b and c are received in main(), then we must pass on these values to
 calsum(), and once calsum()calculates the sum we must return it from
 calsum()back to main().
 
-``` {style="CStyle"}
+```c
 /* Sending and receiving values between functions */
 main()
 {
@@ -249,7 +249,7 @@ int x, y, z ;
 
 And here is the output:
 
-``` {style="CStyle"}
+```c
 Enter any three numbers 10 20 30
 Sum = 60
 ```
@@ -325,7 +325,7 @@ possibilities here:
 The order of passing arguments becomes an important consideration. For
 example:
 
-``` {style="CStyle"}
+```c
 int a = 1;
 printf("%d %d %d", a, ++a, a++);
 ```
@@ -447,7 +447,7 @@ address of an integer value. In other words, j points to an integer.
 Here is a program that demonstrates the relationships we have been
 discussing.
 
-``` {style="CStyle"}
+```c
 main( )
 {
     int i = 3 ;
@@ -466,7 +466,7 @@ main( )
 
 The output of the above program would be:
 
-``` {style="CStyle"}
+```c
 Address of i = 65524
     Address of i = 65524
     Address of j = 65522
