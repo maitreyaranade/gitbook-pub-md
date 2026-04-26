@@ -413,21 +413,21 @@ $$
   $ I_E = I_B + I_C $
 
 - **Gain (Current Gain)** : Ability of BJT to amplify current, defined as ratio of collector current to base current:
-  $ \beta = \frac{I_C}{I_B} $
+  $$ \beta = \frac{I_C}{I_B} $$
 
 - **Beta (β)** : Common-emitter current gain representing amplification capability of the transistor:
-  $ \beta = \frac{I_C}{I_B} $
+  $$ \beta = \frac{I_C}{I_B} $$
 
 - **Base Transport Factor (αₜ)** : Fraction of carriers injected from emitter that successfully reach the collector through the base:
-  $ \alpha_T = \frac{I_C}{I_E'} $
+  $$ \alpha_T = \frac{I_C}{I_E'} $$
 
 - **Emitter Injection Efficiency (γ)** : Fraction of emitter current that contributes to useful carrier injection:
-  $ \gamma = \frac{\text{electron injection}}{\text{total emitter current}} $
+  $$ \gamma = \frac{\text{electron injection}}{\text{total emitter current}} $$
 
 - **Transport Ratio / Common-base Gain (α)** : Fraction of emitter current that becomes collector current:
-  $ \alpha = \frac{I_C}{I_E} $
+  $$ \alpha = \frac{I_C}{I_E} $$
 
-- **Important Relation** : $ \beta = \frac{\alpha}{1 - \alpha} $
+- **Important Relation** : $$ \beta = \frac{\alpha}{1 - \alpha} $$
 
 ### BJT Operation
 - When a small positive voltage is applied to the base relative to the - emitter, electrons are injected from the emitter into the base.
@@ -504,7 +504,7 @@ $$
 
 ### Important Parameters
 - $ V_T $: Threshold voltage (onset of inversion)
-- $ C_{ox} = \frac{\varepsilon_{ox}}{t_{ox}} $: Oxide capacitance per unit area
+- $$ C_{ox} = \frac{\varepsilon_{ox}}{t_{ox}} $$: Oxide capacitance per unit area
 - $ \mu_n $: Carrier mobility
 - $ W/L $: Device geometry (width/length ratio)
 
