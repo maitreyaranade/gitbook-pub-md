@@ -2,38 +2,6 @@
 
 ---
 
-- [Combinational Logic](#combinational-logic)
-- [Introduction](#introduction)
-  - [Combinational circuits](#combinational-circuits)
-  - [Sequential circuits](#sequential-circuits)
-- [Analysis of combinational circuits](#analysis-of-combinational-circuits)
-- [Design procedure](#design-procedure)
-- [Binary Adder](#binary-adder)
-  - [Half Adder](#half-adder)
-  - [Full adder](#full-adder)
-  - [Binary Adder](#binary-adder-1)
-    - [Carry propogation](#carry-propogation)
-- [Binary Subtractor](#binary-subtractor)
-  - [Overflow subtractor](#overflow-subtractor)
-- [Binary Multiplier](#binary-multiplier)
-- [Magnitude Comparator](#magnitude-comparator)
-  - [Test for equality](#test-for-equality)
-  - [Test for comparison](#test-for-comparison)
-  - [Boolean functions for Magnitude Comparator](#boolean-functions-for-magnitude-comparator)
-- [Decoders](#decoders)
-  - [Decoder Applications](#decoder-applications)
-    - [Decoder Demultiplexer](#decoder-demultiplexer)
-    - [Nested Decoders](#nested-decoders)
-    - [Combinational Logic](#combinational-logic-1)
-- [Encoder](#encoder)
-  - [Priority encoder](#priority-encoder)
-- [Multiplexer](#multiplexer)
-  - [Three state gate (Tristate gate) (Tristate buffer)](#three-state-gate-tristate-gate-tristate-buffer)
-    - [High impedence state](#high-impedence-state)
-- [HDL models of combinational circuits](#hdl-models-of-combinational-circuits)
-
----
-
 # Introduction
 - Logic circuits for digital systems maybe combinational or sequential. 
 - Combinational circuits employ boolean functions whereas, sequential circuits employ storage element in addition to logic gates.

@@ -1,4 +1,4 @@
-# [FPGA Protocols](FPGAProtocols.md)
+# FPGA Protocols
   * [UART](UART.md)
   * [AXI](AXI.md)
   * [SPI](SPI.md)

@@ -1,28 +1,3 @@
-- [Tasks and Functions in Verilog](#tasks-and-functions-in-verilog)
-  - [1. Overview](#1-overview)
-  - [2. Key Differences Between Tasks and Functions](#2-key-differences-between-tasks-and-functions)
-    - [Functional Distinction](#functional-distinction)
-    - [Summary of Differences](#summary-of-differences)
-  - [3. Tasks](#3-tasks)
-    - [3.1 When to Use Tasks](#31-when-to-use-tasks)
-    - [3.2 Task Declaration and Invocation](#32-task-declaration-and-invocation)
-    - [Key Points](#key-points)
-    - [3.3 Task with Timing Control](#33-task-with-timing-control)
-    - [3.4 Automatic (Re-entrant) Tasks](#34-automatic-re-entrant-tasks)
-    - [Key Insight](#key-insight)
-  - [4. Functions](#4-functions)
-    - [4.1 When to Use Functions](#41-when-to-use-functions)
-    - [4.2 Function Declaration and Return Mechanism](#42-function-declaration-and-return-mechanism)
-    - [Key Insight](#key-insight-1)
-    - [4.3 Function with Explicit Width](#43-function-with-explicit-width)
-    - [4.4 Automatic (Recursive) Functions](#44-automatic-recursive-functions)
-    - [Key Insight](#key-insight-2)
-  - [5. Constant Functions](#5-constant-functions)
-  - [6. Signed Functions](#6-signed-functions)
-  - [7. Best Practices](#7-best-practices)
-
----
-
 # Tasks and Functions in Verilog
 
 ## 1. Overview
@@ -32,11 +7,11 @@ Tasks and functions are used to modularize and reuse commonly used behavioral co
 - They help reduce code duplication and improve readability and maintainability.
 - Both are defined within a module and are part of the design hierarchy.
 - They are invoked from `initial`, `always`, or other tasks/functions.
-- They contain only behavioral statements and cannot include `always` or `initial` blocks. :contentReference[oaicite:0]{index=0}
+- They contain only behavioral statements and cannot include `always` or `initial` blocks.
 
 ---
 
-## 2. Key Differences Between Tasks and Functions
+## 2. Tasks vs Functions
 
 ### Functional Distinction
 
@@ -66,16 +41,17 @@ Tasks and functions are used to modularize and reuse commonly used behavioral co
 
 ### 3.1 When to Use Tasks
 
-A task must be used when:
 - The logic includes delays or timing control.
 - Multiple outputs are required.
 - There are no input arguments.
 
----
-
 ### 3.2 Task Declaration and Invocation
 
 Tasks are declared using `task` and `endtask`.
+
+* Arguments are passed in positional order.
+* Output values are returned when the task completes.
+* Tasks can call other tasks and functions.
 
 Example:
 ```verilog
@@ -86,21 +62,13 @@ task bitwise_op;
     out = a & b;
   end
 endtask
-````
+```
 
 Invocation:
 
 ```verilog
 bitwise_op(A, B, OUT);
 ```
-
-### Key Points
-
-* Arguments are passed in positional order.
-* Output values are returned when the task completes.
-* Tasks can call other tasks and functions.
-
----
 
 ### 3.3 Task with Timing Control
 
@@ -118,23 +86,18 @@ task delayed_and;
 endtask
 ```
 
----
-
 ### 3.4 Automatic (Re-entrant) Tasks
 
 * By default, tasks are **static**, meaning variables are shared across calls.
 * This can cause incorrect behavior if tasks are invoked concurrently.
+* Each call gets its own independent variable space.
+* Recommended when tasks may be called concurrently.
 
 To solve this, use `automatic`:
 
 ```verilog
 task automatic compute;
 ```
-
-### Key Insight
-
-* Each call gets its own independent variable space.
-* Recommended when tasks may be called concurrently.
 
 ---
 
@@ -150,11 +113,11 @@ A function must satisfy all of the following:
 * No output or inout arguments.
 * No nonblocking assignments.
 
----
-
 ### 4.2 Function Declaration and Return Mechanism
 
 Functions use an implicit variable (same name as function) to return values.
+* Return value is assigned to the function name.
+* Default return width is 1 bit unless specified.
 
 Example:
 
@@ -173,13 +136,6 @@ Invocation:
 p = parity(data);
 ```
 
-### Key Insight
-
-* Return value is assigned to the function name.
-* Default return width is 1 bit unless specified.
-
----
-
 ### 4.3 Function with Explicit Width
 
 Example:
@@ -194,11 +150,12 @@ function [31:0] shift;
 endfunction
 ```
 
----
-
 ### 4.4 Automatic (Recursive) Functions
 
 * Functions can be declared `automatic` for recursion or concurrent calls.
+
+* Each call gets independent storage.
+* Enables recursion and safe concurrent usage.
 
 Example:
 
@@ -213,11 +170,6 @@ function automatic integer factorial;
   end
 endfunction
 ```
-
-### Key Insight
-
-* Each call gets independent storage.
-* Enables recursion and safe concurrent usage.
 
 ---
 
@@ -249,6 +201,7 @@ input [clog2(256)-1:0] addr;
 ## 6. Signed Functions
 
 * Functions can return signed values using `signed`.
+* Enables signed arithmetic comparisons and operations.
 
 Example:
 
@@ -256,15 +209,12 @@ Example:
 function signed [31:0] compute;
 ```
 
-* Enables signed arithmetic comparisons and operations.
-
 ---
 
 ## 7. Best Practices
 
 * Use **functions** for combinational logic and calculations.
 * Use **tasks** for:
-
   * Sequential behavior
   * Delays and timing control
   * Multiple outputs
@@ -274,4 +224,3 @@ function signed [31:0] compute;
 * Use functions for reusable logic like parity, encoding, or arithmetic operations.
 
 ---
-

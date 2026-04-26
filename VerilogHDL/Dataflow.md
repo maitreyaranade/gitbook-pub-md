@@ -1,34 +1,3 @@
-- [Dataflow Modeling in Verilog](#dataflow-modeling-in-verilog)
-  - [1. Overview of Dataflow Modeling](#1-overview-of-dataflow-modeling)
-  - [2. Continuous Assignments](#2-continuous-assignments)
-    - [Key Characteristics](#key-characteristics)
-  - [3. Implicit Continuous Assignment](#3-implicit-continuous-assignment)
-    - [Key Point](#key-point)
-  - [4. Implicit Net Declaration](#4-implicit-net-declaration)
-  - [5. Delays in Continuous Assignments](#5-delays-in-continuous-assignments)
-    - [5.1 Regular Assignment Delay](#51-regular-assignment-delay)
-    - [5.2 Implicit Assignment Delay](#52-implicit-assignment-delay)
-    - [5.3 Net Declaration Delay](#53-net-declaration-delay)
-    - [Key Insight](#key-insight)
-  - [6. Expressions, Operands, and Operators](#6-expressions-operands-and-operators)
-    - [Expressions](#expressions)
-    - [Operands](#operands)
-    - [Operators](#operators)
-  - [7. Operator Types in Verilog](#7-operator-types-in-verilog)
-    - [7.1 Arithmetic Operators](#71-arithmetic-operators)
-    - [7.2 Logical Operators](#72-logical-operators)
-    - [7.3 Relational Operators](#73-relational-operators)
-    - [7.4 Equality Operators](#74-equality-operators)
-    - [7.5 Bitwise Operators](#75-bitwise-operators)
-    - [7.6 Reduction Operators](#76-reduction-operators)
-    - [7.7 Shift Operators](#77-shift-operators)
-    - [7.8 Concatenation Operator](#78-concatenation-operator)
-    - [7.9 Replication Operator](#79-replication-operator)
-    - [7.10 Conditional Operator](#710-conditional-operator)
-  - [8. Operator Precedence](#8-operator-precedence)
-
----
-
 # Dataflow Modeling in Verilog
 
 ## 1. Overview of Dataflow Modeling

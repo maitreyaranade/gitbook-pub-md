@@ -2,30 +2,6 @@
 
 ---
 
-- [Boolean algebra and Logic gates](#boolean-algebra-and-logic-gates)
-- [Introduction](#introduction)
-- [Basic theorems \& Properties of boolean algebra](#basic-theorems--properties-of-boolean-algebra)
-  - [Duality](#duality)
-  - [Basic theorems](#basic-theorems)
-  - [Summary operations:](#summary-operations)
-  - [Operator Precedence](#operator-precedence)
-- [Boolean functions](#boolean-functions)
-  - [Truth table](#truth-table)
-- [Canonical \& standard forms](#canonical--standard-forms)
-  - [Minterms and Maxterms](#minterms-and-maxterms)
-    - [Minterm or standard product](#minterm-or-standard-product)
-    - [Maxterms or standard sums](#maxterms-or-standard-sums)
-  - [Conversion between Canonical Forms](#conversion-between-canonical-forms)
-  - [Standard Forms](#standard-forms)
-  - [Nonstandard Forms](#nonstandard-forms)
-- [Digital logic gates](#digital-logic-gates)
-- [Integrated Circuits](#integrated-circuits)
-  - [Levels of Integration](#levels-of-integration)
-  - [Digital Logic Families](#digital-logic-families)
-- [Computer Aided Design of VLSI circuits](#computer-aided-design-of-vlsi-circuits)
-
----
-
 # Introduction
 - Boolean algebra was introduced by George Boole. 
 - Boolean Algebra comprises of set of rules used to simplify the given logic expression without changing it's functionality.

@@ -1,484 +1,573 @@
-# Zynq ultrascale+ MPsoc Clocking Resources
+# Zynq UltraScale+ MPSoC Clocking Resources
 
-## Clocking Resource Abbreviations
+> Reference basis: AMD/Xilinx UltraScale Architecture Clocking Resources (UG572), adapted for Zynq UltraScale+ MPSoC context.
 
--   CMT: clock management tile
+---
 
--   CR: clock region
+# 1. Overview
 
--   CLB: Configurable logic blocks
+Zynq UltraScale+ MPSoC devices use the UltraScale clocking architecture, which provides dedicated low-skew, high-performance clock networks for programmable logic (PL), processor-system-to-PL clock transfer, I/O interfaces, transceivers, and timing-critical logic.
 
--   HCS: Horizontal Clock Spine
+The architecture is designed to support:
 
--   GT: gigabit transceiver
+- Global high-fanout clocks.
+- Regional or localized clocks.
+- Frequency synthesis.
+- Clock gating.
+- Clock multiplexing.
+- Jitter filtering.
+- Phase alignment.
+- Low insertion delay.
+- Scalable clock distribution across large devices.
 
--   SYSMON: System Monitor
+Clocking is implemented using dedicated hardware resources rather than ordinary routing, which improves timing quality and predictability.
 
--   MMCM: mixed-mode clock manager
+---
 
--   PLL: phase-locked loop
+# 2. Important Abbreviations
 
-## Clocking Architecture Overview
+| Term | Meaning |
+|---|---|
+| CMT | Clock Management Tile |
+| CR | Clock Region |
+| CLB | Configurable Logic Block |
+| HCS | Horizontal Clock Spine |
+| MMCM | Mixed-Mode Clock Manager |
+| PLL | Phase-Locked Loop |
+| GT | Gigabit Transceiver |
+| PHY | Physical Interface Clocking/I/O Area |
+| SYSMON | System Monitor |
 
-The UltraScale architecture clocking resources manage complex and simple
-clocking requirements with dedicated global clocks distributed on clock
-routing and clock distribution resources. The clock management tiles
-(CMTs) provide clock frequency synthesis, deskew, and jitter filtering
-functionality.
+---
 
--   The device is subdivided into columns and rows of segmented clock
-    regions (CRs) which are arranged in tiles. A CR contains
-    configurable logic blocks (CLBs), DSP slices, block RAMs,
-    interconnect, and associated clocking. The height of a CR is 60
-    CLBs, 24 DSP slices, and 12 block RAMs with a Horizontal Clock Spine
-    (HCS) at its center. The HCS contains the horizontal routing and
-    distribution resources, leaf clock buffers, clock network
-    interconnections, and the root of the clock network. Clock buffers
-    drive directly into the HCS. There are 52 I/Os per bank and four
-    gigabit transceivers (GTs) that are pitch matched to the CRs. A core
-    column contains configuration, System Monitor (SYSMON), and PCIe
-    blocks to complete a basic device.
+# 3. Clocking Architecture Summary
 
--   Adjacent to the input/output block columns are the physical layer
-    (PHY) blocks with CMTs, global clock buffers, global clock
-    multiplexing structures, and I/O logic management functions. The
-    clocking drives vertical and horizontal connectivity through
-    separate clock routing and clock distribution resources via HCS into
-    the CRs and I/Os.
+The device is divided into rows and columns of clock regions. Each region contains logic resources and dedicated clock connectivity.
 
--   Horizontal clock routing and distribution tracks drive horizontally
-    into the CRs. Vertical routing and distribution tracks drive
-    vertically adjacent CRs. The tracks are segmentable at the CR
-    boundaries in both the horizontal and vertical directions. This
-    allows for the creation of device-wide global clocks or local clocks
-    of variable size.
+A clock region typically contains:
 
--   The distribution tracks drive the clocking of synchronous elements
-    across the device. Distribution tracks are driven by routing tracks
-    or directly by the clocking structures in the PHY.
+- CLBs
+- DSP slices
+- Block RAM
+- Interconnect
+- Associated clock resources
 
--   I/Os are directly driven from the PHY clocking and/or an adjacent
-    PHY via routing tracks.
+At the center of each clock row is the Horizontal Clock Spine (HCS), which acts as the major clock backbone for that row.
 
--   A CMT contains one mixed-mode clock manager (MMCM) and two
-    phase-locked loops (PLLs).
+The HCS contains:
 
-## Clocking Resources
+- Horizontal clock routing tracks
+- Horizontal clock distribution tracks
+- Leaf clock buffers
+- Interconnect points between vertical and horizontal clock networks
+- Clock root connectivity
 
-### Overview
+This structure enables clocks to be distributed efficiently across small areas or the full device.
 
-UltraScale architecture-based devices have several clock routing
-resources to support various clocking schemes and requirements,
-including high fanout, short propagation delay, and extremely low skew.
-To best utilize the clock routing resources, the designer must
-understand how to get user clocks from the PCB to the UltraScale
-devices, decide which clock routing resources are optimal, and then
-access those clock routing resources by utilizing the appropriate I/O
-and clock buffers.
+---
 
-### Clock Routing Resources Overview
+# 4. Clock Regions and Segmented Distribution
 
-Each I/O bank contains global clock input pins to bring user clocks onto
-the device clock management and routing resources. The global clock
-inputs bring user clocks onto:
+Clock routing is segmented at clock region boundaries. This is a major UltraScale feature.
 
--   Clock buffers in the PHY adjacent to the same bank
+### Practical Meaning
 
--   CMTs in the PHY adjacent to the same bank
+A clock can be distributed as:
 
-### Clock Buffers
+- Device-wide global clock.
+- Local clock spanning a few adjacent regions.
+- Mid-size domain covering selected areas.
 
-Each device has three global clock buffers: BUFGCTRL, BUFGCE, and
-BUFGCE_DIV. In addition, there is a local BUFCE_LEAF clock buffer for
-driving leaf clocks from horizontal distribution to various blocks in
-the device. BUFGCTRL has derivative software representations of types
-BUFGMUX, BUFGMUX1, BUFGMUX_CTRL, and BUFGCE_1. BUFGCE is for glitchless
-clock gating and has software derivative BUFG (BUFGCE with clock enable
-tied High). The global clock buffers drive routing and distribution
-tracks into the device logic via HCS rows. There are 24 routing and 24
-distribution tracks in each HCS row. There is also a BUFG_GT that
-generates divided clocks for GT clocking. The clock buffers:
+### Benefit
 
--   Can be used as a clock enable circuit to enable or disable clocks
-    either globally, locally, or within a CR for fine-grained power
-    control.
+Designers can reduce:
 
--   Can be used as a glitch-free multiplexer to:
+- Power consumption
+- Unnecessary fanout
+- Clock skew in localized logic
+- Congestion
 
-    -   select between two clock sources.
+---
 
-    -   switch away from a failed clock source.
+# 5. Horizontal and Vertical Clock Networks
 
--   Are often driven by a CMT to:
+Two major dedicated paths are used.
 
-    -   eliminate the clock distribution delay.
+## Horizontal Paths
 
-    -   adjust clock delay relative to another clock.
+Drive clocks across rows through HCS resources.
 
-### Global Clock Inputs
+## Vertical Paths
 
-External global user clocks must be brought into the UltraScale device
-on differential clock pin pairs called global clock (GC) inputs. There
-are four GC pin pairs in each bank that have direct access to the global
-clock buffers, MMCMs, and PLLs that are in the CMT adjacent to the same
-I/O bank.
+Drive clocks between adjacent clock regions in columns.
 
-GC inputs provide dedicated, high-speed access to the internal global
-and regional clock resources. GC inputs use dedicated routing and must
-be used for clock inputs where the timing of various clocking features
-is imperative. General-purpose I/O with local interconnects should not
-be used for clock signals.
+### Typical Use
 
-Each I/O bank is located in a single clock region and includes 52 I/O
-pins. Of the 52 I/O pins in each I/O bank in every I/O column, there are
-four global clock input pin pairs (a total of eight pins). Each global
-clock input:
+- Horizontal distribution for row-based logic spread.
+- Vertical distribution for stacked modules or memory columns.
 
--   Can be connected to a differential or single-ended clock on the PCB.
+Both can be combined to create complete networks.
 
--   Can be configured for any I/O standard, including differential I/O
-    standards.
+---
 
--   Has a P-side (master), and an N-side (slave).
+# 6. Clock Roots
 
-Single-ended clock inputs must be assigned to the P (master) side of the
-GC input pin pair. If a single-ended clock is connected to the P-side of
-a differential clock pin pair, the N-side cannot be used as another
-single-ended clock pin---it can only be used as a user I/O.
+A clock root is the central distribution point from which a clock fans out to loads.
 
-GC inputs can be used as regular I/O if not used as clocks. When used as
-regular I/O, global clock input pins can be configured as any
-single-ended or differential I/O standard. GC inputs can connect to the
-PHY adjacent to the banks they reside in.
+Instead of always launching from one corner of the device, UltraScale architecture allows clock roots to be positioned closer to the logic using that clock.
 
-### Byte Clock Inputs
+### Benefits
 
-Byte-lane clock (DBC and QBC) input pin pairs are dedicated clock inputs
-directly driving source synchronous clocks to the bit slices in the I/O
-banks. In memory applications, these are also known as DQS. When not
-used for I/O byte clocking these pin have other functions such as
-general purpose I/Os.
+- Lower skew
+- Lower insertion delay
+- Better timing closure
+- More efficient regional clocking
 
-### Clock Buffers and Clock Routing
+---
 
-Global clocks are a dedicated network of interconnects specifically
-designed to reach all clock inputs to the various resources in a device.
-These networks are designed to have low skew and low duty cycle
-distortion, low power, and improved jitter tolerance. They are also
-designed to support very high-frequency signals.\
-Understanding the signal path for a global clock expands the
-understanding of the various global clocking resources. The global
-clocking resources and network consist of these paths and components.
+# 7. Clock Management Tile (CMT)
 
--   Clock Structure
+Each relevant PHY area contains a Clock Management Tile.
 
--   Clock Buffers
+Each CMT includes:
 
--   BUFGCTRL: Clock Buffer Primitives
+- 1 MMCM
+- 2 PLLs
 
--   BUFGCE Clock Buffers
+These blocks are the primary programmable clock-generation resources.
 
--   BUFG Clock Buffer
+### Used For
 
--   BUFCE_LEAF Clock Buffer
+- Frequency multiplication
+- Frequency division
+- Duty-cycle shaping
+- Jitter cleanup
+- Phase shift
+- Clock deskew
+- Clock generation for interfaces
 
-### Clock Structure
+---
 
-The basic device architecture is composed of blocks of Clock Regions
-(CRs). CRs are organized into tiles and thus build columns and rows.
-Each CR contains slices (CLBs), DSPs, and 36K block RAM blocks.
+# 8. Global Clock Inputs (GC Pins)
 
-The mix of slice, DSP, and block RAM columns in each CR can be
-different, but are always identical when stacked in the vertical
-direction, thus building columns of those resources for the entire
-device. I/O and GT columns are then inserted with columns of CRs. In
-addition, there is a single column that contains the configuration
-logic, SYSMON, and PCIe blocks. An HCS runs horizontally through the
-device in the center of each row of CRs, I/Os, and GTs. The HCS contains
-the horizontal routing and distribution tracks as well as leaf clock
-buffers and clock network interconnects between horizontal/vertical
-routing and distribution. Vertical tracks of routing and distribution
-connect all CRs in a column, while vertical routing spans an entire I/O
-column. There are 24 horizontal routing and 24 distribution tracks , and
-24 vertical routing and 24 distribution tracks . The purpose of the
-clock routing resources is to route a clock from the global clock
-buffers to a central point from where it is connected to the loads via
-the distribution resources. This central point of the clock network is
-called a clock root in the UltraScale architecture. The root can be in
-any CR in a device from where it is routed to the loads via the clock
-distribution resources. This architecture optimized clock skew. Routing
-and distribution resources can either connect to adjacent CRs or
-disconnect (isolated) at the border of the CR as needed. This concept
-extends to SSI devices as well.
+External clocks should enter the device using dedicated GC input pins.
 
+Each I/O bank provides dedicated global clock pin pairs with direct access to:
 
-![Horizontal Clocking](images/ZynqHorizClock.PNG)
+- Global buffers
+- MMCMs
+- PLLs
+- Dedicated clock routing resources
 
-![Vertical Clocking](images/ZynqVertClock.PNG)
+### Why GC Pins Matter
 
+General-purpose I/O pins are not preferred for clocks because normal routing introduces:
 
-The clocks can be distributed from their sources in one of two ways:
+- More skew
+- More jitter
+- Poor timing predictability
 
--   The clocks can go onto routing tracks that take the clocks to a
-    central point in a CR without going to any loads. The clocks can
-    then drive the distribution tracks unidirectionally from which the
-    clock networks fan out. In this way, the clock buffers can drive to
-    a specific point in the CRs from which the clock buffers travel
-    vertically and then horizontally on the distribution tracks to drive
-    the clocking points. The clocking points are driven via leaf clocks
-    with clock enable (CE) in that CR and adjacent CRs, if needed.
-    Distribution tracks cannot drive routing tracks. This distribution
-    scheme is used to move the root for all the loads to be at a
-    specific location for improved, localized skew. Furthermore, both
-    routing and distribution tracks can drive into horizontally or
-    vertically adjacent CRs in a segmented fashion. Routing tracks can
-    drive both routing and distribution tracks in the adjacent CRs while
-    the distribution tracks can drive other horizontal distribution
-    tracks in adjacent CRs. The CR boundary segmentation allows
-    construction of either truly global, device-wide clock networks or
-    more local clock networks of variable sizes by reusing clocking
-    tracks.
+### Best Practice
 
--   Alternatively, clock buffers can drive straight onto the
-    distribution tracks and distribute the clock in that manner. This
-    reduces the clock insertion delay.
+Use GC pins for oscillators, reference clocks, interface clocks, and timing-critical external clocks.
 
+---
 
-![Clock Distribution](images/ZynqClockDistr.PNG)
+# 9. Differential Clock Inputs
 
+GC inputs are available as differential pairs.
 
-### Clock Buffers
+Each pair has:
 
-The PHY global clocking contains several sets of BUFGCTRLs, BUFGCEs, and
-BUFGCE_DIVs. Each set can be driven by four GC pins from the adjacent
-bank, MMCMs, PLLs in the same PHY, and interconnect. The clock buffers
-then drive the routing and distribution resources across the entire
-device. Each PHY contains 24 BUFGCEs, 8 BUFGCTRLs, and 4 BUFGCE_DIVs but
-only 24 of them can be used at the same time.
+- P side (master)
+- N side (slave)
 
-#### BUFGCTRL
+Single-ended clocks should use the P side.
 
-The BUFGCTRL Clock Buffer Primitives are designed to switch between two
-clock inputs without the possibility of a glitch.
+### Professional Note
 
+Differential clocks are preferred for board-level noise immunity and signal integrity.
 
-![BUFGCTRL Clock Buffer Primitive](images/ZynqBUFGCTRL.PNG)
+---
 
+# 10. Byte Clock Inputs (DBC / QBC)
 
-All other global clock buffer primitives are derived from certain
-configurations of BUFGCTRL. Pins of the types of BUFGCTRL Clock Buffers:
+Dedicated byte-lane clocks are used for source-synchronous interfaces, especially memory interfaces.
 
--   BUFGCTRL I0, I1 O CE0, CE1, IGNORE0, IGNORE1, S0, S1
+Typical usage includes:
 
--   BUFGCE_1 I O CE
+- DQS clocks
+- Byte-lane capture clocks
+- DDR-style interfaces
 
--   BUFGMUX I0, I1 O S
+When unused for byte clocking, these pins may support alternate functions.
 
--   BUFGMUX_1 I0, I1 O S
+---
 
--   BUFGMUX_CTRL I0, I1 O S
+# 11. Global Clock Buffers Overview
 
-BUFGCTRL has four select lines, S0, S1, CE0, and CE1. It also has two
-additional control lines, IGNORE0 and IGNORE1. These six control lines
-are used to control the inputs I0 and I1.
+Clock buffers connect clock sources to the internal dedicated clock network.
 
-When the presently selected clock transitions from High to Low after S0
-and S1 change, the output is kept Low until the other (to-be-selected)
-clock transitions from High to Low. Then, the new clock starts driving
-the output.
+Main buffer types:
 
-##### BUFGCE_1
+- BUFGCTRL
+- BUFGCE
+- BUFG
+- BUFGCE_DIV
+- BUFCE_LEAF
+- BUFG_GT
+- BUFG_PS
 
-BUFGCE_1 is a clock buffer with one clock input, one clock output, and a
-clock enable line. This primitive is based on BUFGCTRL with some pins
-connected to logic High or Low.
+These are essential resources for robust clock tree implementation.
 
-The switching condition for BUFGCE_1 is similar to BUFGCTRL with
-INIT_OUT set to 1. If the CE input is Low prior to the incoming falling
-clock edge, the following clock pulse does not pass through the clock
-buffer, and the output stays High. Any level change of CE during the
-incoming clock Low pulse has no effect until the clock transitions High.
-The output stays High when the clock is disabled. However, when the
-clock is being disabled, it completes the clock Low pulse.
+---
 
-##### BUFGMUX and BUFGMUX_1
+# 12. BUFGCTRL
 
-BUFGMUX is a clock buffer with two clock inputs, one clock output, and a
-select line (made by shorting CE0 & CE1 lines). This primitive is based
-on BUFGCTRL with some pins connected to logic High or Low.
+BUFGCTRL is the most flexible global clock buffer.
 
-##### BUFGMUX_CTRL
+### Main Features
 
-BUFGMUX_CTRL is a clock buffer with two clock inputs, one clock output,
-and a select line (made by shorting S0 & S1 lines). This primitive is
-based on BUFGCTRL with some pins connected to logic High or Low.
-BUFGMUX_CTRL uses the S pins as select pins. S can switch anytime
-without causing a glitch. The setup/hold time on S is for determining
-whether the output passes an extra pulse of the previously selected
-clock before switching to the new clock. If S changes prior to the setup
-time TBCCCK_S and before I0 transitions from High to Low, the output
-does not pass an extra pulse of I0. If S changes following the hold time
-for S, the output passes an extra pulse. If S violates the setup/hold
-requirements, the output might pass the extra pulse but it will not
-glitch. In any case, the output changes to the new clock within three
-clock cycles of the slower clock.
+- Two clock inputs
+- One output
+- Glitch-free switching between clock sources
+- Clock selection logic
+- Clock enable control
 
-#### BUFGCE
+### Typical Uses
 
-BUFGCE is a clock buffer with one clock input, one clock output, and a
-clock enable line. This buffer provides glitch-less clock gating. BUFGCE
-can directly drive the routing resources and is a clock buffer with a
-single gated input. Its output becomes 0 when CE goes Low (inactive).
-When CE goes High, the input is transferred to the output.
+- Primary/backup oscillator switching
+- Dynamic source selection
+- Safe clock muxing
 
-BUFGCE Pins:
+### Example Use Case
 
--   CE: (Input) Clock enable
+A design may switch from an external oscillator to an MMCM-generated clock without producing glitches.
 
--   I: (Input) Clock buffer
+---
 
--   O: (Output) Clock buffer
+# 13. BUFGCE
 
-#### BUFG
+BUFGCE is a global clock buffer with clock enable.
 
-BUFG is a clock buffer with one clock input and one clock output. This
-primitive is based on BUFGCE with the CE pin connected to High.
+### Main Purpose
 
-#### BUFCE_LEAF
+Glitchless clock gating.
 
-BUFCE_LEAF is a clock buffer with CE for leaf driving off horizontal HCS
-row. This buffer is an interconnect leaf clock buffer driving the
-clocking point of the various blocks with a single gated input. Its O
-output is 0 when CE is Low (inactive). When CE is High, the I input is
-transferred to the O output.
+### Behavior
 
-#### BUFGCE_DIV
+- CE High enables clock.
+- CE Low disables output cleanly.
 
-BUFGCE_DIV is a clock buffer with one clock input (I), one clock output
-(O), one clear input (CLR) and a clock enable (CE) input. BUFGCE_DIV can
-directly drive the routing and distribution resources and is a clock
-buffer with a single gated input and a reset.
+### Common Uses
 
-Its output is 0 when CLR is High (active). When CE is High, the input is
-transferred to the output. CE is synchronous to the clock for
-glitch-free operation. CLR is an asynchronous reset assertion and
-synchronous reset deassertion to this buffer.
+- Power saving
+- Subsystem clock shutdown
+- Controlled startup sequencing
 
-BUFGCE_DIV Pins:
+---
 
--   CE: (Input) Clock enable
+# 14. BUFG
 
--   I: (Input) Clock buffer
+BUFG is the simpler always-enabled version of BUFGCE.
 
--   O: (Output) Clock buffer
+### Use Case
 
--   R: (Input) Reset
+Use when a clock should always propagate globally.
 
-#### BUFG_GT and BUFG_GT_SYNC
+---
 
-The BUFG_GTs are driven by the gigabit transceivers (GTs) and the
-ADC/DAC blocks in the RFSoC devices. BUFG_GTs provide the only means for
-those blocks to drive the clock routing resources. Only GTs, ADCs, and
-DACs can drive BUFG_GTs. BUFG_GT is a clock buffer with one clock input
-(I), one clock output (O), one clear input (CLR) with CLR mask input
-(CLRMASK), a clock enable (CE) input with a CE mask input (CEMASK) and a
-3-bit divide (DIV\[2:0\]) input.
+# 15. BUFGCE_DIV
 
-BUFG_GT_SYNC is the synchronizer circuit for the BUFG_GTs. The
-BUFG_GT_SYNC primitive is automatically inserted by the Vivado tools, if
-not present in the design. This buffer can directly drive the routing
-and distribution resources and is a clock buffer with a single gated
-input and a reset.
+This buffer supports division plus enable/reset control.
 
-When CE is deasserted (Low) the output stops at its current state, High
-or Low. When CE is High, the I input is transferred to the O output.
-Both edges of CE and the deassertion of CLR are automatically
-synchronized to the clock for glitch-free operation. The Vivado tools do
-not support timing for the CE pin, therefore, a deterministic latency
-cannot be achieved. CLR is an asynchronous reset assertion and
-synchronous reset deassertion to the BUFG_GTs.
+### Features
 
-#### BUFG_PS
+- Input clock
+- Divided output clock
+- Clock enable
+- Reset/Clear
 
-The BUFG_PS is a simple clock buffer with one clock input (I), one clock
-output (O). This clock buffer is a resource for the Zynq UltraScale+
-MPSoC processor system (PS) and provides access to the programmable
-logic (PL) clock routing resources for clocks from the processor into
-the PL. Up to 18 PS clocks can drive the BUFG_PS. This clock buffer
-resides next to the PS.
+### Typical Uses
 
-## Clock Management Tile (CMT)
+- Creating slower derived clocks
+- Dividing fabric or interface clocks
+- Clock domain generation without consuming MMCM outputs
 
-### Overview
+---
 
-In UltraScale architecture-based devices, each device has a CMT as part
-of the PHY next to each of the I/O banks. The clock management tile
-(CMT) includes a mixed-mode clock manager (MMCM) and two phase-locked
-loops (PLLs).
+# 16. BUFCE_LEAF
 
-The MMCM is the primary block for frequency synthesis for a wide range
-of frequencies, and serves as a jitter filter for either external or
-internal clocks, and deskew clocks among a wide range of other
-functions.
+Leaf-level clock buffer used near clock loads.
 
-The main purpose of the PLL is to generate clocking for the I/Os. But it
-also contains a limited subset of the MMCM functions that can be used
-for general clocking purposes. The clock input connectivity allows
-multiple resources to provide the reference clock(s) to the MMCM.
+### Purpose
 
-MMCMs have infinite fine phase shift capability in either direction and
-can be used in dynamic phase shift mode. The resolution of the fine
-phase shift depends on the voltage-controlled oscillator (VCO)
-frequency.
+Drives final local clock points from HCS distribution resources.
 
-### MMCMs
+### Benefit
 
-The MMCMs serve as frequency synthesizers for a wide range of
-frequencies, and as jitter filters for either external or internal
-clocks, and deskew clocks. Input multiplexers select the reference and
-feedback clocks from either the global clock I/Os or the clock routing
-or distribution resources. Each clock input has a programmable counter
-divider (D). The phase-frequency detector (PFD) compares both phase and
-frequency of the rising edges of both the input (reference) clock and
-the feedback clock. If a minimum High/Low pulse is maintained, the duty
-cycle is ancillary. The PFD is used to generate a signal proportional to
-the phase and frequency between the two clocks. This the VCO. The PFD
-produces an up or down signal to the charge pump and loop filter to
-determine whether the VCO should operate at a higher or lower frequency.
+Improves local distribution efficiency and supports local enable behavior.
 
+---
 
-![MMCM Block Diagram](images/ZynqMMCM.PNG)
+# 17. BUFG_GT and BUFG_GT_SYNC
 
+Used for clocks originating from gigabit transceivers or RFSoC converter blocks.
 
-#### MMCM Primitives
+### Typical Uses
 
-The UltraScale device MMCM primitives, MMCME3_BASE and MMCME3_ADV. The
-UltraScale+ devices have the same primitives with an E4 instead of an
-E3.
+- Recovered serial clocks
+- GT transmit clocks
+- High-speed interface domains
 
-### PLLs
+Synchronization logic may be automatically inserted by Vivado.
 
-There are two PLLs per CMT that provide clocking to the PHY logic and
-I/Os. In addition, they can be used as frequency synthesizers for a wide
-range of frequencies, serve as jitter filters, and provide basic phase
-shift capabilities and duty cycle programming. The PLLs differ from the
-MMCM in number of outputs, cannot deskew clock nets, and do not have
-advanced phase shift capabilities, Multipliers and input dividers have a
-smaller value range and do not have many of the other advanced features
-of the MMCM.
+---
 
-#### PLL Primitives
+# 18. BUFG_PS
 
-The UltraScale device contain PLL primitives PLLE3_BASE and PLLE3_ADV.
-For UltraScale+ devices have the same primitives with an E4 instead of
-an E3.
+Special clock buffer for Zynq UltraScale+ MPSoC processor system clocks entering programmable logic.
 
-### Dynamic Reconfiguration Port
+### Importance in Zynq MPSoC
 
-### VHDL and Verilog Templates and the Clocking Wizard
+Allows processor-generated clocks to drive PL clock networks.
 
-### Clocking Guidelines
+### Common Uses
 
+- AXI clock domains
+- Peripheral clocks
+- Processor-sourced fabric clocks
 
+---
 
---- 
+# 19. MMCM Overview
+
+The MMCM is the most capable clock management block.
+
+### Main Functions
+
+- Frequency synthesis
+- Fractional or integer clock generation (tool/device dependent options)
+- Phase shifting
+- Jitter filtering
+- Duty cycle correction
+- Clock deskew
+- Multiple output clocks
+
+### Example
+
+Input 100 MHz oscillator can generate:
+
+- 200 MHz CPU fabric clock
+- 50 MHz peripheral clock
+- 125 MHz Ethernet clock
+
+from one MMCM depending on valid constraints.
+
+---
+
+# 20. MMCM Internal Operation
+
+The MMCM uses:
+
+- Input divider
+- Phase Frequency Detector (PFD)
+- Charge pump / loop filter
+- Voltage Controlled Oscillator (VCO)
+- Output dividers
+- Feedback path
+
+### Purpose of Feedback
+
+Align generated clocks with source or remove routing delay.
+
+---
+
+# 21. Fine Phase Shift
+
+MMCM supports dynamic phase shifting.
+
+### Used For
+
+- Sampling alignment
+- Source synchronous interfaces
+- Timing margin experiments
+- Delay compensation
+
+---
+
+# 22. MMCM Primitives
+
+UltraScale family commonly uses:
+
+- `MMCME3_BASE`
+- `MMCME3_ADV`
+
+UltraScale+ uses E4 equivalents.
+
+Usually instantiated through Clocking Wizard IP rather than handwritten primitives.
+
+---
+
+# 23. PLL Overview
+
+Each CMT also contains two PLLs.
+
+### PLL Main Uses
+
+- I/O clock generation
+- Simpler frequency synthesis
+- Jitter filtering
+- Basic phase shifting
+
+### Compared with MMCM
+
+PLLs are simpler and have fewer advanced capabilities.
+
+They generally provide:
+
+- Fewer features
+- Less deskew flexibility
+- Narrower divider/multiplier options
+
+### When to Use PLL
+
+Use PLL when MMCM features are unnecessary and a simpler solution is sufficient.
+
+---
+
+# 24. PLL Primitives
+
+Common primitive names:
+
+- `PLLE3_BASE`
+- `PLLE3_ADV`
+
+UltraScale+ uses E4 variants.
+
+---
+
+# 25. Clock Distribution Modes
+
+Clock buffers can distribute clocks in two major ways.
+
+## Through Routing Tracks to a Chosen Root
+
+Clock first travels to a selected root point, then fans out.
+
+### Benefit
+
+Better skew optimization near grouped logic.
+
+## Directly to Distribution Tracks
+
+Clock fans out sooner.
+
+### Benefit
+
+Lower insertion delay.
+
+---
+
+# 26. Clocking Guidelines for Practical Designs
+
+## Use Dedicated Clock Pins
+
+Always bring external clocks through GC pins whenever possible.
+
+## Use Clock Buffers Properly
+
+Do not drive high-fanout clocks through normal LUT routing.
+
+## Prefer Enables Over Fabric-Gated Clocks
+
+Use BUFGCE rather than LUT-based clock gating.
+
+## Minimize Number of Clock Domains
+
+More clock domains increase CDC complexity.
+
+## Use MMCM/PLL for Generated Clocks
+
+Do not build clocks using logic dividers unless specifically justified.
+
+## Keep Related Logic Near Its Clock Region
+
+Helps routing and timing.
+
+---
+
+# 27. Zynq MPSoC Specific Professional Notes
+
+In Zynq UltraScale+ MPSoC, clocks may originate from:
+
+- External oscillators
+- Processor system PLL outputs
+- PL MMCM/PLL resources
+- GT recovered clocks
+
+Designers must carefully define:
+
+- PL fabric clocks
+- AXI bus clocks
+- DDR/user clocks
+- Video clocks
+- Peripheral clocks
+
+Use BUFG_PS when PS clocks must feed PL.
+
+---
+
+# 28. Vivado Recommended Flow
+
+In most projects, use:
+
+- Clocking Wizard IP for MMCM/PLL setup
+- XDC constraints for clock definitions
+- `create_clock`
+- `create_generated_clock`
+
+Then validate with:
+
+- Timing summary
+- Clock interaction report
+- CDC analysis
+
+---
+
+# 29. Common Mistakes
+
+## Using Normal Logic as Clock Gating
+
+Causes skew/glitch risk.
+
+## Too Many Derived Clocks
+
+Creates unnecessary CDC complexity.
+
+## Ignoring Clock Constraints
+
+Leads to false timing closure assumptions.
+
+## Using Wrong Input Pins for Clock
+
+May degrade timing.
+
+## Overusing MMCM Outputs Without Planning
+
+Can exhaust clocking resources.
+
+---
+
+# 30. Quick Revision Takeaways
+
+- UltraScale+ clocking is based on clock regions, HCS rows, and dedicated routing.
+- CMT contains one MMCM and two PLLs.
+- MMCM is the preferred advanced clock synthesis block.
+- PLL is simpler and often used for I/O-oriented clocking.
+- BUFG family buffers distribute clocks safely and efficiently.
+- BUFGCE is preferred for glitchless clock enable.
+- BUFGCTRL is used for safe clock switching.
+- BUFG_PS is important for PS-to-PL clocks in Zynq MPSoC.
+- Use dedicated GC pins for external clocks.
+- Good clock planning is critical for timing closure and stable FPGA designs.

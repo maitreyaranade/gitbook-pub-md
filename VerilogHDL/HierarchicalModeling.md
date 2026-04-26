@@ -1,26 +1,3 @@
-- [Hierarchical Modeling Concepts](#hierarchical-modeling-concepts)
-  - [1. Design Methodologies](#1-design-methodologies)
-    - [Top-Down Design Methodology](#top-down-design-methodology)
-    - [Bottom-Up Design Methodology](#bottom-up-design-methodology)
-    - [Combined Approach](#combined-approach)
-  - [2. Modules in Verilog](#2-modules-in-verilog)
-  - [3. Levels of Abstraction in Verilog](#3-levels-of-abstraction-in-verilog)
-    - [Behavioral Level](#behavioral-level)
-    - [Dataflow Level](#dataflow-level)
-    - [Gate Level](#gate-level)
-    - [Switch Level](#switch-level)
-    - [Key Observations](#key-observations)
-  - [4. Module Instantiation and Instances](#4-module-instantiation-and-instances)
-    - [Important Rules](#important-rules)
-  - [7. Components of a Simulation](#7-components-of-a-simulation)
-    - [Design Block](#design-block)
-    - [Stimulus Block (Testbench)](#stimulus-block-testbench)
-    - [Methods of Applying Stimulus](#methods-of-applying-stimulus)
-      - [Method 1: Stimulus as Top-Level Module](#method-1-stimulus-as-top-level-module)
-      - [Method 2: Separate Top-Level Module](#method-2-separate-top-level-module)
-
----
-
 # Hierarchical Modeling Concepts
 
 - Hierarchical modeling is a fundamental concept in digital design that enables designers to manage complexity by structuring designs into smaller, reusable components. 

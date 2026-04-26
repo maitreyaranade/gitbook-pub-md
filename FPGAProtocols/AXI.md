@@ -75,13 +75,13 @@ There are three types of AXI4 interfaces:
 4.  AXI4 Read Transaction:
 
     
-    ![AXI4 Read Transaction](images/AXIREAD.png)
+    ![AXI4 Read Transaction](images/AXIRead.png)
     
 
 5.  AXI4 Write Transaction:
 
     
-    ![AXI4 Write Transaction](images/AXIWRITE.png)
+    ![AXI4 Write Transaction](images/AXIWrite.png)
     
 
 6.  At a hardware level, AXI4 allows systems to be built with a

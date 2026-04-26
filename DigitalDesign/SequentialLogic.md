@@ -1,36 +1,5 @@
 # Synchronous Sequential Logic 
 
----
-
-- [Synchronous Sequential Logic](#synchronous-sequential-logic)
-- [Introduction](#introduction)
-- [Types of sequential circuits](#types-of-sequential-circuits)
-- [Storage Elements: Latches](#storage-elements-latches)
-  - [SR Latch (Set Reset Latch)](#sr-latch-set-reset-latch)
-  - [SR latch with control input](#sr-latch-with-control-input)
-  - [D (Transparent) latch](#d-transparent-latch)
-- [Storage Elements: flip-flops](#storage-elements-flip-flops)
-  - [Edge-Triggered D Flip-Flop](#edge-triggered-d-flip-flop)
-    - [Flip-flop timing](#flip-flop-timing)
-  - [JK flip-flop](#jk-flip-flop)
-  - [T flip-flop](#t-flip-flop)
-  - [Characteristic Tables](#characteristic-tables)
-  - [Characteristic Equations](#characteristic-equations)
-  - [Direct Inputs](#direct-inputs)
-- [Analysis of Clocked Sequential Circuits](#analysis-of-clocked-sequential-circuits)
-  - [State Equations](#state-equations)
-  - [State Table](#state-table)
-  - [State Diagram](#state-diagram)
-  - [Flip-Flop Input Equations](#flip-flop-input-equations)
-  - [Mealy and Moore Models of Finite State Machines](#mealy-and-moore-models-of-finite-state-machines)
-    - [Mealy model](#mealy-model)
-    - [Moore model](#moore-model)
-- [State Reduction and Assignment](#state-reduction-and-assignment)
-  - [State Reduction](#state-reduction)
-  - [State Assignment](#state-assignment)
-- [Design Procedure](#design-procedure)
-
-
 ----
 
 # Introduction

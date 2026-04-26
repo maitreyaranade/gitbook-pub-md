@@ -1,24 +1,3 @@
-# Registers and Counters
-- [Registers and Counters](#registers-and-counters)
-- [Registers](#registers)
-  - [Register with Parallel Load](#register-with-parallel-load)
-- [Shift Registers](#shift-registers)
-  - [Serial Transfer](#serial-transfer)
-  - [Serial Addition](#serial-addition)
-    - [Serial Adder](#serial-adder)
-  - [Universal Shift Register](#universal-shift-register)
-- [Ripple Counters](#ripple-counters)
-  - [Ripple Counters](#ripple-counters-1)
-    - [Binary Ripple Counter](#binary-ripple-counter)
-  - [Synchronous Counters](#synchronous-counters)
-    - [Binary Counter](#binary-counter)
-    - [Up–Down Binary Counter](#updown-binary-counter)
-  - [Other Counters](#other-counters)
-- [HDL for Registers and Counters](#hdl-for-registers-and-counters)
-
-
----
-
 # Registers
 
 - A circuit with flip‐flops is considered a sequential circuit even in the absence of combinational gates.

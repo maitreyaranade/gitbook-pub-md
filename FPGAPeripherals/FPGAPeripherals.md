@@ -1,4 +1,4 @@
-# [FPGA Peripherals](FPGAPeripherals.md)     
+# FPGA Peripherals   
   * [Memories](memories.md)
   * [RAM](RAM.md)
   * [DDR](DDR.md)

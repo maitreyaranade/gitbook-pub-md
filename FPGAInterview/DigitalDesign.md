@@ -1,10 +1,4 @@
 # Digital Design Interview Questions
----
-- [Digital Design Interview Questions](#digital-design-interview-questions)
-- [Combinational logic design](#combinational-logic-design)
-- [Sequential logic design](#sequential-logic-design)
-- [Finite state machines (FSMs)](#finite-state-machines-fsms)
-- [Sort](#sort)
 
 ---
 

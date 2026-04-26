@@ -1,19 +1,3 @@
-- [Overview of Digital Design with Verilog HDL](#overview-of-digital-design-with-verilog-hdl)
-  - [1. Evolution of Digital Design and EDA](#1-evolution-of-digital-design-and-eda)
-  - [2. Emergence of Hardware Description Languages (HDLs)](#2-emergence-of-hardware-description-languages-hdls)
-  - [3. Typical VLSI Design Flow](#3-typical-vlsi-design-flow)
-  - [4. Importance of HDLs](#4-importance-of-hdls)
-  - [5. Popularity of Verilog HDL](#5-popularity-of-verilog-hdl)
-  - [6. Trends in HDLs and Digital Design](#6-trends-in-hdls-and-digital-design)
-    - [Increasing Abstraction](#increasing-abstraction)
-    - [Dominance of RTL Design](#dominance-of-rtl-design)
-    - [Advances in Verification](#advances-in-verification)
-    - [High-Performance Design Considerations](#high-performance-design-considerations)
-    - [System-Level Design Methodology](#system-level-design-methodology)
-
-
---- 
-
 # Overview of Digital Design with Verilog HDL
 
 ---

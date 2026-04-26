@@ -1,28 +1,3 @@
-- [Verilog Modules and Ports](#verilog-modules-and-ports)
-  - [1. Overview of Modules](#1-overview-of-modules)
-    - [Structure of a Module](#structure-of-a-module)
-  - [2. Ports and Module Interface](#2-ports-and-module-interface)
-    - [Key Characteristics](#key-characteristics)
-  - [3. Port List](#3-port-list)
-  - [4. Port Declarations](#4-port-declarations)
-    - [Important Rules](#important-rules)
-    - [ANSI C Style Declaration](#ansi-c-style-declaration)
-  - [5. Port Connection Rules](#5-port-connection-rules)
-    - [Inputs](#inputs)
-    - [Outputs](#outputs)
-    - [Inouts](#inouts)
-    - [Width Matching](#width-matching)
-    - [Unconnected Ports](#unconnected-ports)
-  - [6. Port Connection Methods](#6-port-connection-methods)
-    - [Ordered List Connection](#ordered-list-connection)
-    - [Named Connection](#named-connection)
-  - [7. Hierarchical Name Referencing](#7-hierarchical-name-referencing)
-    - [Key Concepts](#key-concepts)
-    - [Benefits](#benefits)
-    - [Special Usage](#special-usage)
-
----
-
 # Verilog Modules and Ports
 
 ## 1. Overview of Modules

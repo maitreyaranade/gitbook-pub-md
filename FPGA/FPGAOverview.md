@@ -1,20 +1,3 @@
-- [FPGA Introduction and Overview](#fpga-introduction-and-overview)
-  - [What is an FPGA?](#what-is-an-fpga)
-  - [How an FPGA is customized (with programming)](#how-an-fpga-is-customized-with-programming)
-  - [Key Features of FPGAs](#key-features-of-fpgas)
-  - [FPGA vs Microcontroller](#fpga-vs-microcontroller)
-  - [Programmable Logic Devices (PLDs)](#programmable-logic-devices-plds)
-    - [Types of PLDs](#types-of-plds)
-  - [CPLD vs FPGA](#cpld-vs-fpga)
-  - [Application Specific Integrated Circuits (ASIC)](#application-specific-integrated-circuits-asic)
-  - [FPGA vs ASIC vs Microprocessor](#fpga-vs-asic-vs-microprocessor)
-  - [Advantages of FPGA](#advantages-of-fpga)
-  - [Limitations of FPGA](#limitations-of-fpga)
-  - [Applications of FPGA](#applications-of-fpga)
-  - [Suggested Readings:](#suggested-readings)
-
----
-
 # FPGA Introduction and Overview
 
 ## What is an FPGA?

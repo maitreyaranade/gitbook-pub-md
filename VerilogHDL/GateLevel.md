@@ -1,24 +1,3 @@
-- [Gate-Level Modeling in Verilog](#gate-level-modeling-in-verilog)
-  - [1. Overview of Gate-Level Modeling](#1-overview-of-gate-level-modeling)
-  - [2. Gate Primitives in Verilog](#2-gate-primitives-in-verilog)
-    - [Categories of Gates](#categories-of-gates)
-      - [And/Or Type Gates](#andor-type-gates)
-      - [Buf/Not Type Gates](#bufnot-type-gates)
-      - [Controlled Gates (Bufif/Notif)](#controlled-gates-bufifnotif)
-  - [3. Gate Instantiation](#3-gate-instantiation)
-  - [4. Arrays of Gate Instances](#4-arrays-of-gate-instances)
-  - [5. Gate Delays](#5-gate-delays)
-    - [Types of Delays](#types-of-delays)
-      - [Rise Delay](#rise-delay)
-      - [Fall Delay](#fall-delay)
-      - [Turn-Off Delay](#turn-off-delay)
-  - [6. Delay Specification](#6-delay-specification)
-  - [7. Min, Typical, and Max Delays](#7-min-typical-and-max-delays)
-    - [Usage](#usage)
-  - [8. Timing Behavior and Simulation](#8-timing-behavior-and-simulation)
-
----
-
 # Gate-Level Modeling in Verilog
 
 ## 1. Overview of Gate-Level Modeling

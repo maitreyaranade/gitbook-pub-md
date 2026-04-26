@@ -1,57 +1,6 @@
-- [Behavioral Modeling in Verilog](#behavioral-modeling-in-verilog)
-  - [1. Overview of Behavioral Modeling](#1-overview-of-behavioral-modeling)
-  - [2. Structured Procedures: `initial` and `always`](#2-structured-procedures-initial-and-always)
-    - [`initial` Block](#initial-block)
-    - [`always` Block](#always-block)
-    - [Key Difference](#key-difference)
-  - [3. Procedural Assignments](#3-procedural-assignments)
-    - [3.1 Blocking Assignments (`=`)](#31-blocking-assignments-)
-    - [3.2 Nonblocking Assignments (`<=`)](#32-nonblocking-assignments-)
-    - [Key Insight](#key-insight)
-  - [4. Timing Controls](#4-timing-controls)
-    - [4.1 Delay-Based Timing Control](#41-delay-based-timing-control)
-      - [Regular Delay](#regular-delay)
-      - [Intra-Assignment Delay](#intra-assignment-delay)
-      - [Zero Delay](#zero-delay)
-    - [4.2 Event-Based Timing Control](#42-event-based-timing-control)
-      - [Edge-Based](#edge-based)
-      - [Named Events](#named-events)
-      - [Sensitivity List](#sensitivity-list)
-      - [Automatic Sensitivity](#automatic-sensitivity)
-    - [4.3 Level-Sensitive Timing Control](#43-level-sensitive-timing-control)
-  - [5. Conditional Statements](#5-conditional-statements)
-    - [Types](#types)
-      - [Simple If](#simple-if)
-      - [If-Else](#if-else)
-      - [Nested If-Else](#nested-if-else)
-    - [Key Behavior](#key-behavior)
-  - [6. Case Statements (Multiway Branching)](#6-case-statements-multiway-branching)
-    - [Basic Case](#basic-case)
-    - [Variants](#variants)
-      - [`casez`](#casez)
-      - [`casex`](#casex)
-  - [7. Looping Constructs](#7-looping-constructs)
-    - [7.1 While Loop](#71-while-loop)
-    - [7.2 For Loop](#72-for-loop)
-    - [7.3 Repeat Loop](#73-repeat-loop)
-    - [7.4 Forever Loop](#74-forever-loop)
-  - [8. Sequential vs Parallel Blocks](#8-sequential-vs-parallel-blocks)
-    - [Sequential Block (`begin-end`)](#sequential-block-begin-end)
-    - [Parallel Block (`fork-join`)](#parallel-block-fork-join)
-    - [Key Insight](#key-insight-1)
-  - [9. Named Blocks and Control](#9-named-blocks-and-control)
-    - [Named Blocks](#named-blocks)
-    - [Disable Statement](#disable-statement)
-  - [10. Generate Blocks (Elaboration-Time Constructs)](#10-generate-blocks-elaboration-time-constructs)
-    - [Key Characteristics](#key-characteristics)
-    - [10.1 Generate Loop](#101-generate-loop)
-    - [10.2 Generate Conditional](#102-generate-conditional)
-    - [10.3 Generate Case](#103-generate-case)
-
+# Behavioral Modeling in Verilog
 
 ---
-
-# Behavioral Modeling in Verilog
 
 ## 1. Overview of Behavioral Modeling
 
@@ -61,11 +10,11 @@ Behavioral modeling describes a digital system in terms of its functionality and
 - Designers focus on algorithm behavior and system performance instead of gates or data paths.
 - It is commonly used during architectural exploration before RTL implementation.
 - The coding style resembles high-level programming languages such as C.
-- Behavioral constructs provide flexibility to model complex control logic efficiently. :contentReference[oaicite:0]{index=0}
+- Behavioral constructs provide flexibility to model complex control logic efficiently.
 
 ---
 
-## 2. Structured Procedures: `initial` and `always`
+## 2. Structured Procedures
 
 Behavioral code must be written inside structured procedural blocks.
 
@@ -119,8 +68,6 @@ a = b;
 c = a; // uses updated value of a
 ```
 
----
-
 ### 3.2 Nonblocking Assignments (`<=`)
 
 * Schedule updates without blocking subsequent statements.
@@ -168,8 +115,6 @@ a = #5 b;
 * Ensures execution occurs at the end of the current time step.
 * Used to manage race conditions but generally discouraged.
 
----
-
 ### 4.2 Event-Based Timing Control
 
 Triggered by signal changes.
@@ -198,8 +143,6 @@ always @(*)
 
 * Automatically includes all signals used in the block.
 * Recommended for combinational logic.
-
----
 
 ### 4.3 Level-Sensitive Timing Control
 
@@ -284,8 +227,6 @@ while(i < 10)
   i = i + 1;
 ```
 
----
-
 ### 7.2 For Loop
 
 * Includes initialization, condition, and increment.
@@ -295,8 +236,6 @@ for(i = 0; i < 10; i = i + 1)
   sum = sum + i;
 ```
 
----
-
 ### 7.3 Repeat Loop
 
 * Executes fixed number of times.
@@ -305,8 +244,6 @@ for(i = 0; i < 10; i = i + 1)
 repeat(8)
   data = data + 1;
 ```
-
----
 
 ### 7.4 Forever Loop
 
@@ -330,8 +267,6 @@ begin
   b = a;
 end
 ```
-
----
 
 ### Parallel Block (`fork-join`)
 
@@ -382,8 +317,6 @@ Generate constructs create hardware structures before simulation begins.
 * Evaluated at compile/elaboration time.
 * Used for parameterized and scalable designs.
 
----
-
 ### 10.1 Generate Loop
 
 * Repeats structures using `genvar`.
@@ -397,8 +330,6 @@ generate
 endgenerate
 ```
 
----
-
 ### 10.2 Generate Conditional
 
 * Instantiates different hardware based on parameters.
@@ -411,8 +342,6 @@ generate
     large_unit u2(...);
 endgenerate
 ```
-
----
 
 ### 10.3 Generate Case
 

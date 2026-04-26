@@ -1,24 +1,4 @@
 # Gate-Level Minimization
----
-
-- [Gate-Level Minimization](#gate-level-minimization)
-- [Introduction](#introduction)
-- [The K-Map Method](#the-k-map-method)
-  - [Two-Variable K-Map](#two-variable-k-map)
-  - [Three-Variable K-Map](#three-variable-k-map)
-  - [Four‐Variable K-Map](#fourvariable-k-map)
-  - [Five-Variable K-Map](#five-variable-k-map)
-  - [Minimizing with K-Map](#minimizing-with-k-map)
-  - [Important points to note for K-Map method](#important-points-to-note-for-k-map-method)
-    - [Prime Implicants](#prime-implicants)
-- [Product‐of‐Sums Simplification](#productofsums-simplification)
-- [Don't‐Care Conditions](#dontcare-conditions)
-- [NAND and NOR Implementation](#nand-and-nor-implementation)
-  - [NAND Circuits](#nand-circuits)
-    - [Two-Level Implementation](#two-level-implementation)
-  - [NOR Implementation](#nor-implementation)
-    - [Two-Level Implementation](#two-level-implementation-1)
-- [Exclusive‐OR Function](#exclusiveor-function)
 
 ---
 

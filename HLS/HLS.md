@@ -1,8 +1,9 @@
 # High Level Synthesis 
-- [High-Level Synthesis Prerequisites(UG998)](ug998.md)
-- [Vitis High-Level Synthesis(UG1399)](ug1399.md)
-- [Vivado High-Level Synthesis Tutorial(UG871)](ug871.md)
-- UG902 ???
+* [High-Level Synthesis Prerequisites(UG998)](ug998.md)
+* [Vitis High-Level Synthesis(UG1399)](ug1399.md)
+* [Vivado High-Level Synthesis Tutorial(UG871)](ug871.md)
+* UG902 ???
+---
 
 # References
 
