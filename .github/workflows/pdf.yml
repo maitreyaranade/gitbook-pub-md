@@ -22,15 +22,25 @@ jobs:
 
       - name: Build PDFs
         run: |
-          mkdir -p build
           mkdir -p site
 
           folders="DataScience DigitalDesign FPGA FPGAInterview FPGAPeripherals FPGAProtocols HLS ImageProcessing ProgrammingLanguages SemiconductorDevices StaticTimingAnalysis VerilogHDL Vitis"
 
           for dir in $folders
           do
+            echo "Building $dir..."
+
             cd "$dir"
-            pandoc "$dir.md" \
+            files="$dir.md"
+            linked=$(grep -oP '\(([^)]+\.md)\)' "$dir.md" | tr -d '()')
+            for f in $linked
+            do
+              if [ -f "$f" ]; then
+                files="$files $f"
+              fi
+            done
+
+            pandoc $files \
               -o "../site/$dir.pdf" \
               --toc \
               --number-sections \
@@ -39,6 +49,7 @@ jobs:
               --resource-path=. \
               -V geometry:margin=1in \
               -V fontsize=11pt
+
             cd ..
           done
 
