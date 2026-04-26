@@ -36,7 +36,7 @@ I attended a Data Science Bootcamp Course from Udemy online and these are the no
 - [Deep Learning](#deep-learning)
   - [Introduction to Neural Networks](#introduction-to-neural-networks)
   - [How to Build a Neural Network from Scratch with NumPy](#how-to-build-a-neural-network-from-scratch-with-numpy)
-  - [TensorFlow 2.0: Introduction](#tensorflow-20-introduction)
+  - [TensorFlow 2 point 0: Introduction](#tensorflow-2-point-0-introduction)
   - [Digging Deeper into NNs: Introducing Deep Neural Networks](#digging-deeper-into-nns-introducing-deep-neural-networks)
   - [Overfitting](#overfitting)
   - [Initialization](#initialization)
@@ -160,7 +160,7 @@ Repetition
 
 ## How to Build a Neural Network from Scratch with NumPy
 
-## TensorFlow 2.0: Introduction
+## TensorFlow 2 point 0: Introduction
 
 ## Digging Deeper into NNs: Introducing Deep Neural Networks
 

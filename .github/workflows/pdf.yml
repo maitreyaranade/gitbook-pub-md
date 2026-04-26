@@ -34,7 +34,7 @@ jobs:
               --toc \
               --number-sections \
               --pdf-engine=xelatex \
-              --highlight-style=tango \
+              --syntax-highlighting=idiomatic \
               --resource-path=. \
               -V geometry:margin=1in \
               -V fontsize=11pt

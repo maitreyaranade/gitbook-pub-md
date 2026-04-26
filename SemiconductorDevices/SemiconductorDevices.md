@@ -138,7 +138,7 @@
 
 ### Band structure & fermi–dirac distribution
 - Fermi–Dirac distribution gives the probability of an energy state being occupied:
-  $$
+$$
  f(E) = \frac{1}{1 + e^{(E - E_F)/kT}} 
 $$
 - At $ T = 0K $, all states below $ E_F $ are filled and above are empty (step-like distribution).
@@ -154,7 +154,8 @@ $$
 - It is essential for calculating electron and hole populations in materials.
 
 ### Equilibrium carrier concentration
-- At thermal equilibrium, carrier concentrations follow: $$
+- At thermal equilibrium, carrier concentrations follow: 
+$$
  np = n_i^2 
 $$
 - Charge neutrality ensures total positive and negative charges are balanced.
@@ -163,7 +164,8 @@ $$
 - Fermi level position uniquely determines equilibrium carrier densities.
 
 ### Temperature dependence
-- Intrinsic carrier concentration increases exponentially with temperature: $$
+- Intrinsic carrier concentration increases exponentially with temperature:
+$$
  n_i \propto e^{-E_g/2kT} 
 $$
 - Three regions: freeze-out (low T), extrinsic (moderate T), intrinsic (high T).
@@ -179,7 +181,8 @@ $$
 - Critical in heavily doped regions like MOSFET source/drain.
 
 ### Carrier scattering & mobility
-- Mobility defines how easily carriers move under an electric field: $$
+- Mobility defines how easily carriers move under an electric field:
+$$
  \mu = \frac{q\tau}{m^*} 
 $$
 - Scattering mechanisms include phonon (lattice) scattering and impurity scattering.
@@ -196,15 +199,15 @@ $$
 
 ### Drift–diffusion & traps
 - Drift current arises due to electric field:
-  $$
+$$
  J_{drift} = q n \mu E 
 $$
 - Diffusion current arises due to carrier concentration gradient:
-  $$
+$$
  J_{diff} = q D \frac{dn}{dx} 
 $$
 - Einstein relation links diffusion and mobility:
-  $$
+$$
  \frac{D}{\mu} = \frac{kT}{q} 
 $$
 - Trap states capture carriers and influence recombination and leakage.
@@ -219,7 +222,7 @@ $$
 
 ### Continuity equation
 - Ensures conservation of charge:
-  $$
+$$
  \frac{\partial n}{\partial t} = G - R + \frac{1}{q} \nabla J 
 $$
 - Accounts for generation (G), recombination (R), and current flow (J).
@@ -244,7 +247,7 @@ $$
 - Reduces barrier potential and narrows depletion region.
 - Allows majority carriers to cross the junction easily.
 - Results in **large exponential current flow**:
-  $$
+$$
  I = I_s (e^{V/V_T} - 1) 
 $$
 - Turn-on voltage (~0.7V for Si) is required to significantly conduct.
@@ -259,7 +262,7 @@ $$
 ### Depletion Region & Built-in Potential
 - The depletion region acts as a **barrier** preventing free carrier movement.
 - Built-in potential $ V_{bi} $ depends on doping levels:
-  $$
+$$
  V_{bi} \propto \ln\left(\frac{N_A N_D}{n_i^2}\right) 
 $$
 - Width of depletion region changes with applied voltage.
@@ -297,7 +300,7 @@ $$
 - Electrons and holes recombine at the junction, releasing energy as photons (light).
 - Emits light when forward biased due to **radiative recombination**.
 - Electron-hole recombination releases photons:
-  $$
+$$
   E_{photon} \approx E_g  
 $$
 - Color depends on semiconductor bandgap.
@@ -482,20 +485,16 @@ $$
 - When $ V_{GS} > V_T $ and $ V_{DS} $ is small, a continuous channel forms.
 - Device behaves like a voltage-controlled resistor.
 - Drain current:
-  $$
-
-  I_D = \mu_n C_{ox} \frac{W}{L} \left[(V_{GS}-V_T)V_{DS} - \frac{V_{DS}^2}{2}\right]
-  
+$$
+  I_D = \mu_n C_{ox} \frac{W}{L} \left[(V_{GS}-V_T)V_{DS} - \frac{V_{DS}^2}{2}\right]  
 $$
 
 3. Saturation Region
 - When $ V_{DS} \geq (V_{GS} - V_T) $, channel pinches off near drain.
 - Current becomes almost independent of $ V_{DS} $.
 - Drain current:
-  $$
-
+$$
   I_D = \frac{1}{2} \mu_n C_{ox} \frac{W}{L} (V_{GS}-V_T)^2
-  
 $$
 
 ### Key Physical Insight
@@ -626,7 +625,7 @@ $$
 
 ### Key Performance Parameters
 - **Responsivity (R)**: Output current per unit optical power:
-  $$
+$$
   R = \frac{I_{ph}}{P_{opt}}  
 $$
 - **Quantum Efficiency (η)**: Fraction of photons converted into carriers.
@@ -675,16 +674,12 @@ $$
 
 ### Key Concepts
 - Radiative recombination rate is proportional to electron and hole concentrations:
-  $$
-
-  R_{rad} \propto np
-  
+$$
+  R_{rad} \propto np  
 $$
 - Internal Quantum Efficiency (IQE):
-  $$
-
-  IQE = \frac{\text{radiative recombination}}{\text{total recombination}}
-  
+$$
+  IQE = \frac{\text{radiative recombination}}{\text{total recombination}}  
 $$
 - Higher radiative recombination results in brighter LED output.
 - Non-radiative processes reduce efficiency and generate heat.
@@ -705,7 +700,7 @@ $$
 - These carriers recombine in the active region.
 - In direct bandgap materials, recombination releases energy as photons (light emission).
 - Photon energy is approximately equal to bandgap:
-  $$
+$$
   E_{photon} \approx E_g = h\nu 
 $$
 - Continuous carrier injection results in continuous light output.
