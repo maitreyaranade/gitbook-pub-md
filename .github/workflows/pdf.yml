@@ -1,0 +1,56 @@
+name: Build Professional PDFs
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout source
+        uses: actions/checkout@v4
+
+      - name: Setup Pandoc
+        uses: pandoc/actions/setup@v1
+
+      - name: Install LaTeX
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y texlive-xetex texlive-fonts-recommended texlive-latex-extra
+
+      - name: Build PDFs
+        run: |
+          mkdir site
+
+          folders="DataScience DigitalDesign FPGA FPGAInterview FPGAPeripherals FPGAProtocols HLS ImageProcessing ProgrammingLanguages SemiconductorDevices StaticTimingAnalysis VerilogHDL Vitis"
+
+          for dir in $folders
+          do
+            pandoc "$dir/$dir.md" \
+              -o "site/$dir.pdf" \
+              --toc \
+              --number-sections \
+              --pdf-engine=xelatex \
+              --highlight-style=tango \
+              --resource-path=. \
+              -V geometry:margin=1in \
+              -V fontsize=11pt
+          done
+
+      - name: Create Download Page
+        run: |
+          echo "<h1>PDF Library</h1><ul>" > site/index.html
+          for f in site/*.pdf; do
+            name=$(basename "$f")
+            echo "<li><a href=\"$name\">$name</a></li>" >> site/index.html
+          done
+          echo "</ul>" >> site/index.html
+
+      - name: Deploy to gh-pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_branch: gh-pages
+          publish_dir: ./site
