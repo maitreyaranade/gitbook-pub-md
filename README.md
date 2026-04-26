@@ -2,7 +2,7 @@
 This documentation is written for personal understanding and not for publication or redistribution.
 
 ## Table of Contents 
-* [Data Science](DataScience/README.md) - Udemy Data Science Bootcamp Course notes - **Pending**
+* [Data Science](DataScience/DataScience.md) - Udemy Data Science Bootcamp Course notes - **Pending**
 * [Digital Design](DigitalDesign/DigitalDesign.md) - Digital Logic Design by Morris Mano book Notes
 * [FPGA](FPGA/FPGA.md) - FPGA Overview compiled
 * [FPGAInterview](FPGAInterview/FPGAInterview.md) - Interview preparation - **Need restructure**
