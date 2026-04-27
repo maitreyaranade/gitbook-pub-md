@@ -1,5 +1,4 @@
 # FPGA 
- 
   * [FPGA Overview](FPGAOverview.md)
   * [FPGA History](FPGAHistory.md)
   * [FPGA Architecture](FPGAArch.md)
@@ -8,5 +7,5 @@
   * [Intel FPGA](IntelFPGA.md)
   * [Xilinx FPGA](XilinxFPGA.md)
   * [Zynq](Zynq.md)
-  * [Software & Tools](software.md)   
-  * [Links & References](references.md) 
+  * [Software & Tools](software.md)
+  * [Links & References](references.md)
