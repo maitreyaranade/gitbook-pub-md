@@ -12,7 +12,7 @@
 * [Behavioral Modeling](Behavioral.md)
 * [Tasks & Functions](TasksFunctions.md)
 * [Useful Modeling Techniques](ModelingTechniques.md)
-* [Logic Synthesis With Veilog](LogicSynthesisWithVeilog.md)
+* [Logic Synthesis With Verilog](LogicSynthesisWithVerilog.md)
 * [Advanced Verification Techniques](VerificationTechniques.md)
 
 ---

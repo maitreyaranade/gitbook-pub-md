@@ -1,7 +1,9 @@
-# Table of contents
+# Summary
 
 * [Documentation](README.md)
+
 * [Data Science](DataScience/DataScience.md)
+
 * [Digital Design](DigitalDesign/DigitalDesign.md)
   * [Digital Systems and Binary Numbers](DigitalDesign/DigitalSystems.md)
   * [Boolean Algebra and Logic Gates](DigitalDesign/BooleanAlgebra.md)
@@ -12,6 +14,7 @@
   * [Memory and Programmable Logic](DigitalDesign/MemNPL.md)
   * [Design at the Register Transfer Level](DigitalDesign/RTL.md)
   * [Digital Integrated Circuits](DigitalDesign/DigitalIC.md)
+
 * [FPGA](FPGA/FPGA.md)
   * [FPGA Overview](FPGA/FPGAOverview.md)
   * [FPGA History](FPGA/FPGAHistory.md)
@@ -21,9 +24,14 @@
   * [Intel FPGA](FPGA/IntelFPGA.md)
   * [Xilinx FPGA](FPGA/XilinxFPGA.md)
   * [Zynq](FPGA/Zynq.md)
+    * [Zynq Overview](FPGA/ZynqOverview.md)
+    * [Zynq Architecture](FPGA/ZynqArch.md)
+    * [Zynq ultrascale+ MPsoc Clocking Resources](FPGA/ZynqClocking.md)
   * [Software & Tools](FPGA/software.md)
   * [Links & References](FPGA/references.md)
+
 * [FPGA Interview](FPGAInterview/FPGAInterview.md)
+
 * [FPGA Peripherals](FPGAPeripherals/FPGAPeripherals.md)
   * [Memories](FPGAPeripherals/memories.md)
   * [RAM](FPGAPeripherals/RAM.md)
@@ -33,22 +41,29 @@
   * [EMMC](FPGAPeripherals/EMMC.md)
   * [Gigabit Ethernet](FPGAPeripherals/GigabitEthernet.md)
   * [DMA](FPGAPeripherals/DMA.md)
+
 * [FPGA Protocols](FPGAProtocols/FPGAProtocols.md)
   * [UART](FPGAProtocols/UART.md)
   * [AXI](FPGAProtocols/AXI.md)
   * [SPI](FPGAProtocols/SPI.md)
   * [PCIE](FPGAProtocols/PCIe.md)
+
 * [HLS](HLS/HLS.md)
   * [High-Level Synthesis Prerequisites(UG998)](HLS/ug998.md)
   * [Vitis High-Level Synthesis(UG1399)](HLS/ug1399.md)
   * [Vivado High-Level Synthesis Tutorial(UG871)](HLS/ug871.md)
+
 * [Image Processing](ImageProcessing/ImageProcessing.md)
+
 * [Programming Languages](ProgrammingLanguages/ProgrammingLanguages.md)
   * [C](ProgrammingLanguages/C/CandDataStructures.md)
   * [Cpp](ProgrammingLanguages/Cpp/Cpp.md)
   * [Python](ProgrammingLanguages/Python/Python.md)
+
 * [Semiconductor Devices](SemiconductorDevices/SemiconductorDevices.md)
+
 * [Static Timing Analysis](StaticTimingAnalysis/StaticTimingAnalysis.md)
+
 * [Verilog HDL](VerilogHDL/VerilogHDL.md)
   * [Overview of Digital Design with Verilog HDL](VerilogHDL/HDLOverview.md)
   * [Hierarchical Modeling Concepts](VerilogHDL/HierarchicalModeling.md)
@@ -59,9 +74,10 @@
   * [Behavioral Modeling](VerilogHDL/Behavioral.md)
   * [Tasks & Functions](VerilogHDL/TasksFunctions.md)
   * [Useful Modeling Techniques](VerilogHDL/ModelingTechniques.md)
-  * [Logic Synthesis With Veilog](VerilogHDL/LogicSynthesisWithVeilog.md)
+  * [Logic Synthesis With Veilog](VerilogHDL/LogicSynthesisWithVerilog.md)
   * [Advanced Verification Techniques](VerilogHDL/VerificationTechniques.md)
   * [IEEE 1364-2005 Verilog HDL](VerilogHDL/Verilog_IEEE_standard.md)
   * [IEEE 1800-2023 SystemVerilog](VerilogHDL/SystemVerilog_IEEE_standard.md)
   * [HDL Comparison](VerilogHDL/HDLComparison.md)
+
 * [Vitis](Vitis/Vitis.md)
