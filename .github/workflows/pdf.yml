@@ -24,7 +24,7 @@ jobs:
         run: |
           mkdir -p site
 
-          folders="DataScience DigitalLogicDesign FPGA FPGAInterview FPGAPeripherals FPGAProtocols HLS ImageProcessing ProgrammingLanguages SemiconductorDevices StaticTimingAnalysis VerilogHDL Vitis"
+          folders="DataScience DigitalLogicDesign FPGADesign FPGAInterview FPGAPeripherals FPGAProtocols HLS ImageProcessing ProgrammingLanguages SemiconductorDevices StaticTimingAnalysis VerilogHDL Vitis"
 
           for dir in $folders
           do

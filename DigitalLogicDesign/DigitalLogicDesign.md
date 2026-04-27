@@ -1,4 +1,4 @@
-# Digital Design
+# Digital Logic Design
 
 > Reference basis: "Digital Logic Design by Morris Mano" - written/compiled by Maitreya Ranade.
 

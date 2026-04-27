@@ -24,7 +24,7 @@ This is a suggested flow for the basic FPGA overview:
     5.  [Chip Verify](https://www.chipverify.com/verilog/verilog-tutorial)
 
 # Books
--   Digital design by Morris Mano
+-   Digital Logic Design by Morris Mano
 -   Digital Systems Design with FPGAs and CPLDs by Ian Grout
 -   Verilog HDL with Samir palnitkar
 -   Gateway to VLSI want to be an FPGA Engineer? by Kshitij Goel &
